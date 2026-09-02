@@ -203,3 +203,14 @@
     transform: none;
   }
 }
+
+/* Client logo strip on the India supply page — two copies of the row scroll as
+   one track, so -50% lands exactly on the seam. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

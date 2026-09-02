@@ -126,6 +126,7 @@ export default function Footer() {
               ["/products", c.nav.products],
               ["/gallery", c.nav.gallery],
               ["/compliance", c.nav.compliance],
+              ["/india", c.nav.india],
               ["/export-quote", c.nav.export],
             ].map(([to, label]) => (
               <li key={to}>
@@ -155,8 +156,12 @@ export default function Footer() {
             © {new Date().getFullYear()} {company.name}. {c.footer.rights}
           </p>
           <p className="flex gap-4">
-            <a href="#" className="hover:text-ash-2">{c.footer.privacy}</a>
-            <a href="#" className="hover:text-ash-2">{c.footer.terms}</a>
+            <Link to="/privacy" className="hover:text-ash-2">
+              {c.footer.privacy}
+            </Link>
+            <Link to="/terms-of-sale" className="hover:text-ash-2">
+              {c.footer.terms}
+            </Link>
           </p>
         </div>
       </div>

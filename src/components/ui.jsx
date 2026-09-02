@@ -95,3 +95,24 @@ export function Coal({ className = "" }) {
     />
   );
 }
+
+// Copy that still carries a value we haven't been given yet is written with the
+// gap in [square brackets]. This renders those spans as an amber chip so an
+// unfilled value is obvious on the page — replace the bracketed text in
+// src/content/en.js and the chip disappears with it.
+export function Fills({ children }) {
+  if (typeof children !== "string") return children;
+  const parts = children.split(/(\[[^\]]+\])/g);
+  return parts.map((part, i) =>
+    part.startsWith("[") && part.endsWith("]") ? (
+      <span
+        key={i}
+        className="rounded border border-glow/40 bg-glow/10 px-1.5 py-px font-mono text-[0.86em] text-glow"
+      >
+        {part.slice(1, -1)}
+      </span>
+    ) : (
+      part
+    )
+  );
+}

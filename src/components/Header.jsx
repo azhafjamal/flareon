@@ -12,6 +12,7 @@ const links = [
   { to: "/products", key: "products" },
   { to: "/gallery", key: "gallery" },
   { to: "/compliance", key: "compliance" },
+  { to: "/india", key: "india" },
   { to: "/export-quote", key: "export" },
 ];
 

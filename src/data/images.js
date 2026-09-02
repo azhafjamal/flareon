@@ -129,6 +129,18 @@ export const media = {
       "port-night.jpg",
       "Container vessel loading at berth under gantry cranes at night"
     ),
+    portDusk: img(
+      "g.jpg",
+      "Container vessel alongside the quay at dusk, gantry cranes working the stacks"
+    ),
+  },
+
+  // Domestic HORECA supply — Indian kitchens and live-fire service
+  horeca: {
+    grill: img(
+      "a.jpg",
+      "Cuts searing over an open charcoal grill during service"
+    ),
   },
 
   people: {
@@ -208,6 +220,16 @@ export const carbonProcessImages = [
   media.plant.conveyorCrates,
   media.material.powder,
   null,
+];
+
+// Indian hotel, restaurant and catering groups already buying from the plant.
+// Logos keep the filenames they were supplied under.
+export const clientLogos = [
+  { src: "/images/clients/d.jpg", alt: "Barbeque Nation" },
+  { src: "/images/clients/b.jpg", alt: "Absolute Barbecues" },
+  { src: "/images/clients/e.jpg", alt: "Oberoi Hotels & Resorts" },
+  { src: "/images/clients/f.jpg", alt: "Radisson Blu" },
+  { src: "/images/clients/c.jpg", alt: "Smoke Hub" },
 ];
 
 export default media;

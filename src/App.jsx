@@ -10,6 +10,8 @@ import Products from "./pages/Products";
 import Gallery from "./pages/Gallery";
 import Compliance from "./pages/Compliance";
 import ExportQuote from "./pages/ExportQuote";
+import IndiaSupply from "./pages/IndiaSupply";
+import LegalPage from "./pages/LegalPage";
 import NotFound from "./pages/NotFound";
 
 function ScrollToTop() {
@@ -39,6 +41,9 @@ export default function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/compliance" element={<Compliance />} />
           <Route path="/export-quote" element={<ExportQuote />} />
+          <Route path="/india" element={<IndiaSupply />} />
+          <Route path="/privacy" element={<LegalPage doc="privacy" />} />
+          <Route path="/terms-of-sale" element={<LegalPage doc="terms" />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

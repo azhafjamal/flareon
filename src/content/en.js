@@ -15,6 +15,7 @@ export default {
     gallery: "Gallery",
     compliance: "Specs & Certs",
     export: "Export Desk",
+    india: "India Supply",
   },
 
   cta: {
@@ -162,6 +163,25 @@ export default {
       titleB: "Packed for your label.",
       sub: "Coconut shell charcoal briquettes for the grill, and activated carbon for filtration — supplied loose, retail-packed, or fully private-labelled under your own brand.",
     },
+    bbqCard: {
+      eyebrow: "Flareon Briquette",
+      title: "Coconut Shell Charcoal Briquettes for BBQ",
+      features: [
+        "4+ hours burning time",
+        "Minimal ash residue",
+        "Odourless & smokeless",
+        "Heats up in 20 minutes",
+        "All-natural composition",
+        "High density for longer burn time",
+        "Uniform, high heat output",
+        "Easy handling",
+        "Lower carbon monoxide production versus wood charcoal",
+      ],
+      cta: "Request briquette quote",
+      captionTag: "Four hours of steady heat",
+      captionNote:
+        "Pressed from carbonised coconut shell with a potato starch binder only.",
+    },
     briquettes: {
       figureLabel: "Four hours of steady heat",
       figureNote: "Pressed from carbonised coconut shell with a potato starch binder only.",
@@ -308,13 +328,565 @@ export default {
     exportDesk: "Export desk",
   },
 
+  // ---- India domestic supply (HORECA) ----
+  // Anything wrapped in [square brackets] renders as a highlighted placeholder
+  // chip via <Fills>. Replace the bracketed text with the real value and the
+  // chip disappears on its own.
+  india: {
+    hero: {
+      eyebrow: "India bulk supply · HORECA",
+      titleA: "Charcoal your kitchen can",
+      titleB: "actually plan around",
+      sub: "Consistent-size coconut shell briquettes for tandoors, sigris, live grills and hookah counters — delivered on a fixed monthly schedule, billed on GST invoice, at a locked rate contract. No import paperwork, no container minimums.",
+      ctaPrimary: "Request a free trial sample",
+      ctaSecondary: "Talk to the India desk",
+      chips: [
+        "Delivery in [X] days",
+        "MOQ [X] kg",
+        "GST invoice",
+        "Credit terms available",
+      ],
+    },
+
+    glance: {
+      title: "At a glance",
+      rows: [
+        { k: "Minimum order", v: "[X] kg" },
+        { k: "Pack sizes", v: "5 / 10 / 20 kg" },
+        { k: "Lead time", v: "[X] days" },
+        { k: "Billing", v: "GST invoice, INR" },
+        { k: "Credit terms", v: "[Net X days]" },
+        { k: "Burn time", v: "4 hrs" },
+        { k: "Ash content", v: "< 12%" },
+        { k: "Plant", v: "Palladam, TN" },
+      ],
+    },
+
+    clients: { eyebrow: "Already supplying" },
+
+    useCases: {
+      eyebrow: "Built for Indian kitchens",
+      title: "One fuel across every live-fire station",
+      sub: "Same briquette, same burn profile, whether it is a tandoor running lunch service or a hookah counter at 1 AM. Consistent sizing means your staff stop guessing how much to load.",
+      items: [
+        {
+          title: "Tandoor",
+          body: "Long steady heat without flare-ups, so naan and kebabs cook on a predictable cycle. Low ash means fewer mid-service clean-outs.",
+          spec: "4 hr burn · low spark",
+        },
+        {
+          title: "Sigri & live grill",
+          body: "Uniform cube and hexagon sizing loads evenly across the grate. No chemical accelerants, so nothing transfers to the food at the table.",
+          spec: "0% chemicals · food-safe binder",
+        },
+        {
+          title: "Hookah & shisha",
+          body: "Clean white ash and near-zero odour, so the coal does not compete with the flavour. Cubes sized for standard shisha bowls.",
+          spec: "Super Premium grade · ash < 10%",
+        },
+        {
+          title: "Hotel banquets",
+          body: "Volume supply on a fixed schedule so banquet teams are never rationing coal mid-event. Bulk 20 kg packs for back-of-house storage.",
+          spec: "Scheduled monthly supply",
+        },
+        {
+          title: "Outdoor catering",
+          body: "Sealed moisture-resistant packs travel well and light reliably at open venues. Predictable burn time makes per-event planning simple.",
+          spec: "< 5% moisture · sealed packs",
+        },
+        {
+          title: "Cloud kitchens",
+          body: "Small-footprint 5 kg packs for kitchens without warehouse space, on a top-up cycle that matches your order volume.",
+          spec: "5 kg packs · flexible cycle",
+        },
+      ],
+    },
+
+    compare: {
+      eyebrow: "Why kitchens switch",
+      title: "Against the wood charcoal you buy today",
+      sub: "Most Indian kitchens run on loose wood or lump charcoal bought locally. Here is the operational difference, in the terms that actually show up in your kitchen — not lab numbers.",
+      head: {
+        what: "What you notice",
+        them: "Loose wood / lump charcoal",
+        us: "Flareon coconut briquette",
+      },
+      swipe: "← swipe to compare →",
+      rows: [
+        { k: "Burn time per load", them: "1–2 hrs, uneven", us: "4 hrs, consistent" },
+        { k: "Ash left behind", them: "High, gritty, frequent clean-out", us: "< 12%, fine white ash" },
+        { k: "Sparks & smoke", them: "Common — a risk near guests", us: "Minimal, suited to live counters" },
+        { k: "Piece sizing", them: "Irregular — staff over-load to be safe", us: "Uniform — same load every time" },
+        { k: "Chemical smell on food", them: "Possible with accelerant-treated coal", us: "None — food-grade starch binder only" },
+        { k: "Supply consistency", them: "Varies by lot and vendor", us: "Same spec every delivery, one plant" },
+        { k: "Billing", them: "Often informal / cash", us: "GST invoice, rate contract" },
+        { k: "Effective cost", them: "Lower per kg, higher per hour of service", us: "Higher per kg, lower per hour of service" },
+      ],
+    },
+
+    packs: {
+      eyebrow: "Pack sizes",
+      title: "Packed for how your store room actually works",
+      sub: "Choose per outlet, or mix sizes across a chain. Rate improves with committed monthly volume rather than one-off order size.",
+      items: [
+        { size: "5 kg", for: "Cloud kitchens, small counters, trial orders", moq: "MOQ [X] packs" },
+        { size: "10 kg", for: "Standalone restaurants, single-tandoor kitchens", moq: "MOQ [X] packs" },
+        { size: "20 kg", for: "Hotels, banquets, multi-station kitchens", moq: "MOQ [X] packs" },
+        { size: "Bulk", for: "Chains & distributors, palletised, own labelling optional", moq: "On rate contract" },
+      ],
+    },
+
+    calc: {
+      eyebrow: "Plan your requirement",
+      title: "Rough monthly estimate",
+      sub: "Move the sliders for a ballpark monthly consumption figure. This is an indicative planning tool only — your quoted rate is confirmed after a trial.",
+      outlets: "Number of outlets",
+      stations: "Live-fire stations per outlet",
+      hours: "Service hours per day",
+      assume: "Assumes ~{kg} kg per station-hour, 30 days.",
+      kgMonth: "Estimated kg per month",
+      perOutlet: "Per outlet / month",
+      suggestedPack: "Suggested pack",
+      cycle: "Delivery cycle",
+      rate: "Indicative rate",
+      ratePlaceholder: "[₹ / kg]",
+      bulkPack: "20 kg / bulk",
+      monthly: "Monthly",
+      fortnightly: "Fortnightly",
+      weekly: "Weekly",
+      unitKg: "kg",
+    },
+
+    coverage: {
+      eyebrow: "Delivery coverage",
+      title: "Where we deliver today",
+      sub: "Despatched by road from the Palladam plant. Cities outside the list below are served on a project basis — ask the India desk.",
+      priority: "Next-day / priority",
+      standard: "Standard [X]-day",
+      onRequest: "On request",
+      chains: {
+        title: "Chains with multiple outlets",
+        body: "We can split a single monthly order across outlet addresses on one invoice, with a consolidated statement for your central purchase team. Useful if outlets order independently but finance wants one bill.",
+        rows: [
+          { k: "Multi-address despatch", v: "Yes" },
+          { k: "Consolidated invoicing", v: "Yes" },
+          { k: "Dedicated account manager", v: "[above X outlets]" },
+          { k: "Own-label packs", v: "On rate contract" },
+        ],
+      },
+    },
+
+    steps: {
+      eyebrow: "How to start",
+      title: "Four steps, no commitment until step three",
+      items: [
+        { n: "01", title: "Free trial sample", body: "Tell us your station type and we send a sample pack to one outlet. Free — you cover courier only." },
+        { n: "02", title: "Kitchen trial", body: "Run it through a normal service week. We check back on burn time, ash volume and staff feedback." },
+        { n: "03", title: "Rate contract", body: "Agree a locked rate against committed monthly volume, with GST invoicing and credit terms." },
+        { n: "04", title: "Scheduled supply", body: "Fixed delivery cycle to each outlet. One point of contact for reorders, claims and changes." },
+      ],
+    },
+
+    faq: {
+      eyebrow: "India desk FAQ",
+      title: "Common questions from purchase teams",
+      items: [
+        {
+          q: "What is the minimum order for a single restaurant?",
+          a: "[X] kg for a first order. Once on a rate contract, reorder quantity is flexible against your committed monthly volume.",
+        },
+        {
+          q: "Do you give credit terms?",
+          a: "Yes, [Net X days] after the first [X] orders are settled on delivery. Chains and hotel groups are assessed individually.",
+        },
+        {
+          q: "Is this the same product you export?",
+          a: "Yes — identical grades from the same production line and the same ISO 9001 certified plant in Palladam. Nothing is downgraded for the domestic market.",
+        },
+        {
+          q: "Can we get our own branding on the packs?",
+          a: "Yes, on a rate contract above [X] kg per month. You supply artwork, we handle printing and packing.",
+        },
+        {
+          q: "How is it cheaper if the per-kg rate is higher?",
+          a: "Because a 4-hour briquette replaces two or three loads of lump charcoal over the same service. The number your kitchen should compare is cost per hour of live fire, not cost per kg.",
+        },
+        {
+          q: "What if a delivery arrives damaged or short?",
+          a: "Raise it with your account manager within [X days] with photographs. Verified claims are replaced on the next despatch or credited.",
+        },
+      ],
+    },
+
+    form: {
+      eyebrow: "India enquiry",
+      title: "Tell us about your kitchen",
+      sub: "We reply the same working day with an indicative rate and a trial sample offer.",
+      group1: "Business",
+      group2: "Requirement",
+      group3: "Delivery & contact",
+      businessName: "Business name",
+      businessNamePlaceholder: "e.g. Spice Route Hospitality Pvt Ltd",
+      businessType: "Business type",
+      businessTypes: [
+        "Hotel",
+        "Restaurant chain",
+        "Standalone restaurant",
+        "Cloud kitchen",
+        "Catering company",
+        "Hookah / shisha lounge",
+        "Banquet / events venue",
+        "Distributor / reseller",
+      ],
+      outlets: "Number of outlets",
+      outletBands: ["1", "2–5", "6–15", "16–50", "50+"],
+      gstin: "GSTIN",
+      gstinNote: "(optional at enquiry stage)",
+      gstinPlaceholder: "33XXXXXXXXXXXZX",
+      usedWhere: "Where is it used?",
+      usedWhereOptions: [
+        "Tandoor",
+        "Sigri / live grill",
+        "Hookah / shisha",
+        "Banquet / outdoor catering",
+        "Mixed — multiple stations",
+      ],
+      monthly: "Estimated monthly requirement",
+      monthlyOptions: [
+        "Under 100 kg",
+        "100–500 kg",
+        "500 kg – 2 MT",
+        "2–10 MT",
+        "Over 10 MT",
+        "Not sure yet",
+      ],
+      packSize: "Preferred pack size",
+      packOptions: ["5 kg", "10 kg", "20 kg", "Bulk / palletised", "Advise me"],
+      currentFuel: "What do you use today?",
+      currentFuelOptions: [
+        "Loose wood charcoal",
+        "Lump charcoal",
+        "Another briquette brand",
+        "Mixed",
+        "New setup — nothing yet",
+      ],
+      city: "Delivery city",
+      cityPlaceholder: "e.g. Bengaluru",
+      pin: "PIN code",
+      pinPlaceholder: "560001",
+      contact: "Contact person",
+      contactPlaceholder: "Full name",
+      designation: "Designation",
+      designationPlaceholder: "e.g. Purchase Manager, F&B Head",
+      phone: "Phone / WhatsApp",
+      email: "Email",
+      emailPlaceholder: "name@company.com",
+      notes: "Anything else",
+      notesPlaceholder: "Service volumes, timelines, existing supplier issues",
+      sampleOptIn: "Send me a free trial sample pack along with the quote.",
+      consentA: "I agree to Flareon contacting me about this enquiry and accept the",
+      consentLink: "privacy policy",
+      submit: "Send enquiry to the India desk",
+      sentTitle: "Enquiry noted.",
+      sentBody:
+        "This form is not wired to a mailbox yet — until it is, send the same details on WhatsApp and the India desk will pick it up the same working day.",
+      sentWhatsapp: "Continue on WhatsApp",
+      sentEdit: "Edit the enquiry",
+    },
+
+    desk: {
+      title: "India desk",
+      body: "Prefer to talk? Reach the domestic sales team directly — fastest during IST business hours.",
+      whatsapp: "WhatsApp / call",
+      email: "Email",
+      emailValue: "[india@flareonbbq.com]",
+      plant: "Plant & despatch",
+      plantValue: "Palladam, Tamil Nadu",
+      hours: "Desk hours",
+      hoursValue: "[Mon–Sat, X–X IST]",
+      exportEyebrow: "Exporting instead?",
+      exportBody: "Container loads, FOB/CIF and port delivery are handled separately.",
+      exportCta: "Go to the Export Desk",
+    },
+  },
+
+  // ---- Legal pages ----
+  // Blocks render in order: { h } heading, { sub } sub-heading, { p } paragraph,
+  // { list } bullets, { table } two-column table. [Bracketed] text renders as a
+  // placeholder chip until a real value replaces it.
+  legal: {
+    updated: "Last updated: [DATE]",
+    contents: "On this page",
+
+    privacy: {
+      navLabel: "Privacy Policy",
+      eyebrow: "Legal",
+      title: "Privacy Policy",
+      sub: "How Flareon Briquettes collects, uses and protects the information you share through this website or with our export desk.",
+      blocks: [
+        { h: "1. Who we are" },
+        {
+          p: 'This website is operated by Flareon Briquettes ("Flareon", "we", "us", "our"), a coconut shell charcoal briquette manufacturer and exporter based at 3/147 Muthandipalayam, K.Ayyampalayam, Palladam, Tamil Nadu, India 641664.',
+        },
+        {
+          list: [
+            "Registered entity name: [LEGAL ENTITY NAME]",
+            "Company / GST registration number: [GSTIN]",
+            "Import Export Code (IEC): 3209000573",
+          ],
+        },
+        {
+          p: "For any privacy-related question or request, contact us at care@flareonbbq.com or by WhatsApp at +91 99441 33441.",
+        },
+        { sub: "Grievance Officer" },
+        {
+          p: "As required under Indian data protection rules, we have designated a Grievance Officer to handle privacy complaints and requests:",
+        },
+        {
+          list: [
+            "Name: [GRIEVANCE OFFICER NAME]",
+            "Email: [GRIEVANCE OFFICER EMAIL]",
+            "Response time: we aim to acknowledge requests within [X] business days.",
+          ],
+        },
+
+        { h: "2. What information we collect" },
+        { p: "We collect information in the following ways:" },
+        { sub: "Information you give us directly" },
+        {
+          list: [
+            "When you submit an enquiry through the Export Desk or the India desk (briquette quote form, activated carbon form or HORECA enquiry form): full name, company name, business email, WhatsApp/phone number, destination port or delivery city, product and packaging preferences, and any notes you write in the form.",
+            "When you email or message us directly: your email address, phone number, and the content of your message.",
+          ],
+        },
+        { sub: "Information collected automatically" },
+        {
+          list: [
+            "Standard technical data such as IP address, browser type, device type, and pages visited, collected through normal website operation and hosting logs.",
+            "[If applicable: name of analytics tool, e.g. Google Analytics] — see the Cookie note below.",
+          ],
+        },
+        {
+          p: "We do not knowingly collect payment card details on this website; all payment terms (T/T or Letter of Credit) are arranged separately, bank to bank.",
+        },
+
+        { h: "3. Why we use your information" },
+        {
+          table: {
+            head: ["Purpose", "What we use"],
+            rows: [
+              ["Respond to your export or product enquiry", "Contact details, form content"],
+              ["Prepare and send an FOB/CIF quotation", "Contact details, destination port, container/grade selection"],
+              ["Arrange a sample shipment or factory visit", "Contact details, address (if provided)"],
+              ["Maintain business records for accounting and export compliance", "Contact and order details"],
+              ["Improve the website", "Technical/analytics data only"],
+            ],
+          },
+        },
+        {
+          p: "We do not sell your personal information, and we do not use it for unrelated marketing without your separate consent.",
+        },
+
+        { h: "4. Legal basis for processing (for visitors in the EU / UK / EEA)" },
+        {
+          p: "If you are located in the European Union, United Kingdom, or European Economic Area, we process your information on the following bases:",
+        },
+        {
+          list: [
+            "Consent — when you submit an enquiry form, you are actively choosing to share your details with us for that purpose.",
+            "Legitimate interest — to respond to business enquiries and maintain our commercial relationship with you, in a way that does not override your rights.",
+            "Contract performance — once an order is agreed, to fulfil that order.",
+          ],
+        },
+
+        { h: "5. How long we keep your information" },
+        {
+          p: "We retain enquiry and order-related information for as long as needed to respond to your enquiry, fulfil any resulting order, and meet our accounting and export record-keeping obligations under Indian law, currently [X years]. You can ask us to delete your information sooner, subject to section 8 below.",
+        },
+
+        { h: "6. Who we share your information with" },
+        { p: "We do not sell or rent your personal information. We may share it with:" },
+        {
+          list: [
+            "Freight forwarders, customs agents, or shipping lines, only once an order is confirmed and only the details needed to ship your container.",
+            "Our bank, for T/T or Letter of Credit processing.",
+            "[Web hosting, email or CRM providers in use — e.g. Vercel, Google Workspace], who process data on our behalf under their own security and confidentiality terms.",
+            "Government or regulatory authorities, where required by law.",
+          ],
+        },
+
+        { h: "7. International data transfers" },
+        {
+          p: "We are based in India. If you are contacting us from the EU, UK, or elsewhere outside India, your information will be transferred to and processed in India. Where required, we rely on [Standard Contractual Clauses / other transfer mechanism] to protect your information during this transfer.",
+        },
+
+        { h: "8. Your rights" },
+        { p: "Depending on where you are located, you may have the right to:" },
+        {
+          list: [
+            "Ask what personal information we hold about you",
+            "Ask us to correct inaccurate information",
+            "Ask us to delete your information",
+            "Object to how we use your information",
+            "Ask for a copy of your information in a portable format",
+            "Withdraw consent at any time, where consent is the basis for processing",
+          ],
+        },
+        {
+          p: "To exercise any of these rights, contact care@flareonbbq.com. If you are in the EU/EEA, you also have the right to lodge a complaint with your local data protection authority.",
+        },
+
+        { h: "9. Security" },
+        {
+          p: "We take reasonable technical and organisational measures to protect the information you share with us. No method of transmission over the internet is completely secure, and we cannot guarantee absolute security.",
+        },
+
+        { h: "10. Children's privacy" },
+        {
+          p: "This website is intended for business use and is not directed at children. We do not knowingly collect information from anyone under 18.",
+        },
+
+        { h: "11. Cookies" },
+        {
+          p: "This website uses only the technical cookies and local storage necessary for it to function — for example, to remember your selected language and market. We do not use advertising or tracking cookies, and no non-essential data is collected without your consent.",
+        },
+
+        { h: "12. Changes to this policy" },
+        {
+          p: 'We may update this policy from time to time. The "Last updated" date at the top will reflect the most recent revision. Material changes will be reflected here before they take effect.',
+        },
+
+        { h: "13. Contact us" },
+        {
+          p: "Flareon Briquettes · 3/147 Muthandipalayam, K.Ayyampalayam, Palladam, Tamil Nadu, India 641664. Email: care@flareonbbq.com · WhatsApp: +91 99441 33441.",
+        },
+      ],
+    },
+
+    terms: {
+      navLabel: "Terms of Sale",
+      eyebrow: "Legal",
+      title: "Terms of Sale",
+      sub: "The commercial terms that apply to every order placed with Flareon Briquettes, whether through the Export Desk, the India desk, email or WhatsApp.",
+      blocks: [
+        { h: "1. Scope" },
+        {
+          p: "These Terms of Sale apply to every order placed with Flareon Briquettes, whether submitted through the website Export Desk, the India desk, by email, or by WhatsApp, and take precedence over any terms proposed by the buyer unless we agree to those terms in writing.",
+        },
+
+        { h: "2. Quotations" },
+        {
+          p: "Prices quoted are indicative FOB/CIF prices in [currency, e.g. USD] and are valid for [X days] from the date of quotation unless stated otherwise. Final pricing is confirmed in a written proforma invoice before production begins.",
+        },
+
+        { h: "3. Minimum order and acceptance" },
+        {
+          list: [
+            "Minimum export order quantity: one 20ft FCL container (approximately 15 tons).",
+            "An order is confirmed only once we issue a proforma invoice and receive either the agreed advance payment or a confirmed, workable Letter of Credit.",
+            "We reserve the right to decline any order.",
+          ],
+        },
+
+        { h: "4. Pricing terms and Incoterms" },
+        {
+          p: "We quote and ship under FOB (Free On Board) or CIF (Cost, Insurance and Freight) terms, Incoterms [2020], from Tuticorin Port or Chennai Port, India. The applicable Incoterm will be stated on every proforma invoice.",
+        },
+
+        { h: "5. Payment terms" },
+        {
+          table: {
+            head: ["Method", "Terms"],
+            rows: [
+              ["T/T (Telegraphic Transfer)", "[e.g. 30% advance, 70% against shipping documents]"],
+              [
+                "Irrevocable Letter of Credit (L/C)",
+                "Available from the first container. L/C must be confirmed and workable at a bank acceptable to us, opened at least [X days] before the requested shipment date.",
+              ],
+            ],
+          },
+        },
+        { p: "Bank charges outside India are borne by the buyer unless otherwise agreed in writing." },
+
+        { h: "6. Delivery and lead time" },
+        {
+          p: "Estimated production and shipment lead time is [X weeks] from order confirmation. Sailing times shown on the website are indicative and depend on carrier schedules; we are not liable for shipping line delays once the container has been handed over to the carrier.",
+        },
+
+        { h: "7. Transfer of title and risk" },
+        {
+          p: "Title and risk in the goods pass to the buyer in accordance with the agreed Incoterm (FOB or CIF) stated on the proforma invoice — generally once the goods pass the ship's rail at the loading port.",
+        },
+
+        { h: "8. Product specification and tolerance" },
+        {
+          p: "Goods are supplied to the grade specification (ash content, moisture, burn time, fixed carbon) confirmed on the order. Reasonable manufacturing tolerances of [± X%] apply to each specification and do not constitute a defect.",
+        },
+
+        { h: "9. Inspection and claims" },
+        {
+          p: "The buyer should inspect the goods promptly on arrival. Any claim relating to quantity, quality, or specification must be raised in writing, with supporting photographs or an independent inspection report, within [X days] of the container's arrival at the destination port. Claims raised after this period may not be accepted.",
+        },
+
+        { h: "10. Rejected goods and remedies" },
+        {
+          p: "Where a claim is validated, our sole obligation is, at our option, to replace the non-conforming goods on the next available shipment or issue a credit note for the affected quantity. We are not liable for indirect, incidental, or consequential losses, including loss of profit or loss of contract, to the maximum extent permitted by law.",
+        },
+
+        { h: "11. Force majeure" },
+        {
+          p: "Neither party is liable for delay or failure to perform caused by events beyond its reasonable control, including natural disaster, strike, port congestion, government restriction, or shipping line disruption. The affected party will notify the other promptly and resume performance as soon as reasonably possible.",
+        },
+
+        { h: "12. Cancellation" },
+        {
+          p: "Orders may not be cancelled once production has commenced, except by mutual written agreement. Any advance payment received may be forfeited to cover costs already incurred.",
+        },
+
+        { h: "13. Private label / OEM and intellectual property" },
+        {
+          p: "Where the buyer supplies artwork, packaging design, or a brand name for private label production, the buyer confirms it holds the right to use that artwork or brand and indemnifies Flareon against any third-party claim arising from its use. Flareon retains no rights to buyer-supplied branding beyond producing the agreed order.",
+        },
+
+        { h: "14. Export compliance" },
+        {
+          p: "The buyer is responsible for compliance with all import regulations, duties, and permits in the destination country. Flareon will provide standard export documentation (commercial invoice, packing list, certificate of origin, and the certificates listed on our Specs & Certs page) but is not responsible for destination-country customs delays.",
+        },
+
+        { h: "15. Domestic (India) orders" },
+        {
+          list: [
+            "Domestic supply is billed on GST invoice in INR against the rate contract in force on the order date.",
+            "Credit terms, where granted, are [Net X days] from invoice date; delayed payment may suspend the delivery schedule.",
+            "Short or damaged delivery must be reported within [X days] of receipt with photographs.",
+          ],
+        },
+
+        { h: "16. Governing law and disputes" },
+        {
+          p: "These Terms of Sale are governed by the laws of India. Any dispute will be subject to the exclusive jurisdiction of the courts of [Coimbatore, Tamil Nadu], or resolved by arbitration seated in [city] under the [Arbitration and Conciliation Act, 1996], as agreed on the order.",
+        },
+
+        { h: "17. Changes to these terms" },
+        {
+          p: "We may update these Terms of Sale from time to time. The version in effect at the date an order is confirmed applies to that order.",
+        },
+
+        { h: "18. Contact" },
+        {
+          p: "Flareon Briquettes · 3/147 Muthandipalayam, K.Ayyampalayam, Palladam, Tamil Nadu, India 641664. Email: enquiry@flareonbbq.com · WhatsApp: +91 99441 33441.",
+        },
+      ],
+    },
+  },
+
   footer: {
     exportTerms: "Export terms",
     navigate: "Navigate",
     shippingTo: "Shipping now to",
     rights: "All rights reserved.",
     privacy: "Privacy Policy",
-    terms: "Terms of Supply",
+    terms: "Terms of Sale",
   },
 
   // ---- Content that also carries data values (site.js holds the numbers) ----

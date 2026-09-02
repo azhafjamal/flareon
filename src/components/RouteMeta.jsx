@@ -31,6 +31,21 @@ export const routeMeta = {
     description:
       "Download the TÜV SÜD ISO 9001:2015 certificate, Bureau Veritas comparison study, MSDS and Coconut Development Board export registration.",
   },
+  "/india": {
+    title: `India Bulk Supply for Hotels, Restaurants & Catering — ${BRAND}`,
+    description:
+      "Coconut shell charcoal briquettes for Indian tandoors, sigris, live grills and hookah counters — scheduled delivery, GST invoice, locked rate contract and a free kitchen trial.",
+  },
+  "/privacy": {
+    title: `Privacy Policy — ${BRAND}`,
+    description:
+      "How Flareon Briquettes collects, uses, stores and shares the information you submit through the Export Desk, the India desk or direct contact.",
+  },
+  "/terms-of-sale": {
+    title: `Terms of Sale — ${BRAND}`,
+    description:
+      "Quotations, minimum order, Incoterms, payment terms, lead time, claims and governing law for every briquette and activated carbon order placed with Flareon.",
+  },
   "/export-quote": {
     title: `Export Desk — Request an FOB / CIF Quote | ${BRAND}`,
     description:
