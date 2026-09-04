@@ -7,7 +7,14 @@ import {
   grades,
 } from "../data/site";
 import { useMarket } from "../market-context";
-import { Section, SectionHead, Button, Eyebrow, Coal } from "../components/ui";
+import {
+  Section,
+  SectionHead,
+  Button,
+  Eyebrow,
+  Coal,
+  Honeypot,
+} from "../components/ui";
 import PageHero from "../components/PageHero";
 import media from "../data/images";
 import { submitForm } from "../lib/submitForm";
@@ -196,6 +203,7 @@ function BriquetteForm() {
     carton: 10,
     payment: "T/T wire transfer",
     notes: "",
+    botcheck: false,
   });
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
@@ -231,6 +239,10 @@ function BriquetteForm() {
         <Sent onEdit={() => setSent(false)} waUrl={waUrl} />
       ) : (
         <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+          <Honeypot
+            value={form.botcheck}
+            onChange={(e) => setForm((f) => ({ ...f, botcheck: e.target.checked }))}
+          />
           <ContactFields form={form} set={set} idPrefix="bq" />
 
           <div>
@@ -339,7 +351,7 @@ function BriquetteForm() {
           </div>
 
           <Button type="submit" size="lg" className="w-full" disabled={sending}>
-            {sending ? "Sending…" : c.exportDesk.briquetteForm.submit}
+            {sending ? c.common.sending : c.exportDesk.briquetteForm.submit}
           </Button>
           <p className="text-center text-[12px] text-ash-3">
             {c.exportDesk.briquetteForm.footnote}
@@ -368,6 +380,7 @@ function CarbonForm() {
     port: destinationPorts[0].port,
     customPort: "",
     notes: "",
+    botcheck: false,
   });
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
@@ -411,6 +424,10 @@ function CarbonForm() {
         <Sent onEdit={() => setSent(false)} waUrl={waUrl} />
       ) : (
         <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+          <Honeypot
+            value={form.botcheck}
+            onChange={(e) => setForm((f) => ({ ...f, botcheck: e.target.checked }))}
+          />
           <ContactFields form={form} set={set} idPrefix="ac" />
 
           <div className="grid gap-5 sm:grid-cols-2">
@@ -497,7 +514,7 @@ function CarbonForm() {
           </div>
 
           <Button type="submit" size="lg" className="w-full" disabled={sending}>
-            {sending ? "Sending…" : c.exportDesk.carbonForm.submit}
+            {sending ? c.common.sending : c.exportDesk.carbonForm.submit}
           </Button>
           <p className="text-center text-[12px] text-ash-3">
             {c.exportDesk.carbonForm.footnote}

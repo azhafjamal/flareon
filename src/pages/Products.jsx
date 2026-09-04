@@ -12,8 +12,6 @@ const shapeImage = {
   honeycomb: media.shapes.round,
 };
 
-const shapeFit = {};
-
 // One card per pressed shape, with what actually sets it apart.
 function ShapeCard({ shape }) {
   const { c } = useMarket();
@@ -26,9 +24,7 @@ function ShapeCard({ shape }) {
         alt={image.alt}
         loading="lazy"
         decoding="async"
-        className={`aspect-4/3 w-full border-b border-line transition-transform duration-500 group-hover:scale-105 ${
-          shapeFit[shape.id] ?? "object-cover"
-        }`}
+        className="aspect-4/3 w-full border-b border-line object-cover transition-transform duration-500 group-hover:scale-105"
       />
       <div className="flex flex-1 flex-col p-6">
         <h3 className="text-[19px] font-bold text-ash">{copy.name}</h3>

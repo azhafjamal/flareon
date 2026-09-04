@@ -5,8 +5,7 @@ const img = (src, alt) => ({ src: `/images/${src}`, alt });
 
 export const media = {
   brand: {
-    // Full lockup, and the flame mark cropped out of it for the nav/footer.
-    logo: img("logo-flareon.jpg", "FLAREON — get grillin'"),
+    // The flame mark, cropped out of the full lockup, for the nav/footer.
     mark: img("logo-mark.jpg", "FLAREON flame mark"),
   },
 
@@ -53,10 +52,6 @@ export const media = {
       "Open sacks of coconut shell charcoal chips and carbon powder"
     ),
     powder: img("carbon-powder.jpg", "Milled coconut shell carbon powder"),
-    carbonSack: img(
-      "activated-carbon-sack.jpg",
-      "25 kg sack of activated carbon powder, made in India"
-    ),
     carbonGranules: img(
       "activated-carbon-granules.jpg",
       "Close-up of coconut shell activated carbon granules"
@@ -144,18 +139,6 @@ export const media = {
     port: img(
       "port-night.jpg",
       "Container vessel loading at berth under gantry cranes at night"
-    ),
-    portDusk: img(
-      "g.jpg",
-      "Container vessel alongside the quay at dusk, gantry cranes working the stacks"
-    ),
-  },
-
-  // Domestic HORECA supply — Indian kitchens and live-fire service
-  horeca: {
-    grill: img(
-      "a.jpg",
-      "Cuts searing over an open charcoal grill during service"
     ),
   },
 

@@ -2,7 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { company } from "../data/site";
 import { useMarket } from "../market-context";
-import { Section, SectionHead, Button, Coal, Fills } from "../components/ui";
+import {
+  Section,
+  SectionHead,
+  Button,
+  Coal,
+  Fills,
+  Honeypot,
+} from "../components/ui";
 import PageHero from "../components/PageHero";
 import { clientLogos } from "../data/images";
 import { submitForm } from "../lib/submitForm";
@@ -90,7 +97,9 @@ function Hero() {
 }
 
 // Two copies of the logo row scroll as one track, so the loop is seamless at
-// -50%. Hovering pauses it, and reduced-motion users get a static row.
+// -50%. Hovering pauses it, and reduced-motion users get a static row. Only the
+// first copy is exposed to assistive tech — the second exists purely to make
+// the loop seamless, and would otherwise read every client name twice.
 function ClientStrip() {
   const { c } = useMarket();
   const track = [...clientLogos, ...clientLogos];
@@ -99,20 +108,24 @@ function ClientStrip() {
       <p className="eyebrow mb-6 text-center">{c.india.clients.eyebrow}</p>
       <div className="group overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
         <div className="flex w-max animate-[marquee_26s_linear_infinite] items-center gap-10 group-hover:[animation-play-state:paused] motion-reduce:animate-none">
-          {track.map((logo, i) => (
-            <div
-              key={`${logo.src}-${i}`}
-              className="flex h-[78px] shrink-0 items-center justify-center rounded-lg bg-[#f4f1ea] px-5"
-            >
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                loading="lazy"
-                decoding="async"
-                className="h-11 w-auto max-w-[210px] object-contain md:h-13"
-              />
-            </div>
-          ))}
+          {track.map((logo, i) => {
+            const isClone = i >= clientLogos.length;
+            return (
+              <div
+                key={`${logo.src}-${i}`}
+                aria-hidden={isClone || undefined}
+                className="flex h-[78px] shrink-0 items-center justify-center rounded-lg bg-[#f4f1ea] px-5"
+              >
+                <img
+                  src={logo.src}
+                  alt={isClone ? "" : logo.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-11 w-auto max-w-[210px] object-contain md:h-13"
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -248,11 +261,11 @@ function Estimator() {
           {sliders.map((s) => (
             <div key={s.id}>
               <label
-                className="mb-2.5 flex items-baseline justify-between font-mono text-[11.5px] tracking-[0.08em] text-ash-3 uppercase"
+                className="mb-2.5 flex items-baseline justify-between gap-3 font-mono text-[11.5px] tracking-[0.08em] text-ash-3 uppercase"
                 htmlFor={`calc-${s.id}`}
               >
                 <span>{s.label}</span>
-                <span className="font-mono text-[15px] font-bold text-glow">
+                <span className="shrink-0 font-mono text-[15px] font-bold text-glow tabular-nums">
                   {String(s.value).padStart(2, "0")}
                 </span>
               </label>
@@ -519,6 +532,7 @@ function EnquiryForm() {
     notes: "",
     sample: true,
     consent: false,
+    botcheck: false,
   });
   const set = (k) => (e) => setForm((s) => ({ ...s, [k]: e.target.value }));
   const check = (k) => (e) =>
@@ -548,13 +562,14 @@ function EnquiryForm() {
 
   return (
     <div className="panel p-7 md:p-9" id="india-form">
-      <h2 className="text-2xl font-extrabold text-ash">{f.eyebrow} Form</h2>
+      <h2 className="text-2xl font-extrabold text-ash">{f.title}</h2>
       <p className="mt-3 text-[14px] text-ash-3">{f.sub}</p>
 
       {sent ? (
         <Sent onEdit={() => setSent(false)} waUrl={waUrl} />
       ) : (
         <form onSubmit={handleSubmit} className="mt-7">
+          <Honeypot value={form.botcheck} onChange={check("botcheck")} />
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label className={label} htmlFor="in-business">
@@ -675,7 +690,7 @@ function EnquiryForm() {
           </div>
 
           <Button type="submit" size="lg" className="mt-5 w-full" disabled={sending}>
-            {sending ? "Sending…" : `${f.submit} →`}
+            {sending ? c.common.sending : `${f.submit} →`}
           </Button>
           {error && <SendError onRetry={() => setError(false)} />}
         </form>

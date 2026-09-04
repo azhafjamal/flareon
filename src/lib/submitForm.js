@@ -4,13 +4,21 @@
 // the same.
 const WEB3FORMS_ACCESS_KEY = "6befd474-4273-429e-8caa-a9b69028ae8a";
 
+// A submission that never returns leaves the button stuck on "Sending…", so
+// give the request a ceiling and surface it as a normal failure.
+const TIMEOUT_MS = 15000;
+
 export async function submitForm({ subject, data }) {
   const res = await fetch("https://api.web3forms.com/submit", {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
+    signal: AbortSignal.timeout(TIMEOUT_MS),
     body: JSON.stringify({
       access_key: WEB3FORMS_ACCESS_KEY,
       subject,
+      // Web3Forms drops anything that fills this hidden field, which is how
+      // it separates bots from buyers. The forms render it visually hidden.
+      botcheck: "",
       ...data,
     }),
   });

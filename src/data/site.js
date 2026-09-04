@@ -20,10 +20,16 @@ export const company = {
   },
   socials: [
     { key: "whatsapp", label: "WhatsApp", href: "https://wa.me/919944133441" },
-    { key: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/" },
-    { key: "instagram", label: "Instagram", href: "https://www.instagram.com/" },
-    { key: "x", label: "X", href: "https://x.com/" },
-    { key: "facebook", label: "Facebook", href: "https://www.facebook.com/" },
+    {
+      key: "linkedin",
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/company/flareon-briquette/",
+    },
+    {
+      key: "instagram",
+      label: "Instagram",
+      href: "https://www.instagram.com/flareonbbq/",
+    },
   ],
   ports: "Tuticorin Port (220 km) / Chennai Port (450 km)",
 };

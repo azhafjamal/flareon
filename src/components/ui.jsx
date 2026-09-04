@@ -96,6 +96,25 @@ export function Coal({ className = "" }) {
   );
 }
 
+// Spam trap for the enquiry forms. A real buyer never sees this field, but a
+// bot filling every input it finds will complete it — and Web3Forms discards
+// any submission where `botcheck` came back non-empty. Hidden from assistive
+// tech and keyboard order too, so it costs a genuine visitor nothing.
+export function Honeypot({ value, onChange }) {
+  return (
+    <input
+      type="checkbox"
+      name="botcheck"
+      checked={value}
+      onChange={onChange}
+      className="absolute size-0 overflow-hidden opacity-0"
+      tabIndex={-1}
+      autoComplete="off"
+      aria-hidden="true"
+    />
+  );
+}
+
 // Copy that still carries a value we haven't been given yet is written with the
 // gap in [square brackets]. This renders those spans as an amber chip so an
 // unfilled value is obvious on the page — replace the bracketed text in

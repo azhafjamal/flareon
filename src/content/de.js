@@ -17,7 +17,6 @@ export default {
     catalogue: "Gesamtkatalog ansehen",
     oem: "OEM & Handelsmarke",
     allDocs: "Alle vier Dokumente",
-    productRange: "Produktprogramm ansehen",
     factoryVisit: "Werksbesuch vereinbaren",
     auditDocs: "Audit-Unterlagen",
     whatsapp: "Export-Desk per WhatsApp",
@@ -120,16 +119,6 @@ export default {
     pillars: {
       eyebrow: "Produktionssäulen",
       title: "Drei Dinge, die Wettbewerber auslagern. Uns gehören alle drei.",
-    },
-    lines: {
-      eyebrow: "Eine Schale, zwei Produktlinien",
-      title: "Derselbe Kohlenstoff speist die Brikettpresse und die Aktivkohleanlage",
-      briquettesTitle: "Holzkohlebriketts",
-      briquettesBody:
-        "Die Kokosschale ist einer der wenigen landwirtschaftlichen Reststoffe, die dicht genug sind, um zu einem Brennstoff mit wirklich hohem Gehalt an fixem Kohlenstoff verkohlt zu werden. Wir nehmen die grobe Fraktion unserer eigenen Schalenkohle, binden sie mit Kartoffelstärke in Lebensmittelqualität und pressen sie unter hohem hydraulischem Druck zu Sechskant-, Kissen-, Würfel- und Wabenformen. Die Dichte ist der Punkt: eine engere Partikelstruktur brennt langsamer und heißer als Holzkohlestücke, hält die Gartemperatur über Stunden statt Minuten und hinterlässt ein kleines Volumen sauberer weißer Asche statt eines Rosts voller Grus. Da im Rezept nirgends Nitrat-Beschleuniger vorkommen, geht nichts Chemisches auf das Essen über — genau das macht das Produkt für gewerbliche Barbecue-Küchen, Shisha-Lounges und Handelsmarken-Einkäufer akzeptabel, die für das haften, was sie verkaufen.",
-      carbonTitle: "Aktivkohle",
-      carbonBody:
-        "Die feinere Fraktion geht den anderen Weg. Die Dampfaktivierung bei hoher Temperatur öffnet die innere Porenstruktur derselben Schalenkohle und verwandelt einen einfachen Brennstoff in ein Adsorbens mit enormer innerer Oberfläche — das Material, das Chlor, organische Stoffe, Farbe und Geruch aus Wasser zieht, Lösemittel aus Luftströmen entfernt und Gold aus Laugungslösungen zurückgewinnt. Die Kokosschale ist weltweit der bevorzugte Rohstoff dafür, gerade weil ihre Poren überwiegend Mikroporen sind — genau das macht sie bei niedrigen Konzentrationen wirksam, wo kohlebasierte Aktivkohlen schwächer abschneiden. Beide Linien aus einer Rohstoffannahme zu betreiben, erlaubt uns, eine Qualität zu halten: wir entscheiden, welche Fraktion wohin geht, statt zu nehmen, was ein Händler in dieser Woche liefert.",
     },
     process: {
       eyebrow: "Gesamtprozess — Briketts",

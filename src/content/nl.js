@@ -17,7 +17,6 @@ export default {
     catalogue: "Volledige catalogus bekijken",
     oem: "OEM & private label",
     allDocs: "Alle vier documenten",
-    productRange: "Bekijk het assortiment",
     factoryVisit: "Fabrieksbezoek plannen",
     auditDocs: "Auditdocumenten",
     whatsapp: "WhatsApp de exportdesk",
@@ -120,16 +119,6 @@ export default {
     pillars: {
       eyebrow: "Productiepijlers",
       title: "Drie dingen die concurrenten uitbesteden. Wij bezitten alle drie.",
-    },
-    lines: {
-      eyebrow: "Één schaal, twee productlijnen",
-      title: "Dezelfde koolstof voedt de briketpers en de actiefkoolfabriek",
-      briquettesTitle: "Houtskoolbriketten",
-      briquettesBody:
-        "De kokosschaal is een van de weinige landbouwreststromen die dicht genoeg is om te carboniseren tot een brandstof met werkelijk hoog vaste-koolstofgehalte. We nemen de grove fractie van onze eigen schaalkool, binden die met aardappelzetmeel van foodgrade kwaliteit en persen die onder hoge hydraulische druk tot hexagon-, pillow-, kubus- en honingraatvormen. De dichtheid is het punt: een compactere deeltjesstructuur brandt langzamer en heter dan houtskoolbrokken, houdt de kooktemperatuur uren in plaats van minuten vast, en laat een klein volume schone witte as achter in plaats van een rooster vol gruis. Omdat er nergens in de samenstelling nitraatversnellers zitten, gaat er niets chemisch over op het voedsel — precies dat maakt het product acceptabel voor professionele barbecuekeukens, shishalounges en private-label inkopers van supermarkten die moeten kunnen verantwoorden wat ze verkopen.",
-      carbonTitle: "Actieve kool",
-      carbonBody:
-        "De fijnere fractie gaat de andere kant op. Stoomactivering bij hoge temperatuur opent de inwendige poriënstructuur van dezelfde schaalkool en verandert een eenvoudige brandstof in een adsorbens met een enorm intern oppervlak — het materiaal dat chloor, organische stoffen, kleur en geur uit water haalt, oplosmiddelen uit luchtstromen verwijdert en goud terugwint uit laugoplossingen. Kokosschaal is wereldwijd de voorkeursgrondstof juist omdat de poriën overwegend microporiën zijn, en dat maakt het effectief bij lage concentraties waar koolgebaseerde actieve kool minder presteert. Beide lijnen uit één aanvoer laten lopen is wat ons in staat stelt een kwaliteit vast te houden: wij kiezen welke fractie waar naartoe gaat, in plaats van te accepteren wat een handelaar die week aflevert.",
     },
     process: {
       eyebrow: "Volledig proces — briketten",
