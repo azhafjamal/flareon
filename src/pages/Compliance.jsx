@@ -2,7 +2,6 @@ import { benchmark, certificates } from "../data/site";
 import { useMarket } from "../market-context";
 import { Section, SectionHead, Button, Eyebrow } from "../components/ui";
 import PageHero from "../components/PageHero";
-import media from "../data/images";
 
 export default function Compliance() {
   const { c } = useMarket();
@@ -17,7 +16,6 @@ export default function Compliance() {
           </>
         }
         sub={c.compliance.hero.sub}
-        image={media.plant.screeningCheck}
       />
 
       <Section tone="raised">
@@ -81,7 +79,7 @@ export default function Compliance() {
                 {c.certificates[i].body}
               </p>
               {cert.meta && (
-                <p className="mt-4 flex-1 font-mono text-[11px] leading-relaxed text-ash-3/80">
+                <p className="mt-4 flex-1 w-fit rounded-md bg-glow/10 px-2.5 py-1.5 font-mono text-[11px] leading-relaxed text-glow">
                   {cert.meta}
                 </p>
               )}

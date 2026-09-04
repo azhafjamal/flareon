@@ -12,11 +12,7 @@ const shapeImage = {
   honeycomb: media.shapes.round,
 };
 
-// The cube stack is taller than a 4:3 crop allows, so it scales to fit rather
-// than losing the top row.
-const shapeFit = {
-  cube: "object-contain bg-ink-3",
-};
+const shapeFit = {};
 
 // One card per pressed shape, with what actually sets it apart.
 function ShapeCard({ shape }) {
@@ -83,55 +79,6 @@ function GradeCard({ g }) {
   );
 }
 
-// Wide feature card: photo bleeds off the right, copy sits over the darkened
-// left half. On narrow screens the gradient flips to vertical so the text keeps
-// its contrast above the image.
-function BbqCard() {
-  const { c } = useMarket();
-  const t = c.products.bbqCard;
-  return (
-    <section className="shell pt-16 md:pt-20">
-      <div className="relative flex min-h-[560px] items-center overflow-hidden rounded-2xl border border-line shadow-[0_30px_70px_-30px_rgba(0,0,0,0.8)]">
-        <img
-          src={media.fire.coals.src}
-          alt={media.fire.coals.alt}
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 size-full object-cover"
-        />
-        <div className="absolute inset-0 bg-linear-to-b from-ink/95 via-ink/70 to-ink/0 md:bg-linear-to-r md:from-ink/95 md:via-ink/65 md:to-ink/0" />
-
-        <div className="relative w-full max-w-xl p-8 md:p-12">
-          <Eyebrow className="mb-3.5 !text-ember">{t.eyebrow}</Eyebrow>
-          <h2 className="text-[26px] leading-tight font-extrabold text-ash md:text-4xl">
-            {t.title}
-          </h2>
-          <ul className="mt-6 space-y-3">
-            {t.features.map((f) => (
-              <li key={f} className="flex gap-3 text-[16px] text-ash">
-                <Coal className="mt-2.5" />
-                <span>{f}</span>
-              </li>
-            ))}
-          </ul>
-          <Button to="/export-quote#briquette-form" size="lg" className="mt-8">
-            {t.cta} →
-          </Button>
-        </div>
-
-        <div className="absolute end-8 bottom-6 hidden max-w-[280px] text-end lg:block">
-          <p className="font-mono text-[10px] tracking-[0.12em] text-glow uppercase">
-            {t.captionTag}
-          </p>
-          <p className="mt-1 text-[12px] leading-relaxed text-ash-2 [text-shadow:0_2px_10px_rgba(0,0,0,0.8)]">
-            {t.captionNote}
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Briquettes() {
   const { c } = useMarket();
   const p = products[0];
@@ -148,7 +95,7 @@ function Briquettes() {
           </p>
           <ul className="mt-8 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-1">
             {(item.pointsFull ?? item.points).map((pt) => (
-              <li key={pt} className="flex gap-2.5 text-[15px] text-ash-2">
+              <li key={pt} className="flex gap-2.5 text-[17px] text-ash-2">
                 <Coal className="mt-2" />
                 <span>{pt}</span>
               </li>
@@ -276,10 +223,8 @@ export default function Products() {
           </>
         }
         sub={c.products.hero.sub}
-        image={media.fire.hexagon}
       />
 
-      <BbqCard />
       <Briquettes />
       <ActivatedCarbon />
 
@@ -299,8 +244,8 @@ export default function Products() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
             {oem.map((o, i) => (
               <div key={o.title} className="panel panel-hover p-7">
-                <h3 className="text-[17px] font-bold text-ash">{c.oem[i].title}</h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-ash-3">
+                <h3 className="text-[19px] font-bold text-ash">{c.oem[i].title}</h3>
+                <p className="mt-3 text-[17px] leading-relaxed text-ash-3">
                   {c.oem[i].body}
                 </p>
               </div>

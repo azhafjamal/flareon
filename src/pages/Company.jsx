@@ -2,7 +2,6 @@ import { pillars, processSteps, carbonProcessSteps, sustainability } from "../da
 import { useMarket } from "../market-context";
 import { Section, SectionHead, Button, Eyebrow, Coal } from "../components/ui";
 import PageHero from "../components/PageHero";
-import { Figure } from "../components/Figure";
 import media, { processImages, carbonProcessImages } from "../data/images";
 
 export default function Company() {
@@ -18,7 +17,6 @@ export default function Company() {
           </>
         }
         sub={c.company.hero.sub}
-        image={media.plant.machine}
       >
         <div className="flex flex-wrap gap-3">
           <Button to="/export-quote">{c.cta.factoryVisit}</Button>
@@ -48,49 +46,6 @@ export default function Company() {
               </p>
             </article>
           ))}
-        </div>
-      </Section>
-
-      <Section tone="ink">
-        <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.25fr]">
-          <div className="space-y-4 lg:sticky lg:top-28">
-            <Figure image={media.material.rawSacks} ratio="photo" />
-            <div className="grid grid-cols-2 gap-4">
-              <Figure image={media.material.powder} ratio="square" />
-              <Figure image={media.material.carbonSack} ratio="square" />
-            </div>
-          </div>
-
-          <div>
-            <Eyebrow className="mb-3">{c.company.lines.eyebrow}</Eyebrow>
-            <h2 className="text-3xl font-extrabold leading-tight text-ash md:text-4xl">
-              {c.company.lines.title}
-            </h2>
-
-            <div className="mt-8 space-y-8">
-              <div>
-                <h3 className="font-display text-xl font-bold text-ash">
-                  {c.company.lines.briquettesTitle}
-                </h3>
-                <p className="mt-3 text-[16px] leading-relaxed text-ash-2">
-                  {c.company.lines.briquettesBody}
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-display text-xl font-bold text-ash">
-                  {c.company.lines.carbonTitle}
-                </h3>
-                <p className="mt-3 text-[16px] leading-relaxed text-ash-2">
-                  {c.company.lines.carbonBody}
-                </p>
-              </div>
-            </div>
-
-            <Button to="/products" variant="outline" className="mt-8">
-              {c.cta.productRange}
-            </Button>
-          </div>
         </div>
       </Section>
 

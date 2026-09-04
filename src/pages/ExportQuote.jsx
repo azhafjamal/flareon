@@ -10,6 +10,8 @@ import { useMarket } from "../market-context";
 import { Section, SectionHead, Button, Eyebrow, Coal } from "../components/ui";
 import PageHero from "../components/PageHero";
 import media from "../data/images";
+import { submitForm } from "../lib/submitForm";
+import { buildWhatsAppUrl } from "../lib/whatsapp";
 
 const field =
   "w-full rounded-md border border-line bg-ink-2 px-4 py-3 text-sm text-ash placeholder:text-ash-3/70 focus:border-ember/60 focus:outline-none focus:ring-1 focus:ring-ember/40";
@@ -122,27 +124,54 @@ function PortFields({ form, set, idPrefix }) {
   );
 }
 
-function Sent({ onEdit }) {
+function Sent({ onEdit, waUrl }) {
   const { c } = useMarket();
-  const [before, after] = c.exportDesk.sent.body.split("{file}");
   return (
     <div className="mt-8 rounded-lg border border-ember/40 bg-ember/5 p-7">
       <p className="font-display text-xl font-bold text-ash">
         {c.exportDesk.sent.title}
       </p>
       <p className="mt-3 text-sm leading-relaxed text-ash-2">
-        {before}
-        <code className="font-mono text-[12px] text-glow">
-          src/pages/ExportQuote.jsx
-        </code>
-        {after}
+        {c.exportDesk.sent.body}
       </p>
-      <div className="mt-6 flex flex-wrap gap-3">
-        <Button href={company.whatsappHref} size="sm">
-          {c.exportDesk.sent.whatsapp}
+
+      <div className="mt-6 rounded-md border border-line bg-ink-2 p-5">
+        <p className="text-sm font-semibold text-ash">
+          {c.exportDesk.sent.whatsappNudge}
+        </p>
+        <p className="mt-1.5 text-[13px] leading-relaxed text-ash-3">
+          {c.exportDesk.sent.whatsappNudgeNote}
+        </p>
+        <Button href={waUrl || company.whatsappHref} size="sm" className="mt-4">
+          {c.exportDesk.sent.whatsapp} →
         </Button>
-        <Button variant="outline" size="sm" onClick={onEdit}>
-          {c.exportDesk.sent.edit}
+      </div>
+
+      <button
+        type="button"
+        onClick={onEdit}
+        className="mt-4 text-[13px] text-ash-3 underline hover:text-ash-2"
+      >
+        {c.exportDesk.sent.edit}
+      </button>
+    </div>
+  );
+}
+
+function SendError({ onRetry }) {
+  const { c } = useMarket();
+  return (
+    <div className="mt-5 rounded-lg border border-[#e5484d]/40 bg-[#e5484d]/8 p-5">
+      <p className="text-sm font-bold text-ash">{c.exportDesk.sendError.title}</p>
+      <p className="mt-1.5 text-[13px] leading-relaxed text-ash-2">
+        {c.exportDesk.sendError.body}
+      </p>
+      <div className="mt-4 flex flex-wrap gap-3">
+        <Button href={company.whatsappHref} size="sm" variant="outline">
+          WhatsApp
+        </Button>
+        <Button size="sm" onClick={onRetry}>
+          {c.exportDesk.sendError.retry}
         </Button>
       </div>
     </div>
@@ -152,6 +181,9 @@ function Sent({ onEdit }) {
 function BriquetteForm() {
   const { c } = useMarket();
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
+  const [waUrl, setWaUrl] = useState("");
   const [form, setForm] = useState({
     name: "",
     company: "",
@@ -167,6 +199,27 @@ function BriquetteForm() {
   });
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSending(true);
+    setError(false);
+    const subject = `Briquette FOB/CIF enquiry — ${form.company || form.name}`;
+    try {
+      await submitForm({ subject, data: form });
+      const url = buildWhatsAppUrl({
+        phone: company.whatsapp,
+        subject,
+        data: form,
+      });
+      setWaUrl(url);
+      setSent(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <div className="panel flex h-full flex-col p-7 md:p-9" id="briquette-form">
       <Eyebrow className="mb-2">{c.exportDesk.briquetteForm.eyebrow}</Eyebrow>
@@ -175,15 +228,9 @@ function BriquetteForm() {
       </h2>
 
       {sent ? (
-        <Sent onEdit={() => setSent(false)} />
+        <Sent onEdit={() => setSent(false)} waUrl={waUrl} />
       ) : (
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-          }}
-          className="mt-8 space-y-5"
-        >
+        <form onSubmit={handleSubmit} className="mt-8 space-y-5">
           <ContactFields form={form} set={set} idPrefix="bq" />
 
           <div>
@@ -291,12 +338,13 @@ function BriquetteForm() {
             />
           </div>
 
-          <Button type="submit" size="lg" className="w-full">
-            {c.exportDesk.briquetteForm.submit}
+          <Button type="submit" size="lg" className="w-full" disabled={sending}>
+            {sending ? "Sending…" : c.exportDesk.briquetteForm.submit}
           </Button>
           <p className="text-center text-[12px] text-ash-3">
             {c.exportDesk.briquetteForm.footnote}
           </p>
+          {error && <SendError onRetry={() => setError(false)} />}
         </form>
       )}
     </div>
@@ -306,6 +354,9 @@ function BriquetteForm() {
 function CarbonForm() {
   const { c } = useMarket();
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
+  const [waUrl, setWaUrl] = useState("");
   const [form, setForm] = useState({
     name: "",
     company: "",
@@ -319,6 +370,27 @@ function CarbonForm() {
     notes: "",
   });
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSending(true);
+    setError(false);
+    const subject = `Activated carbon enquiry — ${form.company || form.name}`;
+    try {
+      await submitForm({ subject, data: form });
+      const url = buildWhatsAppUrl({
+        phone: company.whatsapp,
+        subject,
+        data: form,
+      });
+      setWaUrl(url);
+      setSent(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <div className="panel flex h-full flex-col p-7 md:p-9" id="carbon-form">
@@ -336,15 +408,9 @@ function CarbonForm() {
       </p>
 
       {sent ? (
-        <Sent onEdit={() => setSent(false)} />
+        <Sent onEdit={() => setSent(false)} waUrl={waUrl} />
       ) : (
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-          }}
-          className="mt-8 space-y-5"
-        >
+        <form onSubmit={handleSubmit} className="mt-8 space-y-5">
           <ContactFields form={form} set={set} idPrefix="ac" />
 
           <div className="grid gap-5 sm:grid-cols-2">
@@ -430,12 +496,13 @@ function CarbonForm() {
             />
           </div>
 
-          <Button type="submit" size="lg" className="w-full">
-            {c.exportDesk.carbonForm.submit}
+          <Button type="submit" size="lg" className="w-full" disabled={sending}>
+            {sending ? "Sending…" : c.exportDesk.carbonForm.submit}
           </Button>
           <p className="text-center text-[12px] text-ash-3">
             {c.exportDesk.carbonForm.footnote}
           </p>
+          {error && <SendError onRetry={() => setError(false)} />}
         </form>
       )}
     </div>
@@ -526,6 +593,7 @@ export default function ExportQuote() {
         }
         sub={c.exportDesk.hero.sub}
         image={media.logistics.port}
+        imageOpacity={0.45}
       />
 
       {/* items-stretch + h-full keeps both cards the same length */}

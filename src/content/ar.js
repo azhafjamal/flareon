@@ -9,6 +9,7 @@ export default {
     gallery: "معرض الصور",
     compliance: "المواصفات والشهادات",
     export: "قسم التصدير",
+    india: "التوريد داخل الهند",
   },
 
   cta: {

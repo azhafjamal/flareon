@@ -26,9 +26,9 @@ function Hero() {
         alt={media.fire.hero.alt}
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 size-full object-cover object-center opacity-50"
+        className="absolute inset-0 size-full object-cover object-center opacity-70"
       />
-      <div className="absolute inset-0 bg-ink/30" />
+      <div className="absolute inset-0 bg-ink/15" />
       <div className="absolute inset-0 bg-linear-to-b from-ink/85 via-ink/70 to-ink" />
       <div className="pointer-events-none absolute inset-x-0 -top-40 h-[38rem] bg-[radial-gradient(60%_60%_at_50%_0%,rgba(255,90,31,0.16),transparent_70%)]" />
       <div className="grain absolute inset-0" />
@@ -67,14 +67,17 @@ function Hero() {
 function Metrics() {
   const { c } = useMarket();
   return (
-    <div className="border-b border-line bg-ink-2">
-      <div className="shell grid grid-cols-2 divide-line md:grid-cols-4 md:divide-x">
+    <div className="border-b border-[#2d6648]/70 bg-[#08150f]">
+      <div className="shell grid grid-cols-2 divide-[#2d6648]/70 md:grid-cols-4 md:divide-x">
         {metrics.map((m) => (
-          <div key={m.key} className="border-b border-line px-2 py-8 md:border-b-0 md:px-6">
-            <p className="font-display text-3xl font-extrabold text-ash md:text-4xl">
+          <div
+            key={m.key}
+            className="border-b border-[#2d6648]/70 px-2 py-8 md:border-b-0 md:px-6"
+          >
+            <p className="font-display text-3xl font-extrabold text-[#eaf5ee] md:text-4xl">
               {m.unit ? `${m.value} ${c.units[m.unit]}` : m.value}
             </p>
-            <p className="mt-2 text-[13px] leading-snug text-ash-3">
+            <p className="mt-2 text-[13px] leading-snug text-[#8fc7a3]">
               {c.metrics[m.key]}
             </p>
           </div>
@@ -224,10 +227,9 @@ function Grades() {
   );
 }
 
-// Only the shipping line gets a photo. The carbon card shows a plate instead,
-// so nothing implies a product we cannot ship yet.
 const productCardImage = {
-  briquettes: media.fire.hexagon,
+  briquettes: media.fire.cubesBurning,
+  "activated-carbon": media.material.carbonGranules,
 };
 
 function ProductPeek() {
@@ -256,43 +258,32 @@ function ProductPeek() {
             return (
               <article
                 key={p.id}
-                className="panel panel-hover flex flex-col overflow-hidden"
+                className="panel panel-hover flex flex-col overflow-hidden sm:flex-row"
               >
-                {/* 16:10 gives the briquette shot enough height that the
-                    flames and the coal bed both survive the crop. */}
-                <div className="relative">
-                  {productCardImage[p.id] ? (
-                    <img
-                      src={productCardImage[p.id].src}
-                      alt={productCardImage[p.id].alt}
-                      loading="lazy"
-                      decoding="async"
-                      className="aspect-16/10 w-full border-b border-line object-cover"
-                    />
-                  ) : (
-                    <div className="grid aspect-16/10 w-full place-items-center border-b border-line bg-ink-3">
-                      <p className="font-display text-3xl font-black tracking-tight text-ash md:text-4xl">
-                        {c.products.carbon.comingSoonA}{" "}
-                        <span className="ember-text">
-                          {c.products.carbon.comingSoonB}
-                        </span>
-                      </p>
-                    </div>
-                  )}
+                {/* Side-by-side on wider screens so the image fills the
+                    card's height instead of forcing extra vertical space. */}
+                <div className="relative sm:w-2/5 sm:shrink-0">
+                  <img
+                    src={productCardImage[p.id].src}
+                    alt={productCardImage[p.id].alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="aspect-16/9 w-full border-b border-line object-cover sm:aspect-auto sm:h-full sm:border-b-0 sm:border-r"
+                  />
                   {!p.available && (
                     <span className="absolute right-4 top-4 rounded-full border border-ember/40 bg-ink/85 px-3 py-1 font-mono text-[11px] tracking-widest text-glow uppercase backdrop-blur">
                       {c.common.comingSoon}
                     </span>
                   )}
                 </div>
-                <div className="flex flex-1 flex-col p-7">
-                  <h3 className="text-xl font-bold leading-snug text-ash">
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="text-lg font-bold leading-snug text-ash">
                     {item.name}
                   </h3>
-                  <p className="mt-3 text-[15px] leading-relaxed text-ash-3">
+                  <p className="mt-2.5 text-[15px] leading-relaxed text-ash-3">
                     {item.blurb}
                   </p>
-                  <ul className="mt-6 space-y-2.5">
+                  <ul className="mt-5 space-y-2.5">
                     {item.points.map((pt) => (
                       <li key={pt} className="flex gap-2.5 text-[15px] text-ash-2">
                         <Coal className="mt-2" />

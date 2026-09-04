@@ -7,6 +7,7 @@ export default {
     gallery: "ギャラリー",
     compliance: "仕様・認証",
     export: "輸出窓口",
+    india: "インド国内供給",
   },
 
   cta: {

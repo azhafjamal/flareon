@@ -32,6 +32,10 @@ export const media = {
       "lighter-cubes-foil.jpg",
       "Four coconut charcoal cubes fully lit on a foiled shisha bowl"
     ),
+    cubesBurning: img(
+      "briquette-cubes-fire.jpg",
+      "Coconut shell charcoal cubes glowing red under open flame"
+    ),
   },
 
   // Studio shots of the shapes we press
@@ -52,6 +56,18 @@ export const media = {
     carbonSack: img(
       "activated-carbon-sack.jpg",
       "25 kg sack of activated carbon powder, made in India"
+    ),
+    carbonGranules: img(
+      "activated-carbon-granules.jpg",
+      "Close-up of coconut shell activated carbon granules"
+    ),
+    carbonTestingPacking: img(
+      "carbon-testing-packing.jpg",
+      "Testing and packing coconut shell activated carbon"
+    ),
+    shellCharSelection: img(
+      "shell-char-selection.jpg",
+      "Graded coconut shell char selected for activation"
     ),
   },
 
@@ -213,13 +229,12 @@ export const processImages = [
   media.plant.dryingTray,
 ];
 
-// One photo per activated-carbon stage. Stages 01 and 04 are the two we have no
-// shot of on this line yet, so they render the plate.
+// One photo per activated-carbon stage.
 export const carbonProcessImages = [
-  null,
+  media.material.shellCharSelection,
   media.plant.conveyorCrates,
   media.material.powder,
-  null,
+  media.material.carbonTestingPacking,
 ];
 
 // Indian hotel, restaurant and catering groups already buying from the plant.

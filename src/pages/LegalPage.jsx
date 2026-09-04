@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useMarket } from "../market-context";
 import { Fills } from "../components/ui";
 import PageHero from "../components/PageHero";
-import media from "../data/images";
 
 // Both legal pages are the same document shell over a block list from the
 // locale file, so Privacy and Terms of Sale stay identical in layout and only
@@ -97,12 +96,7 @@ export default function LegalPage({ doc }) {
 
   return (
     <>
-      <PageHero
-        eyebrow={page.eyebrow}
-        title={page.title}
-        sub={page.sub}
-        image={doc === "terms" ? media.logistics.portDusk : media.nature.grove}
-      >
+      <PageHero eyebrow={page.eyebrow} title={page.title} sub={page.sub}>
         <p className="font-mono text-[12.5px] text-ash-3">
           <Fills>{c.legal.updated}</Fills>
         </p>

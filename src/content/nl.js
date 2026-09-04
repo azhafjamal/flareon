@@ -7,6 +7,7 @@ export default {
     gallery: "Galerij",
     compliance: "Specs & certificaten",
     export: "Exportdesk",
+    india: "India-levering",
   },
 
   cta: {

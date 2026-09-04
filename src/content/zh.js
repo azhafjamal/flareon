@@ -8,6 +8,7 @@ export default {
     gallery: "图库",
     compliance: "规格与认证",
     export: "出口部",
+    india: "印度供应",
   },
 
   cta: {

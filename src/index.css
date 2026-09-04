@@ -35,6 +35,11 @@
     color: var(--color-ash);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    /* Space Grotesk only ships weights up to 700 — without this the browser
+       fakes 800/900 by algorithmically bolding the 700 face, which renders
+       visibly different from the real typeface. This clamps to the genuine
+       weight instead of synthesizing one. */
+    font-synthesis-weight: none;
   }
   ::selection {
     background: var(--color-ember);
@@ -111,6 +116,63 @@
     transparent 1px,
     transparent 5px
   );
+}
+
+/* Glowing ember thumb for the India-supply consumption calculator's range
+   inputs — replaces the default OS slider with something that matches the
+   dark/ember theme. */
+.tech-slider {
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--color-ember) 0%,
+    var(--color-ember) var(--fill, 50%),
+    var(--color-ink-4) var(--fill, 50%),
+    var(--color-ink-4) 100%
+  );
+}
+.tech-slider::-webkit-slider-thumb {
+  appearance: none;
+  size: 16px;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--color-ember);
+  border: 2px solid var(--color-ink);
+  box-shadow:
+    0 0 0 1px rgba(255, 90, 31, 0.5),
+    0 0 12px 3px rgba(255, 90, 31, 0.65);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+.tech-slider::-webkit-slider-thumb:hover {
+  box-shadow:
+    0 0 0 1px rgba(255, 90, 31, 0.7),
+    0 0 18px 5px rgba(255, 90, 31, 0.85);
+}
+.tech-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--color-ember);
+  border: 2px solid var(--color-ink);
+  box-shadow: 0 0 12px 3px rgba(255, 90, 31, 0.65);
+  cursor: pointer;
+}
+.tech-slider::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: transparent;
+}
+
+/* Faint circuit-grid backdrop for technical readout panels */
+.tech-grid {
+  background-image:
+    linear-gradient(rgba(255, 90, 31, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 90, 31, 0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
 }
 
 /* Slow ember breathing behind the hero */

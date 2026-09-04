@@ -7,6 +7,7 @@ export default {
     gallery: "Галерея",
     compliance: "Спецификации и сертификаты",
     export: "Экспортный отдел",
+    india: "Поставки по Индии",
   },
 
   cta: {

@@ -163,25 +163,6 @@ export default {
       titleB: "Packed for your label.",
       sub: "Coconut shell charcoal briquettes for the grill, and activated carbon for filtration — supplied loose, retail-packed, or fully private-labelled under your own brand.",
     },
-    bbqCard: {
-      eyebrow: "Flareon Briquette",
-      title: "Coconut Shell Charcoal Briquettes for BBQ",
-      features: [
-        "4+ hours burning time",
-        "Minimal ash residue",
-        "Odourless & smokeless",
-        "Heats up in 20 minutes",
-        "All-natural composition",
-        "High density for longer burn time",
-        "Uniform, high heat output",
-        "Easy handling",
-        "Lower carbon monoxide production versus wood charcoal",
-      ],
-      cta: "Request briquette quote",
-      captionTag: "Four hours of steady heat",
-      captionNote:
-        "Pressed from carbonised coconut shell with a potato starch binder only.",
-    },
     briquettes: {
       figureLabel: "Four hours of steady heat",
       figureNote: "Pressed from carbonised coconut shell with a potato starch binder only.",
@@ -298,10 +279,17 @@ export default {
       footnote: "We'll contact you as soon as the line opens for orders.",
     },
     sent: {
-      title: "Enquiry ready to send.",
-      body: "This build has no backend wired up yet. Hook the submit handler in {file} to your CRM, email API or WhatsApp Business endpoint.",
-      whatsapp: "Send via WhatsApp instead",
+      title: "Enquiry sent.",
+      body: "Your enquiry has reached the export desk by email. We reply the same working day with an indicative rate.",
+      whatsappNudge: "For the fastest response, also send it on WhatsApp",
+      whatsappNudgeNote: "One tap opens WhatsApp with your enquiry already filled in — just hit send.",
+      whatsapp: "Share via WhatsApp",
       edit: "Edit enquiry",
+    },
+    sendError: {
+      title: "Couldn't send that.",
+      body: "Something went wrong submitting the form. Please try again, or reach us directly on WhatsApp.",
+      retry: "Try again",
     },
     desk: {
       eyebrow: "Direct export sales desk",
@@ -429,10 +417,10 @@ export default {
       title: "Packed for how your store room actually works",
       sub: "Choose per outlet, or mix sizes across a chain. Rate improves with committed monthly volume rather than one-off order size.",
       items: [
-        { size: "5 kg", for: "Cloud kitchens, small counters, trial orders", moq: "MOQ [X] packs" },
-        { size: "10 kg", for: "Standalone restaurants, single-tandoor kitchens", moq: "MOQ [X] packs" },
-        { size: "20 kg", for: "Hotels, banquets, multi-station kitchens", moq: "MOQ [X] packs" },
-        { size: "Bulk", for: "Chains & distributors, palletised, own labelling optional", moq: "On rate contract" },
+        { size: "5 kg", for: "Cloud kitchens, small counters, trial orders" },
+        { size: "10 kg", for: "Standalone restaurants, single-tandoor kitchens" },
+        { size: "20 kg", for: "Hotels, banquets, multi-station kitchens" },
+        { size: "Bulk", for: "Chains & distributors, palletised, own labelling optional" },
       ],
     },
 
@@ -448,8 +436,7 @@ export default {
       perOutlet: "Per outlet / month",
       suggestedPack: "Suggested pack",
       cycle: "Delivery cycle",
-      rate: "Indicative rate",
-      ratePlaceholder: "[₹ / kg]",
+      rateCta: "Get your rate",
       bulkPack: "20 kg / bulk",
       monthly: "Monthly",
       fortnightly: "Fortnightly",
@@ -464,16 +451,7 @@ export default {
       priority: "Next-day / priority",
       standard: "Standard [X]-day",
       onRequest: "On request",
-      chains: {
-        title: "Chains with multiple outlets",
-        body: "We can split a single monthly order across outlet addresses on one invoice, with a consolidated statement for your central purchase team. Useful if outlets order independently but finance wants one bill.",
-        rows: [
-          { k: "Multi-address despatch", v: "Yes" },
-          { k: "Consolidated invoicing", v: "Yes" },
-          { k: "Dedicated account manager", v: "[above X outlets]" },
-          { k: "Own-label packs", v: "On rate contract" },
-        ],
-      },
+      more: "+ many more across India — just ask",
     },
 
     steps: {
@@ -493,11 +471,11 @@ export default {
       items: [
         {
           q: "What is the minimum order for a single restaurant?",
-          a: "[X] kg for a first order. Once on a rate contract, reorder quantity is flexible against your committed monthly volume.",
+          a: "There's no fixed minimum — we work with kitchens of every size, from a single-outlet trial pack to multi-city chains. Tell us your requirement and we'll fit a plan around it.",
         },
         {
           q: "Do you give credit terms?",
-          a: "Yes, [Net X days] after the first [X] orders are settled on delivery. Chains and hotel groups are assessed individually.",
+          a: "Credit terms are assessed per account based on volume and order history. Contact the India desk and we'll work out terms that suit your business.",
         },
         {
           q: "Is this the same product you export?",
@@ -505,7 +483,7 @@ export default {
         },
         {
           q: "Can we get our own branding on the packs?",
-          a: "Yes, on a rate contract above [X] kg per month. You supply artwork, we handle printing and packing.",
+          a: "Yes, we offer private-label and custom-branded packing. Contact us with your requirement and we'll walk you through artwork, packing and MOQ for your brand.",
         },
         {
           q: "How is it cheaper if the per-kg rate is higher?",
@@ -513,7 +491,7 @@ export default {
         },
         {
           q: "What if a delivery arrives damaged or short?",
-          a: "Raise it with your account manager within [X days] with photographs. Verified claims are replaced on the next despatch or credited.",
+          a: "Just get in touch with the India desk with photographs — verified claims are replaced on the next despatch or credited, no back-and-forth needed.",
         },
       ],
     },
@@ -581,17 +559,24 @@ export default {
       phone: "Phone / WhatsApp",
       email: "Email",
       emailPlaceholder: "name@company.com",
+      optional: "(optional)",
       notes: "Anything else",
       notesPlaceholder: "Service volumes, timelines, existing supplier issues",
       sampleOptIn: "Send me a free trial sample pack along with the quote.",
       consentA: "I agree to Flareon contacting me about this enquiry and accept the",
       consentLink: "privacy policy",
       submit: "Send enquiry to the India desk",
-      sentTitle: "Enquiry noted.",
+      sentTitle: "Enquiry sent.",
       sentBody:
-        "This form is not wired to a mailbox yet — until it is, send the same details on WhatsApp and the India desk will pick it up the same working day.",
-      sentWhatsapp: "Continue on WhatsApp",
+        "Your enquiry has reached the India desk by email. We reply the same working day.",
+      sentWhatsappNudge: "For the fastest response, also send it on WhatsApp",
+      sentWhatsappNudgeNote: "One tap opens WhatsApp with your enquiry already filled in — just hit send.",
+      sentWhatsapp: "Share via WhatsApp",
       sentEdit: "Edit the enquiry",
+      errorTitle: "Couldn't send that.",
+      errorBody:
+        "Something went wrong submitting the form. Please try again, or reach us directly on WhatsApp.",
+      errorRetry: "Try again",
     },
 
     desk: {
@@ -603,7 +588,7 @@ export default {
       plant: "Plant & despatch",
       plantValue: "Palladam, Tamil Nadu",
       hours: "Desk hours",
-      hoursValue: "[Mon–Sat, X–X IST]",
+      hoursValue: "24x7",
       exportEyebrow: "Exporting instead?",
       exportBody: "Container loads, FOB/CIF and port delivery are handled separately.",
       exportCta: "Go to the Export Desk",

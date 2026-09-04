@@ -1,7 +1,7 @@
 import { Section } from "../components/ui";
 import { useMarket } from "../market-context";
 import PageHero from "../components/PageHero";
-import media, { gallery } from "../data/images";
+import { gallery } from "../data/images";
 
 // Each frame keeps the aspect ratio the photo was shot at, so nothing is
 // force-cropped into a square. The caption slides up on hover and on keyboard
@@ -48,7 +48,6 @@ export default function Gallery() {
           </>
         }
         sub={c.gallery.sub}
-        image={media.plant.conveyorCrates}
       />
 
       <Section tone="raised">

@@ -2,16 +2,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { company } from "../data/site";
 import { useMarket } from "../market-context";
-import {
-  Section,
-  SectionHead,
-  Button,
-  Eyebrow,
-  Coal,
-  Fills,
-} from "../components/ui";
+import { Section, SectionHead, Button, Coal, Fills } from "../components/ui";
 import PageHero from "../components/PageHero";
-import media, { clientLogos } from "../data/images";
+import { clientLogos } from "../data/images";
+import { submitForm } from "../lib/submitForm";
+import { buildWhatsAppUrl } from "../lib/whatsapp";
 
 const field =
   "w-full rounded-md border border-line bg-ink-2 px-4 py-3 text-sm text-ash placeholder:text-ash-3/70 focus:border-ember/60 focus:outline-none focus:ring-1 focus:ring-ember/40";
@@ -24,7 +19,20 @@ const KG_PER_STATION_HOUR = 0.35;
 // Cities are operational facts, not copy, so they live here rather than in the
 // locale files. Add or move a city between the three tiers as coverage changes.
 const coverage = {
-  priority: ["Coimbatore", "Tiruppur", "Erode", "[add city]"],
+  priority: [
+    "Coimbatore",
+    "Tiruppur",
+    "Erode",
+    "Palladam",
+    "Pollachi",
+    "Salem",
+    "Karur",
+    "Namakkal",
+    "Avinashi",
+    "Perundurai",
+    "Mettupalayam",
+    "Udumalpet",
+  ],
   standard: [
     "Chennai",
     "Bengaluru",
@@ -32,21 +40,31 @@ const coverage = {
     "Kochi",
     "Madurai",
     "Mysuru",
-    "[add city]",
+    "Tiruchirapalli",
+    "Thiruvananthapuram",
+    "Vijayawada",
+    "Visakhapatnam",
+    "Mangaluru",
+    "Puducherry",
   ],
-  onRequest: ["Mumbai", "Pune", "Delhi NCR", "Goa", "Kolkata"],
+  onRequest: [
+    "Mumbai",
+    "Pune",
+    "Delhi NCR",
+    "Kolkata",
+    "Ahmedabad",
+    "Surat",
+    "Jaipur",
+    "Lucknow",
+    "Chandigarh",
+    "Indore",
+    "Nagpur",
+    "Bhubaneswar",
+    "Guwahati",
+    "Patna",
+    "Goa",
+  ],
 };
-
-function KeyValue({ k, v }) {
-  return (
-    <div className="flex items-baseline justify-between gap-4 border-t border-line py-2.5 first:border-t-0">
-      <span className="text-[14px] text-ash-3">{k}</span>
-      <span className="text-end font-mono text-[14px] text-ash">
-        <Fills>{v}</Fills>
-      </span>
-    </div>
-  );
-}
 
 function Hero() {
   const { c } = useMarket();
@@ -60,39 +78,12 @@ function Hero() {
         </>
       }
       sub={c.india.hero.sub}
-      image={media.horeca.grill}
     >
-      <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-        <div>
-          <div className="flex flex-wrap gap-3">
-            <Button href="#india-form">{c.india.hero.ctaPrimary} →</Button>
-            <Button variant="outline" href={company.whatsappHref}>
-              {c.india.hero.ctaSecondary}
-            </Button>
-          </div>
-          <div className="mt-7 flex flex-wrap gap-2.5">
-            {c.india.hero.chips.map((chip) => (
-              <span
-                key={chip}
-                className="inline-flex items-center gap-2 rounded-full border border-line bg-ink-2/80 px-3.5 py-1.5 text-[12.5px] text-ash-2"
-              >
-                <Coal />
-                <Fills>{chip}</Fills>
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="panel p-6">
-          <h2 className="text-[17px] font-bold text-ash">
-            {c.india.glance.title}
-          </h2>
-          <div className="mt-4">
-            {c.india.glance.rows.map((r) => (
-              <KeyValue key={r.k} k={r.k} v={r.v} />
-            ))}
-          </div>
-        </div>
+      <div className="flex flex-wrap gap-3">
+        <Button href="#india-form">{c.india.hero.ctaPrimary} →</Button>
+        <Button variant="outline" href={company.whatsappHref}>
+          {c.india.hero.ctaSecondary}
+        </Button>
       </div>
     </PageHero>
   );
@@ -161,32 +152,34 @@ function Comparison() {
     <Section tone="raised">
       <SectionHead eyebrow={t.eyebrow} title={t.title} sub={t.sub} />
       <div className="mt-10 overflow-x-auto rounded-xl border border-line">
-        <table className="w-full min-w-[640px] border-collapse text-start">
+        <table className="w-full min-w-[680px] border-collapse text-start">
           <thead>
             <tr>
               {[t.head.what, t.head.them].map((h) => (
                 <th
                   key={h}
-                  className="border-b border-line bg-ink-3 px-5 py-4 text-start font-mono text-[11.5px] font-medium tracking-[0.09em] text-ash uppercase"
+                  className="border-b border-line bg-ink-3 px-6 py-5 text-start font-mono text-[12.5px] font-semibold tracking-[0.09em] text-ash uppercase"
                 >
                   {h}
                 </th>
               ))}
-              <th className="border-x border-b border-ember/40 border-b-line bg-linear-to-b from-[#3a1f0e] to-[#2b1608] px-5 py-4 text-start font-mono text-[11.5px] font-medium tracking-[0.09em] text-glow uppercase">
+              <th className="border-x border-b border-ember/40 border-b-line bg-linear-to-b from-[#3a1f0e] to-[#2b1608] px-6 py-5 text-start font-mono text-[12.5px] font-semibold tracking-[0.09em] text-glow uppercase">
                 {t.head.us}
               </th>
             </tr>
           </thead>
           <tbody>
-            {t.rows.map((r) => (
-              <tr key={r.k} className="group">
-                <td className="border-b border-line bg-ink-2 px-5 py-4 text-[14px] text-ash-2 group-last:border-b-0">
+            {t.rows.map((r, i) => (
+              <tr key={r.k} className={`group ${i % 2 === 1 ? "bg-white/[0.015]" : ""}`}>
+                <td className="border-b border-line px-6 py-5 text-[16px] font-semibold text-ash group-last:border-b-0">
                   {r.k}
                 </td>
-                <td className="border-b border-line bg-ink-2 px-5 py-4 text-[14px] text-ash-3 group-last:border-b-0">
+                <td className="border-b border-line px-6 py-5 text-[15px] leading-relaxed text-ash-3 group-last:border-b-0">
+                  <span className="me-2 text-ash-3/60">✕</span>
                   {r.them}
                 </td>
-                <td className="border-x border-b border-ember/25 border-b-line bg-ember/8 px-5 py-4 text-[14px] font-medium text-ash group-last:border-b-0">
+                <td className="border-x border-b border-ember/25 border-b-line bg-ember/8 px-6 py-5 text-[15px] leading-relaxed font-medium text-ash group-last:border-b-0">
+                  <span className="me-2 text-glow">✓</span>
                   {r.us}
                 </td>
               </tr>
@@ -210,17 +203,14 @@ function Packs() {
         title={c.india.packs.title}
         sub={c.india.packs.sub}
       />
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {c.india.packs.items.map((p) => (
-          <div key={p.size} className="panel panel-hover p-6 text-center">
-            <div className="font-display text-[1.9rem] font-extrabold text-ash">
+          <div key={p.size} className="panel panel-hover p-7 text-center">
+            <div className="font-display text-[2.1rem] font-black tracking-tight text-ash">
               {p.size}
             </div>
-            <p className="mt-2 text-[13px] leading-relaxed text-ash-3">
+            <p className="mt-2.5 text-[15px] leading-relaxed text-ash-3">
               {p.for}
-            </p>
-            <p className="mt-4 border-t border-line pt-3 font-mono text-[11.5px] text-glow">
-              <Fills>{p.moq}</Fills>
             </p>
           </div>
         ))}
@@ -253,12 +243,18 @@ function Estimator() {
   return (
     <Section tone="raised">
       <SectionHead eyebrow={t.eyebrow} title={t.title} sub={t.sub} />
-      <div className="panel mt-9 grid gap-8 p-7 lg:grid-cols-2 lg:items-center">
-        <div className="space-y-5">
+      <div className="panel mt-9 grid gap-px overflow-hidden rounded-2xl border border-line bg-line lg:grid-cols-2">
+        <div className="space-y-7 bg-ink-2 p-7 md:p-9">
           {sliders.map((s) => (
             <div key={s.id}>
-              <label className={label} htmlFor={`calc-${s.id}`}>
-                {s.label}: <b className="text-ash">{s.value}</b>
+              <label
+                className="mb-2.5 flex items-baseline justify-between font-mono text-[11.5px] tracking-[0.08em] text-ash-3 uppercase"
+                htmlFor={`calc-${s.id}`}
+              >
+                <span>{s.label}</span>
+                <span className="font-mono text-[15px] font-bold text-glow">
+                  {String(s.value).padStart(2, "0")}
+                </span>
               </label>
               <input
                 id={`calc-${s.id}`}
@@ -267,25 +263,55 @@ function Estimator() {
                 max={s.max}
                 value={s.value}
                 onChange={(e) => s.set(+e.target.value)}
-                className="w-full accent-ember"
+                style={{ "--fill": `${((s.value - s.min) / (s.max - s.min)) * 100}%` }}
+                className="tech-slider w-full"
               />
             </div>
           ))}
-          <p className="font-mono text-[12.5px] text-ash-3">
+          <p className="border-t border-line pt-5 font-mono text-[12px] leading-relaxed text-ash-3">
+            <span className="text-glow">// </span>
             {t.assume.replace("{kg}", KG_PER_STATION_HOUR)}
           </p>
         </div>
 
-        <div className="rounded-lg border border-line bg-ink-3 p-6">
-          <div className="font-display text-[2.2rem] font-extrabold text-glow">
-            {fmt(total)} {t.unitKg}
-          </div>
-          <p className="mt-1 text-[12.5px] text-ash-3">{t.kgMonth}</p>
-          <div className="mt-5">
-            <KeyValue k={t.perOutlet} v={`${fmt(perOutlet)} ${t.unitKg}`} />
-            <KeyValue k={t.suggestedPack} v={pack} />
-            <KeyValue k={t.cycle} v={cycle} />
-            <KeyValue k={t.rate} v={t.ratePlaceholder} />
+        <div className="tech-grid relative overflow-hidden bg-ink-3 p-7 md:p-9">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_100%_0%,rgba(255,90,31,0.16),transparent_70%)]" />
+          <div className="relative">
+            <p className="font-mono text-[11px] tracking-[0.1em] text-ash-3 uppercase">
+              {t.kgMonth}
+            </p>
+            <div className="mt-1.5 flex items-baseline gap-2">
+              <span className="font-display text-[2.6rem] leading-none font-black text-glow [text-shadow:0_0_28px_rgba(255,90,31,0.45)]">
+                {fmt(total)}
+              </span>
+              <span className="font-mono text-[15px] text-ash-3">
+                {t.unitKg}/mo
+              </span>
+            </div>
+
+            <div className="mt-6 divide-y divide-line rounded-lg border border-line bg-ink-2/70">
+              {[
+                [t.perOutlet, `${fmt(perOutlet)} ${t.unitKg}`],
+                [t.suggestedPack, pack],
+                [t.cycle, cycle],
+              ].map(([k, v]) => (
+                <div
+                  key={k}
+                  className="flex items-center justify-between px-4 py-3"
+                >
+                  <span className="font-mono text-[12px] text-ash-3 uppercase tracking-wide">
+                    {k}
+                  </span>
+                  <span className="font-mono text-[14px] font-medium text-ash">
+                    <Fills>{v}</Fills>
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <Button href="#india-form" size="sm" className="mt-6 w-full">
+              {t.rateCta} →
+            </Button>
           </div>
         </div>
       </div>
@@ -293,13 +319,13 @@ function Estimator() {
   );
 }
 
-function CityPills({ cities, highlight = false }) {
+function CityPills({ cities, highlight = false, trailing }) {
   return (
     <div className="flex flex-wrap gap-2.5">
       {cities.map((city) => (
         <span
           key={city}
-          className={`rounded-full border px-4 py-2 text-[13px] transition-colors ${
+          className={`rounded-full border px-4 py-2 text-[15px] transition-colors ${
             highlight
               ? "border-ember/45 bg-ember/8 text-glow"
               : "border-line bg-ink-2 text-ash-2 hover:border-ember/40 hover:text-ash"
@@ -308,6 +334,11 @@ function CityPills({ cities, highlight = false }) {
           <Fills>{city}</Fills>
         </span>
       ))}
+      {trailing && (
+        <span className="rounded-full border border-dashed border-ember/40 px-4 py-2 text-[15px] text-glow">
+          {trailing}
+        </span>
+      )}
     </div>
   );
 }
@@ -318,29 +349,15 @@ function Coverage() {
   return (
     <Section tone="ink">
       <SectionHead eyebrow={t.eyebrow} title={t.title} sub={t.sub} />
-      <div className="mt-10 grid gap-8 lg:grid-cols-2 lg:items-start">
-        <div>
-          <p className="eyebrow mb-3.5">{t.priority}</p>
-          <CityPills cities={coverage.priority} highlight />
-          <p className="eyebrow mt-7 mb-3.5">
-            <Fills>{t.standard}</Fills>
-          </p>
-          <CityPills cities={coverage.standard} />
-          <p className="eyebrow mt-7 mb-3.5">{t.onRequest}</p>
-          <CityPills cities={coverage.onRequest} />
-        </div>
-
-        <div className="panel p-7">
-          <h3 className="text-[18px] font-bold text-ash">{t.chains.title}</h3>
-          <p className="mt-3 text-[14px] leading-relaxed text-ash-3">
-            {t.chains.body}
-          </p>
-          <div className="mt-5">
-            {t.chains.rows.map((r) => (
-              <KeyValue key={r.k} k={r.k} v={r.v} />
-            ))}
-          </div>
-        </div>
+      <div className="mt-10">
+        <p className="eyebrow mb-4 text-[13px]">{t.priority}</p>
+        <CityPills cities={coverage.priority} highlight />
+        <p className="eyebrow mt-9 mb-4 text-[13px]">
+          <Fills>{t.standard}</Fills>
+        </p>
+        <CityPills cities={coverage.standard} />
+        <p className="eyebrow mt-9 mb-4 text-[13px]">{t.onRequest}</p>
+        <CityPills cities={coverage.onRequest} trailing={t.more} />
       </div>
     </Section>
   );
@@ -414,20 +431,6 @@ function Faq() {
   );
 }
 
-function Group({ n, title, children }) {
-  return (
-    <fieldset className="mb-5 rounded-xl border border-line bg-linear-to-b from-[#161619] to-[#121214] p-6 last:mb-0">
-      <legend className="flex items-center gap-2.5 px-1 font-mono text-[11.5px] font-bold tracking-[0.09em] text-glow uppercase">
-        <span className="grid size-5.5 place-items-center rounded-full border border-ember/40 bg-ember/15 text-[11px]">
-          {n}
-        </span>
-        {title}
-      </legend>
-      <div className="mt-4 space-y-4">{children}</div>
-    </fieldset>
-  );
-}
-
 function Select({ id, label: text, options, value, onChange }) {
   return (
     <div>
@@ -445,7 +448,7 @@ function Select({ id, label: text, options, value, onChange }) {
   );
 }
 
-function Sent({ onEdit }) {
+function Sent({ onEdit, waUrl }) {
   const { c } = useMarket();
   return (
     <div className="mt-8 rounded-lg border border-ember/40 bg-ember/5 p-7">
@@ -455,12 +458,44 @@ function Sent({ onEdit }) {
       <p className="mt-3 text-sm leading-relaxed text-ash-2">
         {c.india.form.sentBody}
       </p>
-      <div className="mt-6 flex flex-wrap gap-3">
-        <Button href={company.whatsappHref} size="sm">
-          {c.india.form.sentWhatsapp}
+
+      <div className="mt-6 rounded-md border border-line bg-ink-2 p-5">
+        <p className="text-sm font-semibold text-ash">
+          {c.india.form.sentWhatsappNudge}
+        </p>
+        <p className="mt-1.5 text-[13px] leading-relaxed text-ash-3">
+          {c.india.form.sentWhatsappNudgeNote}
+        </p>
+        <Button href={waUrl || company.whatsappHref} size="sm" className="mt-4">
+          {c.india.form.sentWhatsapp} →
         </Button>
-        <Button variant="outline" size="sm" onClick={onEdit}>
-          {c.india.form.sentEdit}
+      </div>
+
+      <button
+        type="button"
+        onClick={onEdit}
+        className="mt-4 text-[13px] text-ash-3 underline hover:text-ash-2"
+      >
+        {c.india.form.sentEdit}
+      </button>
+    </div>
+  );
+}
+
+function SendError({ onRetry }) {
+  const { c } = useMarket();
+  return (
+    <div className="mt-5 rounded-lg border border-[#e5484d]/40 bg-[#e5484d]/8 p-5">
+      <p className="text-sm font-bold text-ash">{c.india.form.errorTitle}</p>
+      <p className="mt-1.5 text-[13px] leading-relaxed text-ash-2">
+        {c.india.form.errorBody}
+      </p>
+      <div className="mt-4 flex flex-wrap gap-3">
+        <Button href={company.whatsappHref} size="sm" variant="outline">
+          WhatsApp
+        </Button>
+        <Button size="sm" onClick={onRetry}>
+          {c.india.form.errorRetry}
         </Button>
       </div>
     </div>
@@ -471,20 +506,15 @@ function EnquiryForm() {
   const { c } = useMarket();
   const f = c.india.form;
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
+  const [waUrl, setWaUrl] = useState("");
   const [form, setForm] = useState({
     business: "",
-    type: f.businessTypes[0],
-    outlets: f.outletBands[0],
-    gstin: "",
-    station: f.usedWhereOptions[0],
-    monthly: f.monthlyOptions[0],
-    pack: f.packOptions[0],
-    current: f.currentFuelOptions[0],
-    city: "",
-    pin: "",
     contact: "",
-    designation: "",
     phone: "",
+    city: "",
+    monthly: f.monthlyOptions[0],
     email: "",
     notes: "",
     sample: true,
@@ -494,195 +524,127 @@ function EnquiryForm() {
   const check = (k) => (e) =>
     setForm((s) => ({ ...s, [k]: e.target.checked }));
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSending(true);
+    setError(false);
+    const subject = `India HORECA enquiry — ${form.business || form.contact}`;
+    try {
+      await submitForm({ subject, data: form });
+      const url = buildWhatsAppUrl({
+        phone: company.whatsapp,
+        subject,
+        data: form,
+        skip: ["consent"],
+      });
+      setWaUrl(url);
+      setSent(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <div className="panel p-7 md:p-9" id="india-form">
-      <Eyebrow className="mb-2">{f.eyebrow}</Eyebrow>
-      <h2 className="text-2xl font-extrabold text-ash">{f.title}</h2>
+      <h2 className="text-2xl font-extrabold text-ash">{f.eyebrow} Form</h2>
       <p className="mt-3 text-[14px] text-ash-3">{f.sub}</p>
 
       {sent ? (
-        <Sent onEdit={() => setSent(false)} />
+        <Sent onEdit={() => setSent(false)} waUrl={waUrl} />
       ) : (
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-          }}
-          className="mt-7"
-        >
-          <Group n="1" title={f.group1}>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div>
-                <label className={label} htmlFor="in-business">
-                  {f.businessName}
-                </label>
-                <input
-                  id="in-business"
-                  required
-                  className={field}
-                  placeholder={f.businessNamePlaceholder}
-                  value={form.business}
-                  onChange={set("business")}
-                />
-              </div>
-              <Select
-                id="in-type"
-                label={f.businessType}
-                options={f.businessTypes}
-                value={form.type}
-                onChange={set("type")}
+        <form onSubmit={handleSubmit} className="mt-7">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label className={label} htmlFor="in-business">
+                {f.businessName}
+              </label>
+              <input
+                id="in-business"
+                required
+                className={field}
+                placeholder={f.businessNamePlaceholder}
+                value={form.business}
+                onChange={set("business")}
               />
-              <Select
-                id="in-outlets"
-                label={f.outlets}
-                options={f.outletBands}
-                value={form.outlets}
-                onChange={set("outlets")}
-              />
-              <div>
-                <label className={label} htmlFor="in-gstin">
-                  {f.gstin}{" "}
-                  <span className="font-normal text-ash-3">{f.gstinNote}</span>
-                </label>
-                <input
-                  id="in-gstin"
-                  className={field}
-                  placeholder={f.gstinPlaceholder}
-                  value={form.gstin}
-                  onChange={set("gstin")}
-                />
-              </div>
-            </div>
-          </Group>
-
-          <Group n="2" title={f.group2}>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <Select
-                id="in-station"
-                label={f.usedWhere}
-                options={f.usedWhereOptions}
-                value={form.station}
-                onChange={set("station")}
-              />
-              <Select
-                id="in-monthly"
-                label={f.monthly}
-                options={f.monthlyOptions}
-                value={form.monthly}
-                onChange={set("monthly")}
-              />
-              <Select
-                id="in-pack"
-                label={f.packSize}
-                options={f.packOptions}
-                value={form.pack}
-                onChange={set("pack")}
-              />
-              <Select
-                id="in-current"
-                label={f.currentFuel}
-                options={f.currentFuelOptions}
-                value={form.current}
-                onChange={set("current")}
-              />
-            </div>
-          </Group>
-
-          <Group n="3" title={f.group3}>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div>
-                <label className={label} htmlFor="in-city">
-                  {f.city}
-                </label>
-                <input
-                  id="in-city"
-                  required
-                  className={field}
-                  placeholder={f.cityPlaceholder}
-                  value={form.city}
-                  onChange={set("city")}
-                />
-              </div>
-              <div>
-                <label className={label} htmlFor="in-pin">
-                  {f.pin}
-                </label>
-                <input
-                  id="in-pin"
-                  inputMode="numeric"
-                  className={field}
-                  placeholder={f.pinPlaceholder}
-                  value={form.pin}
-                  onChange={set("pin")}
-                />
-              </div>
-              <div>
-                <label className={label} htmlFor="in-contact">
-                  {f.contact}
-                </label>
-                <input
-                  id="in-contact"
-                  required
-                  className={field}
-                  placeholder={f.contactPlaceholder}
-                  value={form.contact}
-                  onChange={set("contact")}
-                />
-              </div>
-              <div>
-                <label className={label} htmlFor="in-designation">
-                  {f.designation}
-                </label>
-                <input
-                  id="in-designation"
-                  className={field}
-                  placeholder={f.designationPlaceholder}
-                  value={form.designation}
-                  onChange={set("designation")}
-                />
-              </div>
-              <div>
-                <label className={label} htmlFor="in-phone">
-                  {f.phone}
-                </label>
-                <input
-                  id="in-phone"
-                  required
-                  className={field}
-                  placeholder="+91 "
-                  value={form.phone}
-                  onChange={set("phone")}
-                />
-              </div>
-              <div>
-                <label className={label} htmlFor="in-email">
-                  {f.email}
-                </label>
-                <input
-                  id="in-email"
-                  type="email"
-                  required
-                  className={field}
-                  placeholder={f.emailPlaceholder}
-                  value={form.email}
-                  onChange={set("email")}
-                />
-              </div>
             </div>
             <div>
-              <label className={label} htmlFor="in-notes">
-                {f.notes}
+              <label className={label} htmlFor="in-contact">
+                {f.contact}
               </label>
-              <textarea
-                id="in-notes"
-                rows={3}
+              <input
+                id="in-contact"
+                required
                 className={field}
-                placeholder={f.notesPlaceholder}
-                value={form.notes}
-                onChange={set("notes")}
+                placeholder={f.contactPlaceholder}
+                value={form.contact}
+                onChange={set("contact")}
               />
             </div>
-          </Group>
+            <div>
+              <label className={label} htmlFor="in-phone">
+                {f.phone}
+              </label>
+              <input
+                id="in-phone"
+                required
+                className={field}
+                placeholder="+91 "
+                value={form.phone}
+                onChange={set("phone")}
+              />
+            </div>
+            <div>
+              <label className={label} htmlFor="in-city">
+                {f.city}
+              </label>
+              <input
+                id="in-city"
+                required
+                className={field}
+                placeholder={f.cityPlaceholder}
+                value={form.city}
+                onChange={set("city")}
+              />
+            </div>
+            <Select
+              id="in-monthly"
+              label={f.monthly}
+              options={f.monthlyOptions}
+              value={form.monthly}
+              onChange={set("monthly")}
+            />
+            <div>
+              <label className={label} htmlFor="in-email">
+                {f.email}{" "}
+                <span className="font-normal text-ash-3">{f.optional}</span>
+              </label>
+              <input
+                id="in-email"
+                type="email"
+                className={field}
+                placeholder={f.emailPlaceholder}
+                value={form.email}
+                onChange={set("email")}
+              />
+            </div>
+          </div>
+
+          <div className="mt-4">
+            <label className={label} htmlFor="in-notes">
+              {f.notes}{" "}
+              <span className="font-normal text-ash-3">{f.optional}</span>
+            </label>
+            <textarea
+              id="in-notes"
+              rows={2}
+              className={field}
+              placeholder={f.notesPlaceholder}
+              value={form.notes}
+              onChange={set("notes")}
+            />
+          </div>
 
           <div className="mt-5 space-y-2">
             <label className="flex gap-3 rounded-md p-2.5 text-[13px] leading-relaxed text-ash-2 hover:bg-ink-2">
@@ -712,9 +674,10 @@ function EnquiryForm() {
             </label>
           </div>
 
-          <Button type="submit" size="lg" className="mt-5 w-full">
-            {f.submit} →
+          <Button type="submit" size="lg" className="mt-5 w-full" disabled={sending}>
+            {sending ? "Sending…" : `${f.submit} →`}
           </Button>
+          {error && <SendError onRetry={() => setError(false)} />}
         </form>
       )}
     </div>
@@ -732,26 +695,26 @@ function Desk() {
   ];
   return (
     <div className="panel p-7">
-      <h3 className="text-[18px] font-bold text-ash">{d.title}</h3>
-      <p className="mt-2.5 text-[14px] leading-relaxed text-ash-3">{d.body}</p>
+      <h3 className="text-[20px] font-bold text-ash">{d.title}</h3>
+      <p className="mt-2.5 text-[16px] leading-relaxed text-ash-3">{d.body}</p>
       <div className="mt-4">
         {rows.map((r) => (
           <div
             key={r.k}
-            className="flex items-center gap-3 border-t border-line py-3.5"
+            className="flex items-center gap-3 border-t border-line py-4"
           >
             <Coal />
             <div>
-              <div className="text-[11.5px] text-ash-3">{r.k}</div>
+              <div className="text-[13px] text-ash-3">{r.k}</div>
               {r.href ? (
                 <a
                   href={r.href}
-                  className="font-mono text-[13.5px] text-ash hover:text-glow"
+                  className="font-mono text-[15.5px] text-ash hover:text-glow"
                 >
                   {r.v}
                 </a>
               ) : (
-                <div className="font-mono text-[13.5px] text-ash">
+                <div className="font-mono text-[15.5px] text-ash">
                   <Fills>{r.v}</Fills>
                 </div>
               )}
@@ -761,7 +724,7 @@ function Desk() {
       </div>
       <div className="mt-6 border-t border-line pt-5">
         <p className="eyebrow mb-2.5">{d.exportEyebrow}</p>
-        <p className="text-[13.5px] leading-relaxed text-ash-3">
+        <p className="text-[15px] leading-relaxed text-ash-3">
           {d.exportBody}
         </p>
         <Button to="/export-quote" variant="outline" className="mt-4 w-full">

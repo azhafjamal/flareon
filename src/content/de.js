@@ -7,6 +7,7 @@ export default {
     gallery: "Galerie",
     compliance: "Spezifikationen & Zertifikate",
     export: "Export-Desk",
+    india: "Indien-Lieferung",
   },
 
   cta: {
