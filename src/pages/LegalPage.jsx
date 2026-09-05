@@ -103,7 +103,10 @@ export default function LegalPage({ doc }) {
       </PageHero>
 
       <div className="shell grid gap-12 py-16 lg:grid-cols-[minmax(0,1fr)_15rem] lg:items-start">
-        <article className="max-w-3xl">
+        {/* min-w-0: without it this grid item refuses to shrink below the
+            min-content width of the widest block inside it (the 520px spec
+            table), which drags every paragraph off the side of a phone. */}
+        <article className="min-w-0 max-w-3xl">
           {page.blocks.map((block, i) => (
             <Block key={i} block={block} />
           ))}

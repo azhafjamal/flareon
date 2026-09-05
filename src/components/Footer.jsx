@@ -139,7 +139,7 @@ export default function Footer() {
 
         <div>
           <p className="eyebrow mb-4">{c.footer.navigate}</p>
-          <ul className="space-y-2 text-sm">
+          <ul className="space-y-1 text-sm">
             {[
               ["/", c.nav.home],
               ["/company", c.nav.company],
@@ -150,7 +150,7 @@ export default function Footer() {
               ["/export-quote", c.nav.export],
             ].map(([to, label]) => (
               <li key={to}>
-                <Link to={to} className="text-ash-2 hover:text-glow">
+                <Link to={to} className="block py-1.5 text-ash-2 hover:text-glow">
                   {label}
                 </Link>
               </li>

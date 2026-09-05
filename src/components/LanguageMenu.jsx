@@ -45,10 +45,14 @@ export default function LanguageMenu() {
         </span>
       </button>
 
+      {/* On phones the trigger is only a flag wide, so a 256px panel anchored to
+          its right edge runs off the left of the screen. Below `sm` the menu
+          drops to a full-width sheet under the bar instead; from `sm` up there
+          is room for the anchored dropdown. */}
       {open && (
         <div
           role="listbox"
-          className="absolute end-0 z-50 mt-2 w-64 overflow-hidden rounded-lg border border-line bg-ink-2 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.95)]"
+          className="fixed inset-x-4 top-[4.25rem] z-50 overflow-hidden rounded-lg border border-line bg-ink-2 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.95)] sm:absolute sm:inset-x-auto sm:end-0 sm:top-full sm:mt-2 sm:w-64"
         >
           <p className="eyebrow border-b border-line px-4 py-3">
             {c.common.languageMarket}

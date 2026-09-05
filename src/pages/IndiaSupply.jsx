@@ -16,7 +16,7 @@ import { submitForm } from "../lib/submitForm";
 import { buildWhatsAppUrl } from "../lib/whatsapp";
 
 const field =
-  "w-full rounded-md border border-line bg-ink-2 px-4 py-3 text-sm text-ash placeholder:text-ash-3/70 focus:border-ember/60 focus:outline-none focus:ring-1 focus:ring-ember/40";
+  "w-full rounded-md border border-line bg-ink-2 px-4 py-3 text-base text-ash sm:text-sm placeholder:text-ash-3/70 focus:border-ember/60 focus:outline-none focus:ring-1 focus:ring-ember/40";
 const label = "mb-2 block text-[13px] font-medium text-ash-2";
 
 // Planning assumption behind the estimator. Replace with the real consumption

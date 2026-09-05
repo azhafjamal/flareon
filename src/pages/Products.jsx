@@ -189,7 +189,9 @@ function ActivatedCarbon() {
           </Button>
         </div>
         {/* No product photography until the line is running. */}
-        <div className="panel grid aspect-16/10 place-items-center p-8 text-center">
+        {/* relative + overflow-hidden keep the pulse glow inside the panel —
+            without a positioned parent it escaped and stretched the page. */}
+        <div className="panel relative grid aspect-16/10 place-items-center overflow-hidden p-8 text-center">
           <div>
             <span className="ember-pulse pointer-events-none absolute inset-0 -z-10" />
             <p className="font-display text-4xl font-black tracking-tight text-ash md:text-5xl">
