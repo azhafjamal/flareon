@@ -46,6 +46,7 @@ export default {
     ash: "Aschegehalt",
     moisture: "Feuchtigkeit",
     burn: "Brenndauer",
+    extraLong: "Sehr lang",
     fixedCarbon: "Fixer Kohlenstoff",
     mostExported: "Meistexportiert",
     priceCta: "FOB-Preis für {grade}",
@@ -57,7 +58,7 @@ export default {
       h1a: "Indiens größter integrierter",
       h1b: "Kokosschalen-Holzkohle-",
       h1c: "Brikett-Hersteller",
-      sub: "Chemikalienfreie BBQ-Briketts in Exportqualität — hohe Hitze, 4 Stunden Brenndauer und extrem niedrige Asche (<12 %). Direkte Werkskapazität von 5.000 Tonnen pro Jahr.",
+      sub: "Chemikalienfreie BBQ-Briketts in Exportqualität — hohe Hitze, sehr lange Brenndauer und extrem niedrige Asche (<12 %). Direkte Werkskapazität von 5.000 Tonnen pro Jahr.",
     },
     pillars: {
       eyebrow: "Warum diese Kohle anders brennt",
@@ -143,10 +144,10 @@ export default {
       sub: "Kokosschalen-Holzkohlebriketts für den Grill und Aktivkohle für die Filtration — als Schüttgut, in Verkaufsverpackung oder vollständig als Handelsmarke unter Ihrem eigenen Namen.",
     },
     briquettes: {
-      figureLabel: "Vier Stunden gleichmäßige Hitze",
+      figureLabel: "Sehr lange, gleichmäßige Hitze",
       figureNote: "Gepresst aus verkohlter Kokosschale, ausschließlich mit Kartoffelstärke als Bindemittel.",
       shapesEyebrow: "Formen, die wir pressen",
-      shapesTitle: "Vier Formen, jede für eine andere Aufgabe",
+      shapesTitle: "Drei Formen, jede für eine andere Aufgabe",
       shapesSub: "Jede Form hat dieselbe Chemie — die Geometrie verändert, wie sie zündet, stapelt und brennt.",
       gradesEyebrow: "Qualitätsvergleich",
       gradesTitle: "Drei Qualitäten desselben Briketts",
@@ -220,8 +221,13 @@ export default {
       portPlaceholder: "Hafenname, Land",
       containerLoad: "Containerladung",
       grade: "Qualität",
-      cartonSize: "Umkartongröße",
-      cartonUnit: "kg",
+      palletization: "Palettierung",
+      palletizationOptions: {
+        Palletized: "Palettiert",
+        "Non-Palletized / Loose Loading": "Unpalettiert / lose Verladung",
+        "Palletized + Stretch Wrapped": "Palettiert + stretchfoliert",
+        "Palletized + Strapped & Wrapped": "Palettiert + umreift & foliert",
+      },
       paymentTerms: "Zahlungsbedingungen",
       paymentTT: "T/T Banküberweisung",
       paymentLC: "Unwiderrufliches Akkreditiv (L/C)",
@@ -342,15 +348,15 @@ export default {
   productItems: {
     briquettes: {
       name: "Kokosschalen-Holzkohlebriketts für BBQ",
-      blurb: "Sechskant-, Kissen-, Würfel- und Wabenformen, entwickelt für gewerbliche Barbecue-Küchen, Shisha-Lounges und Supermarktregale.",
+      blurb: "Sechskant-, Kissen- und Würfel-/Shishaformen, entwickelt für gewerbliche Barbecue-Küchen, Shisha-Lounges und Supermarktregale.",
       points: [
-        "Über 4 Stunden Brenndauer, in 20 Minuten einsatzbereit",
+        "Sehr lange Brenndauer, in 20 Minuten einsatzbereit",
         "Minimaler Ascherückstand und gleichmäßig hohe Hitze",
         "Geruchsfrei, rauchfrei und vollständig natürliche Zusammensetzung",
         "Hohe Dichte für längeren Brand und einfache Handhabung",
       ],
       pointsFull: [
-        "Über 4 Stunden Brenndauer",
+        "Sehr lange Brenndauer",
         "Minimaler Ascherückstand",
         "Geruchs- und rauchfrei",
         "In 20 Minuten heiß",
@@ -388,19 +394,11 @@ export default {
       ],
     },
     cube: {
-      name: "Würfel",
+      name: "Würfel/Shisha",
       points: [
         "Auf Shisha-Kopfgrößen geschnitten — 22 mm, 25 mm und 26 mm",
         "Dichter, aschearmer Körper für eine ganze Session",
         "Scharfe Kanten zünden auf dem Anzündgrill schnell durch",
-      ],
-    },
-    honeycomb: {
-      name: "Wabe",
-      points: [
-        "Die mehrfach gelochte Fläche bietet die größte Brennfläche",
-        "Schnellster Hitzeaufbau, wenn ein Grill in Minuten stehen muss",
-        "Steht flach und stabil in Öfen und Eimergrills",
       ],
     },
   },
@@ -418,7 +416,7 @@ export default {
       ["Flüchtige Bestandteile (%)", "19,8 % — saubere Hitze", "30,2 % — starke Rauchgase"],
       ["Aschegehalt (%)", "11,5 % — minimale Asche", "20,1 % — viel Asche"],
       ["Feuchtegehalt (%)", "4,8 %", "5,9 %"],
-      ["Brenndauer", "4 Stunden (240 Min.)", "1,5 – 2 Stunden"],
+      ["Brenndauer", "Sehr lang", "1,5 – 2 Stunden"],
       ["Zeit bis zur Aschedecke", "über 50 Minuten", "ca. 30 Minuten"],
     ],
   },
@@ -452,15 +450,15 @@ export default {
 
   oem: [
     { title: "Individueller Kartondruck", body: "Vollfarbige Druckdaten, Barcode-Konformität und Ihr Markenlogo auf jedem Karton." },
-    { title: "Umkartongrößen", body: "Umkartons in 1 kg, 3 kg, 5 kg und 10 kg." },
+    { title: "Palettierungsoptionen", body: "Palettiert, unpalettiert / lose Verladung, palettiert + stretchfoliert, oder palettiert + umreift & foliert." },
     { title: "Feuchtigkeitsschutz", body: "Innenliegende Polyauskleidung, ausgelegt auf die Feuchtigkeit der Seefracht." },
   ],
 
   exportTerms: [
-    { k: "Verladehäfen", v: "Hafen Tuticorin / Hafen Chennai, Indien" },
+    { k: "Verladehäfen", v: "Hafen Tuticorin / Hafen Chennai / Hafen Cochin, Indien" },
     { k: "Mindestmenge (MOQ)", v: "Flexibel — ab 1 × 20-Fuß-FCL" },
     { k: "Zahlungsbedingungen", v: "T/T Banküberweisung & unwiderrufliches Akkreditiv" },
-    { k: "Individuelle Verpackung", v: "Handelsmarke, Umkartons 1 kg / 3 kg / 10 kg" },
+    { k: "Individuelle Verpackung", v: "Handelsmarkenverpackung nach Ihrer Vorgabe, auf Wunsch palettiert" },
   ],
 
   containers: {
@@ -508,7 +506,7 @@ export default {
     },
     {
       q: "Machen Sie Handelsmarke / OEM?",
-      a: "Ja. Vollfarbiger Kartondruck, Barcode-Konformität, Ihr Logo und Umkartons in 1/3/5/10 kg. Senden Sie Druckdaten oder fordern Sie unsere Stanzvorlage an.",
+      a: "Ja. Vollfarbiger Kartondruck, Barcode-Konformität, Ihr Logo und Verpackung nach Ihrer Vorgabe, auf Wunsch palettiert. Senden Sie Druckdaten oder fordern Sie unsere Stanzvorlage an.",
     },
     {
       q: "Können wir das Werk besuchen?",
@@ -519,7 +517,7 @@ export default {
   partnerNote: [
     "Über die Jahre habe ich dieses Geschäft auf dauerhaften Beziehungen, globalen Märkten und Wert aufgebaut, der durch Vertrauen, Verlässlichkeit und Innovation entsteht — Integrität und Zuverlässigkeit stehen immer an erster Stelle.",
     "🤝 Wir arbeiten mit Importeuren, Großhändlern, Distributoren, Einzelhändlern und Industriekunden auf internationalen und lokalen Märkten zusammen — zu Bedingungen, die auf lange Sicht gebaut sind.",
-    "🌱 Unser Programm umfasst hochwertige Kokosschalen-Holzkohlebriketts in Sechskant-, Kissen-, Waben- und Würfelform, gemacht für die Anforderungen globaler Branchen.",
+    "🌱 Unser Programm umfasst hochwertige Kokosschalen-Holzkohlebriketts in Sechskant-, Kissen- und Würfel-/Shishaform, gemacht für die Anforderungen globaler Branchen.",
     "♻️ Nachhaltigkeit steht im Zentrum: erneuerbaren Schalenabfall in leistungsfähige Produkte zu verwandeln hilft unseren Kunden beim Umstieg auf saubere Energie.",
     "📩 Ob Sie einen verlässlichen Lieferanten brauchen oder eine Chance ausloten wollen — ich freue mich auf den Kontakt. Bauen wir nachhaltige Partnerschaften und schaffen wir gemeinsam Wert.",
   ],
@@ -548,7 +546,7 @@ export default {
     "Kissenbriketts zum Trocknen ausgelegt",
     "Schalenkohlestücke und gemahlener Kohlenstoff nebeneinander",
     "Getrocknete Briketts fallen auf das Übergabeband",
-    "Ein gleichmäßiges Glutbett — vier Stunden konstante Hitze",
+    "Ein gleichmäßiges Glutbett — sehr lange, konstante Hitze",
     "Frische Briketts in Trockenkisten sortiert",
     "Lagergang auf der Versandseite",
     "Die Siebstraße spät in der Schicht",

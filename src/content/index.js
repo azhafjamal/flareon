@@ -2,13 +2,14 @@ import en from "./en";
 import ru from "./ru";
 import de from "./de";
 import nl from "./nl";
+import es from "./es";
 import zh from "./zh";
 import ja from "./ja";
 import ar from "./ar";
 
 // Every locale the market switcher can select. A locale that isn't listed here
 // simply resolves to English via getContent() below.
-const locales = { en, ru, de, nl, zh, ja, ar };
+const locales = { en, ru, de, nl, es, zh, ja, ar };
 
 // Deep-merge a locale over English so any string a translator hasn't reached
 // yet renders in English rather than disappearing. Arrays merge per index, so a

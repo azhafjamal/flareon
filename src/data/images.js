@@ -42,7 +42,6 @@ export const media = {
     pillow: img("briquette-pillow.jpg", "Pillow-shaped coconut charcoal briquettes"),
     hexagon: img("briquette-hexagon.jpg", "Hexagonal coconut charcoal briquette logs"),
     cube: img("briquette-cube.jpg", "Cube coconut charcoal briquettes stacked"),
-    round: img("briquette-round.jpg", "Round honeycomb coconut charcoal briquettes"),
   },
 
   // Raw material & by-product
@@ -189,7 +188,7 @@ export const gallery = [
   { ...media.plant.dryingTray, ratio: "wide", caption: "Pillow briquettes laid out to dry" },
   { ...media.material.rawSacks, ratio: "wide", caption: "Shell charcoal chips and milled carbon, side by side" },
   { ...media.plant.conveyorDrop, ratio: "tall", caption: "Dried briquettes dropping to the transfer belt" },
-  { ...media.fire.hero, ratio: "cinema", caption: "An even ember bed — four hours of steady heat" },
+  { ...media.fire.hero, ratio: "cinema", caption: "An even ember bed — extra-long, steady heat" },
   { ...media.plant.sorting, ratio: "wide", caption: "Fresh briquettes graded into drying crates" },
   { ...media.logistics.warehouseAisle, ratio: "wide", caption: "Warehouse aisle on the despatch side" },
   { ...media.plant.conveyorNight, ratio: "tall", caption: "The screening line running late in the shift" },

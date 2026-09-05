@@ -31,13 +31,13 @@ export const company = {
       href: "https://www.instagram.com/flareonbbq/",
     },
   ],
-  ports: "Tuticorin Port (220 km) / Chennai Port (450 km)",
+  ports: "Tuticorin Port (220 km) / Chennai Port (450 km) / Cochin Port (210 km)",
 };
 
 // Section 2 of the homepage wireframe.
 export const metrics = [
   { key: "capacity", value: "5,000 MT", label: "Annual export output" },
-  { key: "burn", value: "4", unit: "hours", label: "Guaranteed burn duration" },
+  { key: "burn", label: "Guaranteed burn duration" },
   { key: "power", value: "3.5 MW", label: "Captive windmill power" },
   { key: "chem", value: "0%", label: "Chemicals — food-grade binder only" },
 ];
@@ -94,17 +94,17 @@ export const products = [
     id: "briquettes",
     name: "Coconut Shell Charcoal Briquettes for BBQ",
     blurb:
-      "Hexagonal, pillow, cube and honeycomb shapes engineered for commercial barbecue kitchens, shisha lounges and retail supermarket shelves.",
+      "Hexagonal, pillow and cube/shisha shapes engineered for commercial barbecue kitchens, shisha lounges and retail supermarket shelves.",
     // Condensed to four lines for the homepage card; the full nine-point list
     // lives on the Products page.
     points: [
-      "4+ hours burning time & ready in 20 minutes",
+      "Extra-long burning time & ready in 20 minutes",
       "Minimal ash residue & uniform, high heat output",
       "Odourless, smokeless & all-natural composition",
       "High density for a longer burn & easy handling",
     ],
     pointsFull: [
-      "4+ hours burning time",
+      "Extra-long burning time",
       "Minimal ash residue",
       "Odourless & smokeless",
       "Heats up in 20 minutes",
@@ -112,7 +112,7 @@ export const products = [
       "High density for longer burn time",
       "Uniform, high heat output",
       "Easy handling",
-      "Lower carbon monoxide production when compared with wood charcoal",
+      "Lower carbon monoxide emission when compared with wood charcoal",
     ],
     cta: "Request briquette quote",
     available: true,
@@ -128,7 +128,7 @@ export const products = [
   },
 ];
 
-// Four pressed shapes — three distinguishing points each (Products page cards).
+// Three pressed shapes — three distinguishing points each (Products page cards).
 export const briquetteShapes = [
   {
     id: "hexagon",
@@ -150,20 +150,11 @@ export const briquetteShapes = [
   },
   {
     id: "cube",
-    name: "Cube",
+    name: "Cube/Shisha",
     points: [
       "Cut to shisha bowl sizes — 22 mm, 25 mm and 26 mm",
       "Dense, low-ash body sized for a full session",
       "Sharp edges catch quickly on a lighting grill",
-    ],
-  },
-  {
-    id: "honeycomb",
-    name: "Honeycomb",
-    points: [
-      "Multi-hole face gives the largest burning surface area",
-      "Fastest heat ramp when a grill needs to be up in minutes",
-      "Sits flat and stable in stoves and bucket grills",
     ],
   },
 ];
@@ -200,8 +191,7 @@ export const grades = [
     use: "Volume BBQ retail",
     ash: "< 14%",
     moisture: "< 6%",
-    burn: "3",
-    fixedCarbon: "≥ 72%",
+    fixedCarbon: "55%",
     price: "Indicative band on enquiry",
     highlight: false,
   },
@@ -210,8 +200,7 @@ export const grades = [
     use: "HORECA & supermarket private label",
     ash: "< 12%",
     moisture: "< 5%",
-    burn: "4",
-    fixedCarbon: "≥ 78%",
+    fixedCarbon: "60%",
     price: "Indicative band on enquiry",
     highlight: true,
   },
@@ -220,8 +209,7 @@ export const grades = [
     use: "Shisha lounges & specialty export",
     ash: "< 10%",
     moisture: "< 4.8%",
-    burn: "4+",
-    fixedCarbon: "≥ 82%",
+    fixedCarbon: "70%",
     price: "Indicative band on enquiry",
     highlight: false,
   },
@@ -234,7 +222,7 @@ export const benchmark = {
     ["Volatile matter (%)", "19.8% — clean heat", "30.2% — high fumes", "< 22.0%"],
     ["Ash content (%)", "11.5% — minimal ash", "20.1% — heavy ash", "< 14.0%"],
     ["Moisture content (%)", "4.8%", "5.9%", "< 6.0%"],
-    ["Burn duration", "4 hours (240 min)", "1.5 – 2 hours", "> 3 hours"],
+    ["Burn duration", "Extra-long", "1.5 – 2 hours", "> 3 hours"],
     ["Time to ash-over", "50+ minutes", "~30 minutes", "40+ minutes"],
   ],
 };
@@ -282,8 +270,8 @@ export const oem = [
     body: "Full CMYK artwork, barcode compliance and your brand logo on every carton.",
   },
   {
-    title: "Master carton sizes",
-    body: "1 kg, 3 kg, 5 kg and 10 kg master box options.",
+    title: "Palletization options",
+    body: "Palletized, non-palletized / loose loading, palletized + stretch wrapped, or palletized + strapped & wrapped.",
   },
   {
     title: "Moisture protection",
@@ -292,10 +280,10 @@ export const oem = [
 ];
 
 export const exportTerms = [
-  { k: "Loading ports", v: "Tuticorin Port / Chennai Port, India" },
+  { k: "Loading ports", v: "Tuticorin Port / Chennai Port / Cochin Port, India" },
   { k: "Minimum order (MOQ)", v: "Flexible — from 1 × 20ft FCL" },
   { k: "Payment terms", v: "T/T wire transfer & irrevocable L/C" },
-  { k: "Custom packaging", v: "Private label 1 kg / 3 kg / 10 kg master cartons" },
+  { k: "Custom packaging", v: "Private label packaging to your spec, palletized on request" },
 ];
 
 export const containers = [
@@ -342,7 +330,7 @@ export const sustainability = {
 export const partnerNote = [
   "Over the years I've built this business on lasting relationships, global markets, and value created through trust, consistency and innovation — integrity and reliability first, always.",
   "🤝 We work with importers, wholesalers, distributors, retailers and industrial buyers across international and local markets, on terms built for the long run.",
-  "🌱 Our range covers premium coconut shell charcoal briquettes in hexagonal, pillow, honeycomb and cube shapes, made to meet the needs of global industries.",
+  "🌱 Our range covers premium coconut shell charcoal briquettes in hexagonal, pillow and cube/shisha shapes, made to meet the needs of global industries.",
   "♻️ Sustainability sits at the heart of it: turning renewable shell waste into high-performance products helps our buyers move to cleaner energy.",
   "📩 Whether you need a dependable supplier or want to explore an opportunity, I'd be glad to connect. Let's build sustainable partnerships and create value together.",
 ];
@@ -366,7 +354,7 @@ export const faqs = [
   },
   {
     q: "Do you do private label / OEM?",
-    a: "Yes. Full CMYK carton printing, barcode compliance, your logo, and 1/3/5/10 kg master boxes. Send artwork or request our dieline template.",
+    a: "Yes. Full CMYK carton printing, barcode compliance, your logo, and packaging sized to your spec, palletized on request. Send artwork or request our dieline template.",
   },
   {
     q: "Can we visit the factory?",

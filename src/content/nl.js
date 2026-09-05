@@ -46,6 +46,7 @@ export default {
     ash: "Asgehalte",
     moisture: "Vochtgehalte",
     burn: "Brandduur",
+    extraLong: "Extra lang",
     fixedCarbon: "Vaste koolstof",
     mostExported: "Meest geëxporteerd",
     priceCta: "FOB-prijs voor {grade}",
@@ -57,7 +58,7 @@ export default {
       h1a: "India's grootste geïntegreerde",
       h1b: "kokosschaalhoutskool-",
       h1c: "briketproducent",
-      sub: "Chemievrije BBQ-briketten van exportkwaliteit, ontworpen voor hoge hitte, 4 uur brandduur en zeer laag asgehalte (<12%). Directe fabriekscapaciteit van 5.000 ton per jaar.",
+      sub: "Chemievrije BBQ-briketten van exportkwaliteit, ontworpen voor hoge hitte, extra lange brandduur en zeer laag asgehalte (<12%). Directe fabriekscapaciteit van 5.000 ton per jaar.",
     },
     pillars: {
       eyebrow: "Waarom deze kool anders brandt",
@@ -143,10 +144,10 @@ export default {
       sub: "Kokosschaalhoutskoolbriketten voor de grill en actieve kool voor filtratie — los geleverd, in verkoopverpakking of volledig onder uw eigen private label.",
     },
     briquettes: {
-      figureLabel: "Vier uur constante hitte",
+      figureLabel: "Extra lange, constante hitte",
       figureNote: "Geperst uit gecarboniseerde kokosschaal, uitsluitend met aardappelzetmeel als bindmiddel.",
       shapesEyebrow: "Vormen die wij persen",
-      shapesTitle: "Vier vormen, elk met een eigen taak",
+      shapesTitle: "Drie vormen, elk met een eigen taak",
       shapesSub: "Elke vorm heeft dezelfde chemie — de geometrie bepaalt hoe hij aansteekt, stapelt en brandt.",
       gradesEyebrow: "Kwaliteitsvergelijking",
       gradesTitle: "Drie kwaliteiten van dezelfde briket",
@@ -220,8 +221,13 @@ export default {
       portPlaceholder: "Havennaam, land",
       containerLoad: "Containerlading",
       grade: "Kwaliteit",
-      cartonSize: "Omdoosformaat",
-      cartonUnit: "kg",
+      palletization: "Palletisering",
+      palletizationOptions: {
+        Palletized: "Gepalletiseerd",
+        "Non-Palletized / Loose Loading": "Niet-gepalletiseerd / los geladen",
+        "Palletized + Stretch Wrapped": "Gepalletiseerd + stretchgefolied",
+        "Palletized + Strapped & Wrapped": "Gepalletiseerd + omsnoerd & gefolied",
+      },
       paymentTerms: "Betalingsvoorwaarden",
       paymentTT: "T/T bankoverschrijving",
       paymentLC: "Onherroepelijk letter of credit (L/C)",
@@ -342,15 +348,15 @@ export default {
   productItems: {
     briquettes: {
       name: "Kokosschaalhoutskoolbriketten voor BBQ",
-      blurb: "Hexagon-, pillow-, kubus- en honingraatvormen, ontwikkeld voor professionele barbecuekeukens, shishalounges en supermarktschappen.",
+      blurb: "Hexagon-, pillow- en kubus-/shishavormen, ontwikkeld voor professionele barbecuekeukens, shishalounges en supermarktschappen.",
       points: [
-        "Meer dan 4 uur brandduur en klaar in 20 minuten",
+        "Extra lange brandduur en klaar in 20 minuten",
         "Minimale asrest en gelijkmatige, hoge hitte",
         "Geurloos, rookloos en volledig natuurlijke samenstelling",
         "Hoge dichtheid voor langere brand en eenvoudig hanteren",
       ],
       pointsFull: [
-        "Meer dan 4 uur brandduur",
+        "Extra lange brandduur",
         "Minimale asrest",
         "Geurloos en rookloos",
         "Binnen 20 minuten heet",
@@ -388,19 +394,11 @@ export default {
       ],
     },
     cube: {
-      name: "Kubus",
+      name: "Kubus/Shisha",
       points: [
         "Op shisha-kopmaten gesneden — 22 mm, 25 mm en 26 mm",
         "Dichte, asarme body op maat van een volledige sessie",
         "Scherpe randen pakken snel aan op een aansteekgrill",
-      ],
-    },
-    honeycomb: {
-      name: "Honingraat",
-      points: [
-        "Het meervoudig geperforeerde vlak geeft het grootste brandoppervlak",
-        "Snelste hitteopbouw wanneer een grill in minuten moet staan",
-        "Staat vlak en stabiel in kachels en emmergrills",
       ],
     },
   },
@@ -418,7 +416,7 @@ export default {
       ["Vluchtige stoffen (%)", "19,8% — schone hitte", "30,2% — veel rookgassen"],
       ["Asgehalte (%)", "11,5% — minimale as", "20,1% — veel as"],
       ["Vochtgehalte (%)", "4,8%", "5,9%"],
-      ["Brandduur", "4 uur (240 min)", "1,5 – 2 uur"],
+      ["Brandduur", "Extra lang", "1,5 – 2 uur"],
       ["Tijd tot aslaag", "meer dan 50 minuten", "ca. 30 minuten"],
     ],
   },
@@ -452,15 +450,15 @@ export default {
 
   oem: [
     { title: "Dozen op maat bedrukt", body: "Volledig CMYK-artwork, barcodeconformiteit en uw merklogo op elke doos." },
-    { title: "Omdoosformaten", body: "Omdozen van 1 kg, 3 kg, 5 kg en 10 kg." },
+    { title: "Palletiseringsopties", body: "Gepalletiseerd, niet-gepalletiseerd / los geladen, gepalletiseerd + stretchgefolied, of gepalletiseerd + omsnoerd & gefolied." },
     { title: "Vochtbescherming", body: "Binnenzak van polyfolie, geschikt voor de vochtigheid van zeevracht." },
   ],
 
   exportTerms: [
-    { k: "Laadhavens", v: "Haven Tuticorin / haven Chennai, India" },
+    { k: "Laadhavens", v: "Haven Tuticorin / haven Chennai / haven Cochin, India" },
     { k: "Minimumorder (MOQ)", v: "Flexibel — vanaf 1 × 20ft FCL" },
     { k: "Betalingsvoorwaarden", v: "T/T bankoverschrijving & onherroepelijk L/C" },
-    { k: "Maatwerkverpakking", v: "Private label omdozen 1 kg / 3 kg / 10 kg" },
+    { k: "Maatwerkverpakking", v: "Private label verpakking naar uw specificatie, op verzoek gepalletiseerd" },
   ],
 
   containers: {
@@ -508,7 +506,7 @@ export default {
     },
     {
       q: "Doet u private label / OEM?",
-      a: "Ja. Volledig CMYK bedrukte dozen, barcodeconformiteit, uw logo en omdozen van 1/3/5/10 kg. Stuur artwork of vraag onze stanstemplate aan.",
+      a: "Ja. Volledig CMYK bedrukte dozen, barcodeconformiteit, uw logo en verpakking naar uw specificatie, op verzoek gepalletiseerd. Stuur artwork of vraag onze stanstemplate aan.",
     },
     {
       q: "Kunnen we de fabriek bezoeken?",
@@ -519,7 +517,7 @@ export default {
   partnerNote: [
     "Door de jaren heen heb ik dit bedrijf gebouwd op duurzame relaties, wereldwijde markten en waarde die ontstaat uit vertrouwen, consistentie en innovatie — integriteit en betrouwbaarheid staan altijd voorop.",
     "🤝 We werken samen met importeurs, groothandels, distributeurs, retailers en industriële kopers op internationale en lokale markten, op voorwaarden die zijn gebouwd voor de lange termijn.",
-    "🌱 Ons assortiment omvat premium kokosschaalhoutskoolbriketten in hexagon-, pillow-, honingraat- en kubusvorm, gemaakt voor de eisen van wereldwijde sectoren.",
+    "🌱 Ons assortiment omvat premium kokosschaalhoutskoolbriketten in hexagon-, pillow- en kubus-/shishavorm, gemaakt voor de eisen van wereldwijde sectoren.",
     "♻️ Duurzaamheid staat centraal: hernieuwbaar schaalafval omzetten in hoogwaardige producten helpt onze kopers over te stappen op schonere energie.",
     "📩 Of u een betrouwbare leverancier zoekt of een kans wilt verkennen — ik maak graag kennis. Laten we duurzame partnerships bouwen en samen waarde creëren.",
   ],
@@ -548,7 +546,7 @@ export default {
     "Pillowbriketten uitgelegd om te drogen",
     "Schaalkoolstukjes en gemalen koolstof naast elkaar",
     "Gedroogde briketten vallen op de transportband",
-    "Een gelijkmatig gloeibed — vier uur constante hitte",
+    "Een gelijkmatig gloeibed — extra lange, constante hitte",
     "Verse briketten gesorteerd in droogkratten",
     "Warehousegang aan de verzendzijde",
     "De zeeflijn laat in de ploeg",

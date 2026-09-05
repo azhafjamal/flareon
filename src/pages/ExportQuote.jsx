@@ -24,7 +24,12 @@ const field =
   "w-full rounded-md border border-line bg-ink-2 px-4 py-3 text-base text-ash sm:text-sm placeholder:text-ash-3/70 focus:border-ember/60 focus:outline-none focus:ring-1 focus:ring-ember/40";
 const label = "mb-2 block text-[13px] font-medium text-ash-2";
 
-const CARTON_SIZES = [1, 3, 5, 10];
+const PALLETIZATION_OPTIONS = [
+  "Palletized",
+  "Non-Palletized / Loose Loading",
+  "Palletized + Stretch Wrapped",
+  "Palletized + Strapped & Wrapped",
+];
 const OTHER_PORT = "Other / custom port";
 
 // Every <option value> stays the canonical English string — the form payload
@@ -200,7 +205,7 @@ function BriquetteForm() {
     port: destinationPorts[0].port,
     customPort: "",
     grade: "Premium",
-    carton: 10,
+    palletization: PALLETIZATION_OPTIONS[0],
     payment: "T/T wire transfer",
     notes: "",
     botcheck: false,
@@ -300,18 +305,18 @@ function BriquetteForm() {
             </div>
 
             <div>
-              <label className={label} htmlFor="bq-carton">
-                {c.exportDesk.form.cartonSize}
+              <label className={label} htmlFor="bq-palletization">
+                {c.exportDesk.form.palletization}
               </label>
               <select
-                id="bq-carton"
+                id="bq-palletization"
                 className={field}
-                value={form.carton}
-                onChange={set("carton")}
+                value={form.palletization}
+                onChange={set("palletization")}
               >
-                {CARTON_SIZES.map((size) => (
-                  <option key={size} value={size}>
-                    {`${size} ${c.exportDesk.form.cartonUnit}`}
+                {PALLETIZATION_OPTIONS.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {c.exportDesk.form.palletizationOptions[opt] ?? opt}
                   </option>
                 ))}
               </select>

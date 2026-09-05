@@ -10,6 +10,8 @@ export const markets = [
   { code: "AE", name: "UAE", flag: "🇦🇪", locale: "ar", ready: true, note: "العربية" },
   { code: "NL", name: "Netherlands", flag: "🇳🇱", locale: "nl", ready: true, note: "Nederlands" },
   { code: "DE", name: "Germany", flag: "🇩🇪", locale: "de", ready: true, note: "Deutsch" },
+  { code: "ES", name: "Spain", flag: "🇪🇸", locale: "es", ready: true, note: "Español" },
+  { code: "GT", name: "Guatemala", flag: "🇬🇹", locale: "es", ready: true, note: "Español (GT)" },
   { code: "IE", name: "Ireland", flag: "🇮🇪", locale: "en", ready: true, note: "English (IE)" },
   { code: "MV", name: "Maldives", flag: "🇲🇻", locale: "en", ready: true, note: "English (MV)" },
   { code: "CA", name: "Canada", flag: "🇨🇦", locale: "en", ready: true, note: "English / Français" },

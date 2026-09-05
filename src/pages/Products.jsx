@@ -9,7 +9,6 @@ const shapeImage = {
   hexagon: media.shapes.hexagon,
   pillow: media.shapes.pillow,
   cube: media.shapes.cube,
-  honeycomb: media.shapes.round,
 };
 
 // One card per pressed shape, with what actually sets it apart.
@@ -26,11 +25,11 @@ function ShapeCard({ shape }) {
         decoding="async"
         className="aspect-4/3 w-full border-b border-line object-cover transition-transform duration-500 group-hover:scale-105"
       />
-      <div className="flex flex-1 flex-col p-6">
-        <h3 className="text-[19px] font-bold text-ash">{copy.name}</h3>
-        <ul className="mt-4 space-y-2.5">
+      <div className="flex flex-1 flex-col p-7">
+        <h3 className="text-[21px] font-bold text-ash">{copy.name}</h3>
+        <ul className="mt-5 space-y-3">
           {copy.points.map((pt) => (
-            <li key={pt} className="flex gap-2.5 text-[14px] leading-snug text-ash-3">
+            <li key={pt} className="flex gap-2.5 text-[15px] leading-snug text-ash-3">
               <Coal className="mt-1.5" />
               <span>{pt}</span>
             </li>
@@ -62,7 +61,7 @@ function GradeCard({ g }) {
         {[
           [c.specs.ash, g.ash],
           [c.specs.moisture, g.moisture],
-          [c.specs.burn, `${g.burn} ${c.units.hoursShort}`],
+          [c.specs.burn, c.specs.extraLong],
           [c.specs.fixedCarbon, g.fixedCarbon],
         ].map(([k, v]) => (
           <div key={k} className="flex items-baseline justify-between py-2.5">
@@ -116,7 +115,7 @@ function Briquettes() {
           title={c.products.briquettes.shapesTitle}
           sub={c.products.briquettes.shapesSub}
         />
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
           {briquetteShapes.map((s) => (
             <ShapeCard key={s.id} shape={s} />
           ))}

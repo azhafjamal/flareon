@@ -75,7 +75,7 @@ function Metrics() {
             className="border-b border-[#2d6648]/70 px-2 py-8 md:border-b-0 md:px-6"
           >
             <p className="font-display text-3xl font-extrabold text-[#eaf5ee] md:text-4xl">
-              {m.unit ? `${m.value} ${c.units[m.unit]}` : m.value}
+              {m.value == null ? c.specs.extraLong : m.unit ? `${m.value} ${c.units[m.unit]}` : m.value}
             </p>
             <p className="mt-2 text-[13px] leading-snug text-[#8fc7a3]">
               {c.metrics[m.key]}
@@ -201,7 +201,7 @@ function Grades() {
                 {[
                   [c.specs.ash, g.ash],
                   [c.specs.moisture, g.moisture],
-                  [c.specs.burn, `${g.burn} ${c.units.hoursShort}`],
+                  [c.specs.burn, c.specs.extraLong],
                   [c.specs.fixedCarbon, g.fixedCarbon],
                 ].map(([k, v]) => (
                   <div key={k} className="flex items-baseline justify-between py-3">
@@ -359,18 +359,18 @@ function Benchmark() {
 function TrustWall() {
   const { c } = useMarket();
   return (
-    // The certificate spread sits behind the whole band; the header row runs
-    // across the top so the four cards form one clean rectangle beneath it.
+    // A gradient wash sits behind the whole band; the header row runs across
+    // the top so the four cards form one clean rectangle beneath it.
     <section className="relative overflow-hidden py-20 md:py-28">
-      <img
-        src={media.proof.certificates.src}
-        alt=""
-        aria-hidden
-        loading="lazy"
-        decoding="async"
-        className="absolute inset-0 size-full object-cover opacity-35"
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(60% 90% at 8% 0%, rgba(255,90,31,0.24), transparent 60%), " +
+            "radial-gradient(55% 85% at 100% 100%, rgba(138,58,20,0.28), transparent 65%), " +
+            "linear-gradient(135deg, rgba(224,62,12,0.10), transparent 55%)",
+        }}
       />
-      <div className="absolute inset-0 bg-linear-to-b from-ink/95 via-ink/85 to-ink" />
 
       <div className="shell relative">
         <div className="grid gap-8 lg:grid-cols-[1.1fr_auto] lg:items-end">

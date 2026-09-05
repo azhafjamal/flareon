@@ -9,7 +9,7 @@ export const routeMeta = {
   "/": {
     title: `${BRAND} — Coconut Shell Charcoal Briquettes | India`,
     description:
-      "India's largest integrated coconut shell charcoal briquette manufacturer. Chemical-free, 4-hour burn, low ash. ISO 9001:2015 certified. Direct FOB/CIF container export.",
+      "India's largest integrated coconut shell charcoal briquette manufacturer. Chemical-free, extra-long burn, low ash. ISO 9001:2015 certified. Direct FOB/CIF container export.",
   },
   "/company": {
     title: `Company & Eco-Infrastructure — ${BRAND}`,
@@ -19,7 +19,7 @@ export const routeMeta = {
   "/products": {
     title: `Briquettes & Activated Carbon — ${BRAND}`,
     description:
-      "Coconut shell charcoal briquettes in hexagonal, pillow, cube and honeycomb shapes, three export grades, plus private label and OEM packaging.",
+      "Coconut shell charcoal briquettes in hexagonal, pillow and cube/shisha shapes, three export grades, plus private label and OEM packaging.",
   },
   "/gallery": {
     title: `Gallery — Inside the Palladam Plant | ${BRAND}`,

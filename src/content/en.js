@@ -57,6 +57,7 @@ export default {
     ash: "Ash content",
     moisture: "Moisture",
     burn: "Burn time",
+    extraLong: "Extra-long",
     fixedCarbon: "Fixed carbon",
     mostExported: "Most exported",
     priceCta: "Get {grade} FOB price",
@@ -68,7 +69,7 @@ export default {
       h1a: "India's largest integrated",
       h1b: "coconut shell charcoal",
       h1c: "briquette manufacturer",
-      sub: "Export-grade, chemical-free BBQ briquettes engineered for high heat, 4-hour burn time and ultra-low ash (<12%). Direct factory capacity of 5,000 MT per year.",
+      sub: "Export-grade, chemical-free BBQ briquettes engineered for high heat, extra-long burn time and ultra-low ash (<12%). Direct factory capacity of 5,000 MT per year.",
     },
     pillars: {
       eyebrow: "Why the coal burns differently",
@@ -154,10 +155,10 @@ export default {
       sub: "Coconut shell charcoal briquettes for the grill, and activated carbon for filtration — supplied loose, retail-packed, or fully private-labelled under your own brand.",
     },
     briquettes: {
-      figureLabel: "Four hours of steady heat",
+      figureLabel: "Extra-long, steady heat",
       figureNote: "Pressed from carbonised coconut shell with a potato starch binder only.",
       shapesEyebrow: "Shapes we press",
-      shapesTitle: "Four shapes, each doing a different job",
+      shapesTitle: "Three shapes, each doing a different job",
       shapesSub: "Every shape runs the same chemistry — the geometry is what changes how it lights, stacks and burns.",
       gradesEyebrow: "Grade comparison",
       gradesTitle: "Three grades of the same briquette",
@@ -231,8 +232,13 @@ export default {
       portPlaceholder: "Port name, country",
       containerLoad: "Container load",
       grade: "Grade",
-      cartonSize: "Master carton size",
-      cartonUnit: "kg",
+      palletization: "Palletization",
+      palletizationOptions: {
+        Palletized: "Palletized",
+        "Non-Palletized / Loose Loading": "Non-Palletized / Loose Loading",
+        "Palletized + Stretch Wrapped": "Palletized + Stretch Wrapped",
+        "Palletized + Strapped & Wrapped": "Palletized + Strapped & Wrapped",
+      },
       paymentTerms: "Payment terms",
       paymentTT: "T/T wire transfer",
       paymentLC: "Irrevocable Letter of Credit (L/C)",
@@ -334,7 +340,7 @@ export default {
         { k: "Lead time", v: "[X] days" },
         { k: "Billing", v: "GST invoice, INR" },
         { k: "Credit terms", v: "[Net X days]" },
-        { k: "Burn time", v: "4 hrs" },
+        { k: "Burn time", v: "Extra-long" },
         { k: "Ash content", v: "< 12%" },
         { k: "Plant", v: "Palladam, TN" },
       ],
@@ -350,16 +356,16 @@ export default {
         {
           title: "Tandoor",
           body: "Long steady heat without flare-ups, so naan and kebabs cook on a predictable cycle. Low ash means fewer mid-service clean-outs.",
-          spec: "4 hr burn · low spark",
+          spec: "Extra-long burn · low spark",
         },
         {
           title: "Sigri & live grill",
-          body: "Uniform cube and hexagon sizing loads evenly across the grate. No chemical accelerants, so nothing transfers to the food at the table.",
+          body: "Uniform pillow-shaped sizing loads evenly across the grate. No chemical accelerants, so nothing transfers to the food at the table.",
           spec: "0% chemicals · food-safe binder",
         },
         {
           title: "Hookah & shisha",
-          body: "Clean white ash and near-zero odour, so the coal does not compete with the flavour. Cubes sized for standard shisha bowls.",
+          body: "Clean white ash and near-zero odour, so the coal does not compete with the flavour. Pillow-shaped briquettes sized for standard shisha bowls.",
           spec: "Super Premium grade · ash < 10%",
         },
         {
@@ -391,7 +397,7 @@ export default {
       },
       swipe: "← swipe to compare →",
       rows: [
-        { k: "Burn time per load", them: "1–2 hrs, uneven", us: "4 hrs, consistent" },
+        { k: "Burn time per load", them: "1–2 hrs, uneven", us: "Extra-long, consistent" },
         { k: "Ash left behind", them: "High, gritty, frequent clean-out", us: "< 12%, fine white ash" },
         { k: "Sparks & smoke", them: "Common — a risk near guests", us: "Minimal, suited to live counters" },
         { k: "Piece sizing", them: "Irregular — staff over-load to be safe", us: "Uniform — same load every time" },
@@ -403,31 +409,32 @@ export default {
     },
 
     packs: {
-      eyebrow: "Pack sizes",
-      title: "Packed for how your store room actually works",
-      sub: "Choose per outlet, or mix sizes across a chain. Rate improves with committed monthly volume rather than one-off order size.",
+      eyebrow: "Bag size",
+      title: "One bag size, ordered in multiples",
+      sub: "We pack a single standard bag so weight and quality stay consistent on every order. Scale up in multiples of 25 kg to match your outlet's stock room, and rate improves with committed monthly volume rather than one-off order size.",
       items: [
-        { size: "5 kg", for: "Cloud kitchens, small counters, trial orders" },
-        { size: "10 kg", for: "Standalone restaurants, single-tandoor kitchens" },
-        { size: "20 kg", for: "Hotels, banquets, multi-station kitchens" },
-        { size: "Bulk", for: "Chains & distributors, palletised, own labelling optional" },
+        { size: "25 kg", for: "Standard bag — the only size we pack" },
+        { size: "MOQ", for: "1 bag (25 kg), then any multiple of 25 kg" },
       ],
     },
 
     calc: {
       eyebrow: "Plan your requirement",
       title: "Rough monthly estimate",
-      sub: "Move the sliders for a ballpark monthly consumption figure. This is an indicative planning tool only — your quoted rate is confirmed after a trial.",
+      sub: "Move the sliders for a ballpark monthly consumption figure.",
+      roughNote: "Purely a rough estimate — actual requirement may vary. Your quoted rate is confirmed after a trial.",
       outlets: "Number of outlets",
       stations: "Live-fire stations per outlet",
       hours: "Service hours per day",
       assume: "Assumes ~{kg} kg per station-hour, 30 days.",
       kgMonth: "Estimated kg per month",
       perOutlet: "Per outlet / month",
-      suggestedPack: "Suggested pack",
+      bagsPerOutlet: "Bags per outlet / month",
+      bag: "bag",
+      bags: "bags",
+      of25kg: "of 25 kg",
       cycle: "Delivery cycle",
       rateCta: "Get your rate",
-      bulkPack: "20 kg / bulk",
       monthly: "Monthly",
       fortnightly: "Fortnightly",
       weekly: "Weekly",
@@ -474,10 +481,6 @@ export default {
         {
           q: "Can we get our own branding on the packs?",
           a: "Yes, we offer private-label and custom-branded packing. Contact us with your requirement and we'll walk you through artwork, packing and MOQ for your brand.",
-        },
-        {
-          q: "How is it cheaper if the per-kg rate is higher?",
-          a: "Because a 4-hour briquette replaces two or three loads of lump charcoal over the same service. The number your kitchen should compare is cost per hour of live fire, not cost per kg.",
         },
         {
           q: "What if a delivery arrives damaged or short?",
@@ -724,7 +727,7 @@ export default {
 
         { h: "4. Pricing terms and Incoterms" },
         {
-          p: "We quote and ship under FOB (Free On Board) or CIF (Cost, Insurance and Freight) terms, Incoterms [2020], from Tuticorin Port or Chennai Port, India. The applicable Incoterm will be stated on every proforma invoice.",
+          p: "We quote and ship under FOB (Free On Board) or CIF (Cost, Insurance and Freight) terms, Incoterms [2020], from Tuticorin Port, Chennai Port or Cochin Port, India. The applicable Incoterm will be stated on every proforma invoice.",
         },
 
         { h: "5. Payment terms" },
@@ -870,15 +873,15 @@ export default {
   productItems: {
     briquettes: {
       name: "Coconut Shell Charcoal Briquettes for BBQ",
-      blurb: "Hexagonal, pillow, cube and honeycomb shapes engineered for commercial barbecue kitchens, shisha lounges and retail supermarket shelves.",
+      blurb: "Hexagonal, pillow and cube/shisha shapes engineered for commercial barbecue kitchens, shisha lounges and retail supermarket shelves.",
       points: [
-        "4+ hours burning time & ready in 20 minutes",
+        "Extra-long burning time & ready in 20 minutes",
         "Minimal ash residue & uniform, high heat output",
         "Odourless, smokeless & all-natural composition",
         "High density for a longer burn & easy handling",
       ],
       pointsFull: [
-        "4+ hours burning time",
+        "Extra-long burning time",
         "Minimal ash residue",
         "Odourless & smokeless",
         "Heats up in 20 minutes",
@@ -886,7 +889,7 @@ export default {
         "High density for longer burn time",
         "Uniform, high heat output",
         "Easy handling",
-        "Lower carbon monoxide production when compared with wood charcoal",
+        "Lower carbon monoxide emission when compared with wood charcoal",
       ],
       cta: "Request briquette quote",
     },
@@ -916,19 +919,11 @@ export default {
       ],
     },
     cube: {
-      name: "Cube",
+      name: "Cube/Shisha",
       points: [
         "Cut to shisha bowl sizes — 22 mm, 25 mm and 26 mm",
         "Dense, low-ash body sized for a full session",
         "Sharp edges catch quickly on a lighting grill",
-      ],
-    },
-    honeycomb: {
-      name: "Honeycomb",
-      points: [
-        "Multi-hole face gives the largest burning surface area",
-        "Fastest heat ramp when a grill needs to be up in minutes",
-        "Sits flat and stable in stoves and bucket grills",
       ],
     },
   },
@@ -948,7 +943,7 @@ export default {
       ["Volatile matter (%)", "19.8% — clean heat", "30.2% — high fumes"],
       ["Ash content (%)", "11.5% — minimal ash", "20.1% — heavy ash"],
       ["Moisture content (%)", "4.8%", "5.9%"],
-      ["Burn duration", "4 hours (240 min)", "1.5 – 2 hours"],
+      ["Burn duration", "Extra-long", "1.5 – 2 hours"],
       ["Time to ash-over", "50+ minutes", "~30 minutes"],
     ],
   },
@@ -982,15 +977,15 @@ export default {
 
   oem: [
     { title: "Custom box printing", body: "Full CMYK artwork, barcode compliance and your brand logo on every carton." },
-    { title: "Master carton sizes", body: "1 kg, 3 kg, 5 kg and 10 kg master box options." },
+    { title: "Palletization options", body: "Palletized, non-palletized / loose loading, palletized + stretch wrapped, or palletized + strapped & wrapped." },
     { title: "Moisture protection", body: "Inner poly-bag lining rated against sea freight humidity." },
   ],
 
   exportTerms: [
-    { k: "Loading ports", v: "Tuticorin Port / Chennai Port, India" },
+    { k: "Loading ports", v: "Tuticorin Port / Chennai Port / Cochin Port, India" },
     { k: "Minimum order (MOQ)", v: "Flexible — from 1 × 20ft FCL" },
     { k: "Payment terms", v: "T/T wire transfer & irrevocable L/C" },
-    { k: "Custom packaging", v: "Private label 1 kg / 3 kg / 10 kg master cartons" },
+    { k: "Custom packaging", v: "Private label packaging to your spec, palletized on request" },
   ],
 
   containers: {
@@ -1038,7 +1033,7 @@ export default {
     },
     {
       q: "Do you do private label / OEM?",
-      a: "Yes. Full CMYK carton printing, barcode compliance, your logo, and 1/3/5/10 kg master boxes. Send artwork or request our dieline template.",
+      a: "Yes. Full CMYK carton printing, barcode compliance, your logo, and packaging sized to your spec, palletized on request. Send artwork or request our dieline template.",
     },
     {
       q: "Can we visit the factory?",
@@ -1049,7 +1044,7 @@ export default {
   partnerNote: [
     "Over the years I've built this business on lasting relationships, global markets, and value created through trust, consistency and innovation — integrity and reliability first, always.",
     "🤝 We work with importers, wholesalers, distributors, retailers and industrial buyers across international and local markets, on terms built for the long run.",
-    "🌱 Our range covers premium coconut shell charcoal briquettes in hexagonal, pillow, honeycomb and cube shapes, made to meet the needs of global industries.",
+    "🌱 Our range covers premium coconut shell charcoal briquettes in hexagonal, pillow and cube/shisha shapes, made to meet the needs of global industries.",
     "♻️ Sustainability sits at the heart of it: turning renewable shell waste into high-performance products helps our buyers move to cleaner energy.",
     "📩 Whether you need a dependable supplier or want to explore an opportunity, I'd be glad to connect. Let's build sustainable partnerships and create value together.",
   ],
@@ -1078,7 +1073,7 @@ export default {
     "Pillow briquettes laid out to dry",
     "Shell charcoal chips and milled carbon, side by side",
     "Dried briquettes dropping to the transfer belt",
-    "An even ember bed — four hours of steady heat",
+    "An even ember bed — extra-long, steady heat",
     "Fresh briquettes graded into drying crates",
     "Warehouse aisle on the despatch side",
     "The screening line running late in the shift",

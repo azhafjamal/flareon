@@ -216,7 +216,7 @@ function Packs() {
         title={c.india.packs.title}
         sub={c.india.packs.sub}
       />
-      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-10 grid max-w-xl gap-5 sm:grid-cols-2">
         {c.india.packs.items.map((p) => (
           <div key={p.size} className="panel panel-hover p-7 text-center">
             <div className="font-display text-[2.1rem] font-black tracking-tight text-ash">
@@ -233,49 +233,77 @@ function Packs() {
 }
 
 // Indicative planning tool only — the numbers are a model, not a quote.
+// Range input drives the clamped numeric state directly; the number field
+// keeps its own raw string so the visitor can clear it and type freely,
+// clamping only on blur once they've finished.
+const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+
 function Estimator() {
   const { c } = useMarket();
   const t = c.india.calc;
-  const [outlets, setOutlets] = useState(3);
-  const [stations, setStations] = useState(2);
-  const [hours, setHours] = useState(8);
+  const [outlets, setOutlets] = useState("3");
+  const [stations, setStations] = useState("2");
+  const [hours, setHours] = useState("8");
 
-  const perOutlet = stations * hours * KG_PER_STATION_HOUR * 30;
-  const total = perOutlet * outlets;
+  const numeric = (raw, min, max) => {
+    const n = parseInt(raw, 10);
+    return clamp(Number.isFinite(n) ? n : min, min, max);
+  };
+
+  const outletsN = numeric(outlets, 1, 50);
+  const stationsN = numeric(stations, 1, 10);
+  const hoursN = numeric(hours, 2, 18);
+
+  const perOutlet = stationsN * hoursN * KG_PER_STATION_HOUR * 30;
+  const total = perOutlet * outletsN;
   const fmt = (n) => Math.round(n).toLocaleString("en-IN");
-  const pack = perOutlet < 150 ? "5 kg" : perOutlet < 600 ? "10 kg" : t.bulkPack;
+  const bags = Math.max(1, Math.ceil(perOutlet / 25));
+  const pack = `${bags} ${bags === 1 ? t.bag : t.bags} ${t.of25kg}`;
+  const totalBags = Math.ceil(total / 25);
   const cycle =
-    total < 300 ? t.monthly : total < 2000 ? t.fortnightly : t.weekly;
+    totalBags <= 12 ? t.monthly : totalBags <= 80 ? t.fortnightly : t.weekly;
 
   const sliders = [
-    { id: "outlets", label: t.outlets, value: outlets, set: setOutlets, min: 1, max: 50 },
-    { id: "stations", label: t.stations, value: stations, set: setStations, min: 1, max: 10 },
-    { id: "hours", label: t.hours, value: hours, set: setHours, min: 2, max: 18 },
+    { id: "outlets", label: t.outlets, raw: outlets, value: outletsN, set: setOutlets, min: 1, max: 50 },
+    { id: "stations", label: t.stations, raw: stations, value: stationsN, set: setStations, min: 1, max: 10 },
+    { id: "hours", label: t.hours, raw: hours, value: hoursN, set: setHours, min: 2, max: 18 },
   ];
 
   return (
     <Section tone="raised">
       <SectionHead eyebrow={t.eyebrow} title={t.title} sub={t.sub} />
+      <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-ember/30 bg-ember/5 px-4 py-2 text-[15px] text-ash-2">
+        <Coal /> {t.roughNote}
+      </p>
       <div className="panel mt-9 grid gap-px overflow-hidden rounded-2xl border border-line bg-line lg:grid-cols-2">
         <div className="space-y-7 bg-ink-2 p-7 md:p-9">
           {sliders.map((s) => (
             <div key={s.id}>
               <label
                 className="mb-2.5 flex items-baseline justify-between gap-3 font-mono text-[11.5px] tracking-[0.08em] text-ash-3 uppercase"
-                htmlFor={`calc-${s.id}`}
+                htmlFor={`calc-${s.id}-value`}
               >
                 <span>{s.label}</span>
-                <span className="shrink-0 font-mono text-[15px] font-bold text-glow tabular-nums">
-                  {String(s.value).padStart(2, "0")}
-                </span>
+                <input
+                  id={`calc-${s.id}-value`}
+                  type="number"
+                  inputMode="numeric"
+                  min={s.min}
+                  max={s.max}
+                  value={s.raw}
+                  onChange={(e) => s.set(e.target.value)}
+                  onBlur={() => s.set(String(s.value))}
+                  className="w-16 shrink-0 rounded border border-line bg-ink-3 px-2 py-1 text-right font-mono text-[15px] font-bold text-glow tabular-nums normal-case focus:border-ember/60 focus:outline-none"
+                />
               </label>
               <input
                 id={`calc-${s.id}`}
+                aria-label={s.label}
                 type="range"
                 min={s.min}
                 max={s.max}
                 value={s.value}
-                onChange={(e) => s.set(+e.target.value)}
+                onChange={(e) => s.set(e.target.value)}
                 style={{ "--fill": `${((s.value - s.min) / (s.max - s.min)) * 100}%` }}
                 className="tech-slider w-full"
               />
@@ -305,7 +333,7 @@ function Estimator() {
             <div className="mt-6 divide-y divide-line rounded-lg border border-line bg-ink-2/70">
               {[
                 [t.perOutlet, `${fmt(perOutlet)} ${t.unitKg}`],
-                [t.suggestedPack, pack],
+                [t.bagsPerOutlet, pack],
                 [t.cycle, cycle],
               ].map(([k, v]) => (
                 <div
