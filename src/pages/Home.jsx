@@ -11,6 +11,7 @@ import {
   partnerNote,
 } from "../data/site";
 import { useMarket } from "../market-context";
+import FaqSchema from "../components/FaqSchema";
 import { Button, Section, SectionHead, Badge, Coal, Eyebrow } from "../components/ui";
 import { Figure, PhotoStrip } from "../components/Figure";
 import media, { plantStrip } from "../data/images";
@@ -419,6 +420,7 @@ function Faq() {
   const [open, setOpen] = useState(0);
   return (
     <Section tone="raised">
+      <FaqSchema items={c.faqs} />
       <SectionHead
         eyebrow={c.home.faq.eyebrow}
         title={c.home.faq.title}

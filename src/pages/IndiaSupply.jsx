@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { company } from "../data/site";
 import { useMarket } from "../market-context";
+import FaqSchema from "../components/FaqSchema";
 import {
   Section,
   SectionHead,
@@ -432,6 +433,7 @@ function Faq() {
   const [open, setOpen] = useState(0);
   return (
     <Section tone="ink">
+      <FaqSchema items={c.india.faq.items} />
       <SectionHead
         eyebrow={c.india.faq.eyebrow}
         title={c.india.faq.title}
