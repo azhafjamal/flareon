@@ -76,6 +76,8 @@ export default function Footer() {
               aria-hidden
               width={44}
               height={44}
+              loading="lazy"
+              decoding="async"
               className="size-11 rounded-md object-cover ring-1 ring-line"
             />
             <div>

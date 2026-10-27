@@ -14,6 +14,7 @@ export default function NotFound() {
         height={media.fire.coals.height}
         alt=""
         aria-hidden
+        decoding="async"
         className="absolute inset-0 size-full object-cover opacity-20"
       />
       <div className="absolute inset-0 bg-linear-to-b from-ink via-ink/85 to-ink" />

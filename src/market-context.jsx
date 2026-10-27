@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { markets, rtlLocales } from "./data/markets";
-import { getContent } from "./content";
+import { getContent, loadContent } from "./content";
 
 const MarketContext = createContext(null);
 const STORAGE_KEY = "flareon.market";
@@ -20,24 +20,45 @@ export function MarketProvider({ children }) {
     return found?.ready ? found : markets[0];
   }, [code]);
 
+  // The copy tree for the selected market. Non-English locales are separate
+  // chunks, so the previous language stays on screen until the new one has
+  // arrived; text, direction and <html lang> then switch together.
+  const [loaded, setLoaded] = useState(() => ({
+    locale: "en",
+    c: getContent("en"),
+  }));
+
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, market.code);
-    document.documentElement.lang = market.locale;
-    document.documentElement.dir = rtlLocales.includes(market.locale)
+  }, [market]);
+
+  useEffect(() => {
+    let live = true;
+    loadContent(market.locale).then((c) => {
+      if (live) setLoaded({ locale: market.locale, c });
+    });
+    return () => {
+      live = false;
+    };
+  }, [market.locale]);
+
+  useEffect(() => {
+    document.documentElement.lang = loaded.locale;
+    document.documentElement.dir = rtlLocales.includes(loaded.locale)
       ? "rtl"
       : "ltr";
-  }, [market]);
+  }, [loaded.locale]);
 
   const value = useMemo(
     () => ({
       market,
       setMarket: setCode,
-      // Full translated copy tree for the active locale. Every page reads its
-      // strings from here; nothing user-visible is hardcoded in the JSX.
-      c: getContent(market.locale),
-      isRTL: rtlLocales.includes(market.locale),
+      // Every page reads its strings from here; nothing user-visible is
+      // hardcoded in the JSX.
+      c: loaded.c,
+      isRTL: rtlLocales.includes(loaded.locale),
     }),
-    [market]
+    [market, loaded]
   );
 
   return (

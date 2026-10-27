@@ -1,53 +1,40 @@
-import { useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import SmokeCursor from "./components/SmokeCursor";
-import RouteMeta from "./components/RouteMeta";
-import Home from "./pages/Home";
-import Company from "./pages/Company";
-import Products from "./pages/Products";
-import Gallery from "./pages/Gallery";
-import Compliance from "./pages/Compliance";
-import ExportQuote from "./pages/ExportQuote";
-import IndiaSupply from "./pages/IndiaSupply";
-import LegalPage from "./pages/LegalPage";
-import NotFound from "./pages/NotFound";
+import { lazy } from "react";
+import AppShell from "./AppShell";
 
-function ScrollToTop() {
-  const { pathname, hash } = useLocation();
-  useEffect(() => {
-    if (hash) {
-      document.querySelector(hash)?.scrollIntoView({ behavior: "smooth" });
-      return;
-    }
-    window.scrollTo({ top: 0 });
-  }, [pathname, hash]);
-  return null;
-}
+// Each page is its own chunk, so a visitor only downloads the code for the
+// page they open. The loaders are exported so main.jsx can fetch the current
+// route's chunk before the first render (no blank flash over the prerendered
+// HTML).
+const loaders = {
+  Home: () => import("./pages/Home"),
+  Company: () => import("./pages/Company"),
+  Products: () => import("./pages/Products"),
+  Gallery: () => import("./pages/Gallery"),
+  Compliance: () => import("./pages/Compliance"),
+  ExportQuote: () => import("./pages/ExportQuote"),
+  IndiaSupply: () => import("./pages/IndiaSupply"),
+  LegalPage: () => import("./pages/LegalPage"),
+  NotFound: () => import("./pages/NotFound"),
+};
+
+const byPath = {
+  "/": "Home",
+  "/company": "Company",
+  "/products": "Products",
+  "/gallery": "Gallery",
+  "/compliance": "Compliance",
+  "/export-quote": "ExportQuote",
+  "/india": "IndiaSupply",
+  "/privacy": "LegalPage",
+  "/terms-of-sale": "LegalPage",
+};
+
+export const preloadRoute = (pathname) => loaders[byPath[pathname] ?? "NotFound"]();
+
+const pages = Object.fromEntries(
+  Object.entries(loaders).map(([name, load]) => [name, lazy(load)])
+);
 
 export default function App() {
-  return (
-    <div className="flex min-h-screen flex-col">
-      <ScrollToTop />
-      <RouteMeta />
-      <SmokeCursor />
-      <Header />
-      <main className="flex-1">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/company" element={<Company />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/compliance" element={<Compliance />} />
-          <Route path="/export-quote" element={<ExportQuote />} />
-          <Route path="/india" element={<IndiaSupply />} />
-          <Route path="/privacy" element={<LegalPage doc="privacy" />} />
-          <Route path="/terms-of-sale" element={<LegalPage doc="terms" />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div>
-  );
+  return <AppShell pages={pages} />;
 }

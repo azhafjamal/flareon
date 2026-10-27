@@ -1,15 +1,17 @@
 import en from "./en";
-import ru from "./ru";
-import de from "./de";
-import nl from "./nl";
-import es from "./es";
-import zh from "./zh";
-import ja from "./ja";
-import ar from "./ar";
 
-// Every locale the market switcher can select. A locale that isn't listed here
-// simply resolves to English via getContent() below.
-const locales = { en, ru, de, nl, es, zh, ja, ar };
+// English ships with the page; every other locale is its own chunk, fetched
+// only when a visitor selects that market. A locale that isn't listed here
+// simply resolves to English.
+const loaders = {
+  ru: () => import("./ru"),
+  de: () => import("./de"),
+  nl: () => import("./nl"),
+  es: () => import("./es"),
+  zh: () => import("./zh"),
+  ja: () => import("./ja"),
+  ar: () => import("./ar"),
+};
 
 // Deep-merge a locale over English so any string a translator hasn't reached
 // yet renders in English rather than disappearing. Arrays merge per index, so a
@@ -33,9 +35,18 @@ function merge(base, over) {
 
 const cache = new Map([["en", en]]);
 
+// Synchronous: whatever is already loaded, English otherwise.
 export function getContent(locale) {
+  return cache.get(locale) ?? en;
+}
+
+// Resolves with the full merged copy tree for a locale, loading it if needed.
+export async function loadContent(locale) {
   if (cache.has(locale)) return cache.get(locale);
-  const built = locales[locale] ? merge(en, locales[locale]) : en;
+  const load = loaders[locale];
+  if (!load) return en;
+  const mod = await load();
+  const built = merge(en, mod.default);
   cache.set(locale, built);
   return built;
 }
