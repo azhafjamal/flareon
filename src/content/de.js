@@ -84,7 +84,7 @@ export default {
     products: {
       eyebrow: "Was wir verschiffen",
       title: "Zwei Linien, ein Rohstoff: die Kokosschale.",
-      sub: "Kokosschalen-Holzkohlebriketts für den Grill und Aktivkohle für die Filtration. Nichts anderes — denn Fokus ist der Grund, warum wir in beidem zu den Besten gehören.",
+      sub: "Kokosschalen-Holzkohlebriketts für den Grill und Aktivkohle für die Filtration. Beide aus demselben Rohstoff, im selben Werk.",
     },
     benchmark: {
       eyebrow: "Bureau Veritas — unabhängig geprüft",
@@ -245,7 +245,7 @@ export default {
     carbonForm: {
       eyebrow: "Aktivkohle",
       title: "Anfrage Aktivkohle",
-      intro: "Die Aktivkohlelinie ist noch nicht für Bestellungen offen. Melden Sie Ihren Bedarf an, und wir kommen mit Qualitäten und Preisen auf Sie zurück, sobald sie es ist.",
+      intro: "Die Aktivkohlelinie ist noch nicht für Bestellungen offen. Dieses Formular wird freigeschaltet, sobald sie öffnet.",
       application: "Anwendung",
       appWater: "Wasseraufbereitung",
       appAir: "Luft- & Gasreinigung",
@@ -261,7 +261,7 @@ export default {
       quantityPlaceholder: "z. B. 10 t pro Monat",
       specNotes: "Hinweise zur Spezifikation (Iodzahl, Maschenweite, Verpackung)",
       submit: "Bedarf registrieren →",
-      footnote: "Wir melden uns, sobald die Linie für Bestellungen öffnet.",
+      footnote: "Fragen in der Zwischenzeit? Wenden Sie sich an den Export-Desk.",
     },
     sent: {
       title: "Anfrage bereit zum Versand.",

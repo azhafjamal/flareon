@@ -78,7 +78,7 @@ export default function Header() {
 
           <div className="flex items-center gap-2">
             <LanguageMenu />
-            <Button to="/export-quote" size="sm" className="hidden sm:inline-flex">
+            <Button to="/export-quote" size="sm" className="max-sm:hidden">
               {c.cta.quote}
             </Button>
             <button

@@ -486,7 +486,7 @@ function ManagingDirector() {
           <Eyebrow className="mb-3">{c.home.director.eyebrow}</Eyebrow>
           <h2 className="text-3xl font-extrabold leading-tight text-ash md:text-4xl">
             {managingDirector.name}
-            <span className="ms-3 align-middle font-mono text-[13px] tracking-widest text-ash-3 uppercase">
+            <span className="mt-2 block font-mono text-[13px] tracking-widest text-ash-3 uppercase sm:ms-3 sm:mt-0 sm:inline sm:align-middle">
               {c.roles.managingDirector}
             </span>
           </h2>
@@ -532,7 +532,7 @@ function ManagingPartner() {
           <Eyebrow className="mb-3">{c.home.partner.eyebrow}</Eyebrow>
           <h2 className="text-3xl font-extrabold leading-tight text-ash md:text-4xl">
             {managingPartner.name}
-            <span className="ms-3 align-middle font-mono text-[13px] tracking-widest text-ash-3 uppercase">
+            <span className="mt-2 block font-mono text-[13px] tracking-widest text-ash-3 uppercase sm:ms-3 sm:mt-0 sm:inline sm:align-middle">
               {c.roles.managingPartner}
             </span>
           </h2>

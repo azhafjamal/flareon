@@ -53,8 +53,8 @@ function Block({ block }) {
   if (block.table)
     return (
       <div className="mt-5 overflow-x-auto rounded-lg border border-line">
-        <table className="w-full min-w-[520px] border-collapse">
-          <thead>
+        <table className="w-full border-collapse max-sm:block sm:min-w-[520px]">
+          <thead className="max-sm:hidden">
             <tr>
               {block.table.head.map((h) => (
                 <th
@@ -66,13 +66,16 @@ function Block({ block }) {
               ))}
             </tr>
           </thead>
-          <tbody>
+          <tbody className="max-sm:block">
             {block.table.rows.map((row) => (
-              <tr key={row[0]}>
+              <tr
+                key={row[0]}
+                className="max-sm:block max-sm:border-b max-sm:border-line max-sm:py-2 max-sm:last:border-b-0"
+              >
                 {row.map((cell, i) => (
                   <td
                     key={i}
-                    className="border-b border-line px-4 py-3 text-[14px] leading-relaxed text-ash-2 last:border-b-0"
+                    className="border-b border-line px-4 py-3 text-[14px] leading-relaxed text-ash-2 last:border-b-0 max-sm:block max-sm:border-b-0 max-sm:py-1 max-sm:first:font-semibold max-sm:first:text-ash"
                   >
                     <Fills>{cell}</Fills>
                   </td>

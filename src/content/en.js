@@ -96,7 +96,7 @@ export default {
     products: {
       eyebrow: "What we ship",
       title: "Two lines, one raw material: the coconut shell.",
-      sub: "Coconut shell charcoal briquettes for the grill, and activated carbon for filtration. Nothing else — because focus is what makes us the best at both.",
+      sub: "Coconut shell charcoal briquettes for the grill, and activated carbon for filtration. Both made from the same raw material, in the same plant.",
     },
     benchmark: {
       eyebrow: "Bureau Veritas — third-party tested",
@@ -214,7 +214,7 @@ export default {
     },
     ask: {
       title: "Need a document we haven't listed?",
-      body: "Phytosanitary certificates, Certificate of Origin, fumigation records and packing lists are issued per shipment.",
+      body: "Phytosanitary certificates, Certificate of Origin, fumigation records and packing lists are issued per shipment. Our Sedex SMETA audit report is shared on request — contact the export desk and we will send it.",
       cta: "Ask the export desk",
     },
   },
@@ -260,7 +260,7 @@ export default {
     carbonForm: {
       eyebrow: "Activated carbon",
       title: "Activated carbon enquiry",
-      intro: "The carbon line is not open for orders yet. Register your requirement and we will come back to you with grades and pricing the moment it is.",
+      intro: "The activated carbon line is not open for orders yet. This form will go live as soon as it opens.",
       application: "Application",
       appWater: "Water treatment",
       appAir: "Air & gas purification",
@@ -276,7 +276,7 @@ export default {
       quantityPlaceholder: "e.g. 10 MT per month",
       specNotes: "Specification notes (iodine value, mesh size, packing)",
       submit: "Register carbon requirement →",
-      footnote: "We'll contact you as soon as the line opens for orders.",
+      footnote: "Questions in the meantime? Contact the export desk.",
     },
     sent: {
       title: "Enquiry sent.",
@@ -328,26 +328,6 @@ export default {
       sub: "Consistent-size coconut shell briquettes for tandoors, sigris, live grills and hookah counters — delivered on a fixed monthly schedule, billed on GST invoice, at a locked rate contract. No import paperwork, no container minimums.",
       ctaPrimary: "Request a free trial sample",
       ctaSecondary: "Talk to the India desk",
-      chips: [
-        "Delivery in [X] days",
-        "MOQ [X] kg",
-        "GST invoice",
-        "Credit terms available",
-      ],
-    },
-
-    glance: {
-      title: "At a glance",
-      rows: [
-        { k: "Minimum order", v: "[X] kg" },
-        { k: "Pack sizes", v: "5 / 10 / 20 kg" },
-        { k: "Lead time", v: "[X] days" },
-        { k: "Billing", v: "GST invoice, INR" },
-        { k: "Credit terms", v: "[Net X days]" },
-        { k: "Burn time", v: "Extra-long" },
-        { k: "Ash content", v: "< 12%" },
-        { k: "Plant", v: "Palladam, TN" },
-      ],
     },
 
     clients: { eyebrow: "Already supplying" },
@@ -369,12 +349,12 @@ export default {
         },
         {
           title: "Hookah & shisha",
-          body: "Clean white ash and near-zero odour, so the coal does not compete with the flavour. Pillow-shaped briquettes sized for standard shisha bowls.",
+          body: "Clean white ash and near-zero odour, so the coal does not compete with the flavour. Cube-shaped briquettes sized for standard shisha bowls.",
           spec: "Super Premium grade · ash < 10%",
         },
         {
           title: "Hotel banquets",
-          body: "Volume supply on a fixed schedule so banquet teams are never rationing coal mid-event. Bulk 20 kg packs for back-of-house storage.",
+          body: "Volume supply on a fixed schedule so banquet teams are never rationing coal mid-event. Standard 25 kg bags for back-of-house storage.",
           spec: "Scheduled monthly supply",
         },
         {
@@ -384,8 +364,8 @@ export default {
         },
         {
           title: "Cloud kitchens",
-          body: "Small-footprint 5 kg packs for kitchens without warehouse space, on a top-up cycle that matches your order volume.",
-          spec: "5 kg packs · flexible cycle",
+          body: "Compact top-up deliveries of 25 kg bags for kitchens without much storage space, on a cycle that matches your order volume.",
+          spec: "25 kg bags · flexible cycle",
         },
       ],
     },
@@ -580,7 +560,7 @@ export default {
         { sub: "Information you give us directly" },
         {
           list: [
-            "When you submit an enquiry through the Export Desk or the India desk (briquette quote form, activated carbon form or HORECA enquiry form): full name, company name, business email, WhatsApp/phone number, destination port or delivery city, product and packaging preferences, and any notes you write in the form.",
+            "When you submit an enquiry through the Export Desk or the India desk (briquette quote form or HORECA enquiry form): full name, company name, business email, WhatsApp/phone number, destination port or delivery city, product and packaging preferences, and any notes you write in the form.",
             "When you email or message us directly: your email address, phone number, and the content of your message.",
           ],
         },

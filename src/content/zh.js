@@ -85,7 +85,7 @@ export default {
     products: {
       eyebrow: "我们出口什么",
       title: "两条产线，同一种原料：椰壳。",
-      sub: "用于烧烤的椰壳机制炭，以及用于过滤的活性炭。别无其他——正因为专注，我们才能在两者上都做到最好。",
+      sub: "用于烧烤的椰壳机制炭，以及用于过滤的活性炭。两者均采用同一原料，在同一工厂生产。",
     },
     benchmark: {
       eyebrow: "Bureau Veritas — 第三方检测",
@@ -246,7 +246,7 @@ export default {
     carbonForm: {
       eyebrow: "活性炭",
       title: "活性炭询价",
-      intro: "活性炭产线尚未开放订购。登记您的需求，一旦开放，我们会立即带着等级与价格与您联系。",
+      intro: "活性炭产线尚未开放订购。产线开放后，此表单即可使用。",
       application: "应用领域",
       appWater: "水处理",
       appAir: "空气与气体净化",
@@ -262,7 +262,7 @@ export default {
       quantityPlaceholder: "例如每月 10 吨",
       specNotes: "规格说明（碘值、目数、包装）",
       submit: "登记活性炭需求 →",
-      footnote: "产线开放订购后我们会立即联系您。",
+      footnote: "如有疑问，请联系出口部门。",
     },
     sent: {
       title: "询价已准备好发送。",

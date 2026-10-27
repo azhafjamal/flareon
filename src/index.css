@@ -51,6 +51,14 @@
   h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
+    overflow-wrap: break-word;
+  }
+  /* Dutch and German compound words (e.g. "Kokosschaalhoutskoolbriketten")
+     are wider than a phone screen, so let those headings hyphenate. English
+     stays unhyphenated. */
+  :lang(nl) :is(h1, h2, h3, h4),
+  :lang(de) :is(h1, h2, h3, h4) {
+    hyphens: auto;
   }
 }
 

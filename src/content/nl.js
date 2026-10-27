@@ -84,7 +84,7 @@ export default {
     products: {
       eyebrow: "Wat wij verschepen",
       title: "Twee lijnen, één grondstof: de kokosschaal.",
-      sub: "Kokosschaalhoutskoolbriketten voor de grill en actieve kool voor filtratie. Niets anders — juist die focus maakt ons in beide het beste.",
+      sub: "Kokosschaalhoutskoolbriketten voor de grill en actieve kool voor filtratie. Beide van dezelfde grondstof, in dezelfde fabriek.",
     },
     benchmark: {
       eyebrow: "Bureau Veritas — onafhankelijk getest",
@@ -245,7 +245,7 @@ export default {
     carbonForm: {
       eyebrow: "Actieve kool",
       title: "Aanvraag actieve kool",
-      intro: "De actiefkoollijn is nog niet open voor orders. Meld uw behoefte aan, dan komen wij bij u terug met kwaliteiten en prijzen zodra dat wel zo is.",
+      intro: "De actiefkoollijn is nog niet open voor orders. Dit formulier wordt geactiveerd zodra dat het geval is.",
       application: "Toepassing",
       appWater: "Waterbehandeling",
       appAir: "Lucht- & gasreiniging",
@@ -261,7 +261,7 @@ export default {
       quantityPlaceholder: "bijv. 10 ton per maand",
       specNotes: "Specificatienotities (jodiumgetal, maaswijdte, verpakking)",
       submit: "Behoefte registreren →",
-      footnote: "We nemen contact op zodra de lijn opengaat voor orders.",
+      footnote: "Vragen in de tussentijd? Neem contact op met de exportdesk.",
     },
     sent: {
       title: "Aanvraag klaar om te versturen.",

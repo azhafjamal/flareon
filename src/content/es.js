@@ -85,7 +85,7 @@ export default {
     products: {
       eyebrow: "Lo que embarcamos",
       title: "Dos líneas, una materia prima: la cáscara de coco.",
-      sub: "Briquetas de carbón de cáscara de coco para la parrilla y carbón activado para filtración. Nada más — porque el enfoque es la razón por la que somos de los mejores en ambos.",
+      sub: "Briquetas de carbón de cáscara de coco para la parrilla y carbón activado para filtración. Ambos de la misma materia prima, en la misma planta.",
     },
     benchmark: {
       eyebrow: "Bureau Veritas — ensayado por terceros",
@@ -246,7 +246,7 @@ export default {
     carbonForm: {
       eyebrow: "Carbón activado",
       title: "Consulta de carbón activado",
-      intro: "La línea de carbón activado aún no está abierta a pedidos. Registre su necesidad y le responderemos con calidades y precios en cuanto lo esté.",
+      intro: "La línea de carbón activado aún no está abierta a pedidos. Este formulario se activará en cuanto abra.",
       application: "Aplicación",
       appWater: "Tratamiento de agua",
       appAir: "Purificación de aire y gases",
@@ -262,7 +262,7 @@ export default {
       quantityPlaceholder: "p. ej. 10 t al mes",
       specNotes: "Notas de especificación (índice de yodo, granulometría, empaque)",
       submit: "Registrar necesidad de carbón →",
-      footnote: "Le contactaremos en cuanto la línea abra a pedidos.",
+      footnote: "¿Preguntas mientras tanto? Contacte con el departamento de exportación.",
     },
     sent: {
       title: "Consulta enviada.",
