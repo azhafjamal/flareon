@@ -13,6 +13,11 @@ export const company = {
   whatsapp: "+91 99441 33441",
   whatsappHref: "https://wa.me/919944133441",
   emails: ["enquiry@flareonbbq.com", "care@flareonbbq.com"],
+  managingDirector: {
+    name: "Sathya Prakash",
+    role: "Managing Director",
+    email: "sathya@flareonbbq.com",
+  },
   managingPartner: {
     name: "M Gowtham",
     role: "Managing Partner",
@@ -333,6 +338,15 @@ export const partnerNote = [
   "🌱 Our range covers premium coconut shell charcoal briquettes in hexagonal, pillow and cube/shisha shapes, made to meet the needs of global industries.",
   "♻️ Sustainability sits at the heart of it: turning renewable shell waste into high-performance products helps our buyers move to cleaner energy.",
   "📩 Whether you need a dependable supplier or want to explore an opportunity, I'd be glad to connect. Let's build sustainable partnerships and create value together.",
+];
+
+// Homepage closing section — the managing director's note.
+export const directorNote = [
+  "Flareon began with a simple conviction: a product that carries a buyer's brand has to carry their trust as well. Every decision we make, from shell sourcing to the final container seal, starts from that.",
+  "🤝 I look after the direction of the company — the partnerships we take on, the markets we enter and the standards we hold ourselves to — so every importer, wholesaler and distributor deals with a business that keeps its word.",
+  "🏭 Our integrated plant in Palladam, ISO 9001:2015 certified, lets us control quality from raw coconut shell to finished briquette, and supply the same consistency on the tenth container as on the first.",
+  "🌱 Turning renewable coconut shell waste into clean, high-performance fuel is the future we are building towards, with our buyers.",
+  "📩 If you are looking for a long-term supply partner, I would be glad to hear from you. Let's build something that lasts.",
 ];
 
 export const faqs = [

@@ -142,6 +142,7 @@ export const media = {
   },
 
   people: {
+    md: img("md-portrait.jpg", "Sathya Prakash, Managing Director, Flareon Briquettes"),
     lead: img("leadership-portrait.jpg", "M Gowtham, Managing Partner, Flareon Briquettes"),
   },
 

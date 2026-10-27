@@ -44,6 +44,7 @@ export default {
 
   roles: {
     managingPartner: "Managing Partner",
+    managingDirector: "Managing Director",
   },
 
   // site.js holds the bare numbers; the unit word is translated here.
@@ -110,6 +111,9 @@ export default {
     faq: {
       eyebrow: "Before you enquire",
       title: "The six questions every buyer asks",
+    },
+    director: {
+      eyebrow: "Meet the managing director",
     },
     partner: {
       eyebrow: "Meet the managing partner",
@@ -1039,6 +1043,14 @@ export default {
       q: "Can we visit the factory?",
       a: "Buyers are welcome at the Palladam plant, Tirupur — 220 km from Tuticorin Port. Tell us your dates on the enquiry form and we arrange the visit.",
     },
+  ],
+
+  directorNote: [
+    "Flareon began with a simple conviction: a product that carries a buyer's brand has to carry their trust as well. Every decision we make, from shell sourcing to the final container seal, starts from that.",
+    "🤝 I look after the direction of the company — the partnerships we take on, the markets we enter and the standards we hold ourselves to — so every importer, wholesaler and distributor deals with a business that keeps its word.",
+    "🏭 Our integrated plant in Palladam, ISO 9001:2015 certified, lets us control quality from raw coconut shell to finished briquette, and supply the same consistency on the tenth container as on the first.",
+    "🌱 Turning renewable coconut shell waste into clean, high-performance fuel is the future we are building towards, with our buyers.",
+    "📩 If you are looking for a long-term supply partner, I would be glad to hear from you. Let's build something that lasts.",
   ],
 
   partnerNote: [

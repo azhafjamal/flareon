@@ -9,6 +9,7 @@ import {
   certificates,
   products,
   partnerNote,
+  directorNote,
 } from "../data/site";
 import { useMarket } from "../market-context";
 import FaqSchema from "../components/FaqSchema";
@@ -462,6 +463,52 @@ function Faq() {
   );
 }
 
+function ManagingDirector() {
+  const { c } = useMarket();
+  const { managingDirector } = company;
+  return (
+    <Section tone="raised">
+      <div className="grid items-center gap-12 lg:grid-cols-[auto_1fr]">
+        <div className="mx-auto lg:mx-0">
+          <div className="relative">
+            <div className="ember-pulse pointer-events-none absolute -inset-6 rounded-full bg-[radial-gradient(circle,rgba(255,90,31,0.22),transparent_70%)] blur-2xl" />
+            <img
+              src={media.people.md.src}
+              alt={media.people.md.alt}
+              loading="lazy"
+              decoding="async"
+              className="relative size-56 rounded-full border border-line object-cover object-top md:size-64"
+            />
+          </div>
+        </div>
+
+        <div>
+          <Eyebrow className="mb-3">{c.home.director.eyebrow}</Eyebrow>
+          <h2 className="text-3xl font-extrabold leading-tight text-ash md:text-4xl">
+            {managingDirector.name}
+            <span className="ms-3 align-middle font-mono text-[13px] tracking-widest text-ash-3 uppercase">
+              {c.roles.managingDirector}
+            </span>
+          </h2>
+          <div className="mt-6 space-y-4">
+            {directorNote.map((_, i) => (
+              <p key={i} className="text-[15px] leading-relaxed text-ash-2">
+                {c.directorNote[i]}
+              </p>
+            ))}
+          </div>
+          <a
+            href={`mailto:${managingDirector.email}`}
+            className="mt-7 inline-flex items-center gap-2 font-mono text-[14px] text-glow hover:underline"
+          >
+            <Coal /> {managingDirector.email}
+          </a>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
 function ManagingPartner() {
   const { c } = useMarket();
   const { managingPartner } = company;
@@ -555,6 +602,7 @@ export default function Home() {
       <Benchmark />
       <TrustWall />
       <Faq />
+      <ManagingDirector />
       <ManagingPartner />
       <ClosingCTA />
     </>
