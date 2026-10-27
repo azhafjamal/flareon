@@ -412,16 +412,6 @@ export default {
       ],
     },
 
-    packs: {
-      eyebrow: "Bag size",
-      title: "One bag size, ordered in multiples",
-      sub: "We pack a single standard bag so weight and quality stay consistent on every order. Scale up in multiples of 25 kg to match your outlet's stock room, and rate improves with committed monthly volume rather than one-off order size.",
-      items: [
-        { size: "25 kg", for: "Standard bag — the only size we pack" },
-        { size: "MOQ", for: "1 bag (25 kg), then any multiple of 25 kg" },
-      ],
-    },
-
     calc: {
       eyebrow: "Plan your requirement",
       title: "Rough monthly estimate",
@@ -446,13 +436,7 @@ export default {
     },
 
     coverage: {
-      eyebrow: "Delivery coverage",
-      title: "Where we deliver today",
-      sub: "Despatched by road from the Palladam plant. Cities outside the list below are served on a project basis — ask the India desk.",
-      priority: "Next-day / priority",
-      standard: "Standard [X]-day",
-      onRequest: "On request",
-      more: "+ many more across India — just ask",
+      line: "Delivering across all India",
     },
 
     steps: {
@@ -540,7 +524,7 @@ export default {
       body: "Prefer to talk? Reach the domestic sales team directly — fastest during IST business hours.",
       whatsapp: "WhatsApp / call",
       email: "Email",
-      emailValue: "[india@flareonbbq.com]",
+      emailValue: "info@flareonbbq.com",
       plant: "Plant & despatch",
       plantValue: "Palladam, Tamil Nadu",
       hours: "Desk hours",
@@ -556,7 +540,7 @@ export default {
   // { list } bullets, { table } two-column table. [Bracketed] text renders as a
   // placeholder chip until a real value replaces it.
   legal: {
-    updated: "Last updated: [DATE]",
+    updated: "Last updated: 28 October 2026",
     contents: "On this page",
 
     privacy: {
@@ -571,13 +555,13 @@ export default {
         },
         {
           list: [
-            "Registered entity name: [LEGAL ENTITY NAME]",
-            "Company / GST registration number: [GSTIN]",
+            "Registered entity name: Universal Flareon Industries",
+            "Company / GST registration number: 33AACFU4735E1ZF",
             "Import Export Code (IEC): 3209000573",
           ],
         },
         {
-          p: "For any privacy-related question or request, contact us at care@flareonbbq.com or by WhatsApp at +91 99441 33441.",
+          p: "For any privacy-related question or request, contact us at info@flareonbbq.com or by WhatsApp at +91 99441 33441.",
         },
         { sub: "Grievance Officer" },
         {
@@ -585,9 +569,9 @@ export default {
         },
         {
           list: [
-            "Name: [GRIEVANCE OFFICER NAME]",
-            "Email: [GRIEVANCE OFFICER EMAIL]",
-            "Response time: we aim to acknowledge requests within [X] business days.",
+            "Name: Gowtham M",
+            "Email: gowtham@flareonbbq.com",
+            "Response time: we aim to acknowledge requests within 3 business days.",
           ],
         },
 
@@ -604,7 +588,7 @@ export default {
         {
           list: [
             "Standard technical data such as IP address, browser type, device type, and pages visited, collected through normal website operation and hosting logs.",
-            "[If applicable: name of analytics tool, e.g. Google Analytics] — see the Cookie note below.",
+            "Google Analytics and Vercel (our hosting provider) collect technical data such as pages visited and device type to help us improve the website — see the Cookie note below.",
           ],
         },
         {
@@ -642,7 +626,7 @@ export default {
 
         { h: "5. How long we keep your information" },
         {
-          p: "We retain enquiry and order-related information for as long as needed to respond to your enquiry, fulfil any resulting order, and meet our accounting and export record-keeping obligations under Indian law, currently [X years]. You can ask us to delete your information sooner, subject to section 8 below.",
+          p: "We do not maintain a customer database. Details you send through an enquiry form are used only to respond to that enquiry and are deleted once it is closed, normally within 12 months of our last contact. If an enquiry becomes an order, we keep the related invoices and export records only for as long as Indian accounting and export laws require. You can ask us to delete your information sooner, subject to section 8 below.",
         },
 
         { h: "6. Who we share your information with" },
@@ -651,14 +635,14 @@ export default {
           list: [
             "Freight forwarders, customs agents, or shipping lines, only once an order is confirmed and only the details needed to ship your container.",
             "Our bank, for T/T or Letter of Credit processing.",
-            "[Web hosting, email or CRM providers in use — e.g. Vercel, Google Workspace], who process data on our behalf under their own security and confidentiality terms.",
+            "Our website hosting and email providers (Vercel and Google Workspace), who process data on our behalf under their own security and confidentiality terms.",
             "Government or regulatory authorities, where required by law.",
           ],
         },
 
         { h: "7. International data transfers" },
         {
-          p: "We are based in India. If you are contacting us from the EU, UK, or elsewhere outside India, your information will be transferred to and processed in India. Where required, we rely on [Standard Contractual Clauses / other transfer mechanism] to protect your information during this transfer.",
+          p: "We are based in India. If you are contacting us from the EU, UK, or elsewhere outside India, your information will be transferred to and processed in India. Where required, we put appropriate safeguards in place, such as standard contractual clauses, to protect your information during this transfer.",
         },
 
         { h: "8. Your rights" },
@@ -674,7 +658,7 @@ export default {
           ],
         },
         {
-          p: "To exercise any of these rights, contact care@flareonbbq.com. If you are in the EU/EEA, you also have the right to lodge a complaint with your local data protection authority.",
+          p: "To exercise any of these rights, contact info@flareonbbq.com. If you are in the EU/EEA, you also have the right to lodge a complaint with your local data protection authority.",
         },
 
         { h: "9. Security" },
@@ -699,7 +683,7 @@ export default {
 
         { h: "13. Contact us" },
         {
-          p: "Flareon Briquettes · 3/147 Muthandipalayam, K.Ayyampalayam, Palladam, Tamil Nadu, India 641664. Email: care@flareonbbq.com · WhatsApp: +91 99441 33441.",
+          p: "Flareon Briquettes · 3/147 Muthandipalayam, K.Ayyampalayam, Palladam, Tamil Nadu, India 641664. Email: info@flareonbbq.com · WhatsApp: +91 99441 33441.",
         },
       ],
     },
@@ -717,7 +701,7 @@ export default {
 
         { h: "2. Quotations" },
         {
-          p: "Prices quoted are indicative FOB/CIF prices in [currency, e.g. USD] and are valid for [X days] from the date of quotation unless stated otherwise. Final pricing is confirmed in a written proforma invoice before production begins.",
+          p: "Prices quoted are indicative FOB/CIF prices in USD (export orders) or INR (domestic orders) and are valid for 15 days from the date of quotation unless stated otherwise. Final pricing is confirmed in a written proforma invoice before production begins.",
         },
 
         { h: "3. Minimum order and acceptance" },
@@ -731,7 +715,7 @@ export default {
 
         { h: "4. Pricing terms and Incoterms" },
         {
-          p: "We quote and ship under FOB (Free On Board) or CIF (Cost, Insurance and Freight) terms, Incoterms [2020], from Tuticorin Port, Chennai Port or Cochin Port, India. The applicable Incoterm will be stated on every proforma invoice.",
+          p: "We quote and ship under FOB (Free On Board) or CIF (Cost, Insurance and Freight) terms, Incoterms 2020, from Tuticorin Port, Chennai Port or Cochin Port, India. The applicable Incoterm will be stated on every proforma invoice.",
         },
 
         { h: "5. Payment terms" },
@@ -739,10 +723,10 @@ export default {
           table: {
             head: ["Method", "Terms"],
             rows: [
-              ["T/T (Telegraphic Transfer)", "[e.g. 30% advance, 70% against shipping documents]"],
+              ["T/T (Telegraphic Transfer)", "As agreed on the proforma invoice — contact us for the payment schedule"],
               [
                 "Irrevocable Letter of Credit (L/C)",
-                "Available from the first container. L/C must be confirmed and workable at a bank acceptable to us, opened at least [X days] before the requested shipment date.",
+                "Available from the first container. L/C must be confirmed and workable at a bank acceptable to us, opened at least 15 days before the requested shipment date.",
               ],
             ],
           },
@@ -751,7 +735,7 @@ export default {
 
         { h: "6. Delivery and lead time" },
         {
-          p: "Estimated production and shipment lead time is [X weeks] from order confirmation. Sailing times shown on the website are indicative and depend on carrier schedules; we are not liable for shipping line delays once the container has been handed over to the carrier.",
+          p: "Estimated production and shipment lead time is 3 to 4 weeks from order confirmation. Sailing times shown on the website are indicative and depend on carrier schedules; we are not liable for shipping line delays once the container has been handed over to the carrier.",
         },
 
         { h: "7. Transfer of title and risk" },
@@ -761,12 +745,12 @@ export default {
 
         { h: "8. Product specification and tolerance" },
         {
-          p: "Goods are supplied to the grade specification (ash content, moisture, burn time, fixed carbon) confirmed on the order. Reasonable manufacturing tolerances of [± X%] apply to each specification and do not constitute a defect.",
+          p: "Goods are supplied to the grade specification (ash content, moisture, burn time, fixed carbon) confirmed on the order. Reasonable manufacturing tolerances of ±5% apply to each specification and do not constitute a defect.",
         },
 
         { h: "9. Inspection and claims" },
         {
-          p: "The buyer should inspect the goods promptly on arrival. Any claim relating to quantity, quality, or specification must be raised in writing, with supporting photographs or an independent inspection report, within [X days] of the container's arrival at the destination port. Claims raised after this period may not be accepted.",
+          p: "The buyer should inspect the goods promptly on arrival. Any claim relating to quantity, quality, or specification must be raised in writing, with supporting photographs or an independent inspection report, within 14 days of the container's arrival at the destination port. Claims raised after this period may not be accepted.",
         },
 
         { h: "10. Rejected goods and remedies" },
@@ -798,14 +782,14 @@ export default {
         {
           list: [
             "Domestic supply is billed on GST invoice in INR against the rate contract in force on the order date.",
-            "Credit terms, where granted, are [Net X days] from invoice date; delayed payment may suspend the delivery schedule.",
-            "Short or damaged delivery must be reported within [X days] of receipt with photographs.",
+            "Credit terms, where granted, are Net 30 days from invoice date; delayed payment may suspend the delivery schedule.",
+            "Short or damaged delivery must be reported within 48 hours of receipt with photographs.",
           ],
         },
 
         { h: "16. Governing law and disputes" },
         {
-          p: "These Terms of Sale are governed by the laws of India. Any dispute will be subject to the exclusive jurisdiction of the courts of [Coimbatore, Tamil Nadu], or resolved by arbitration seated in [city] under the [Arbitration and Conciliation Act, 1996], as agreed on the order.",
+          p: "These Terms of Sale are governed by the laws of India. Any dispute will be subject to the exclusive jurisdiction of the courts of Coimbatore, Tamil Nadu, or resolved by arbitration seated in Chennai under the Arbitration and Conciliation Act, 1996, as agreed on the order.",
         },
 
         { h: "17. Changes to these terms" },
@@ -815,7 +799,7 @@ export default {
 
         { h: "18. Contact" },
         {
-          p: "Flareon Briquettes · 3/147 Muthandipalayam, K.Ayyampalayam, Palladam, Tamil Nadu, India 641664. Email: enquiry@flareonbbq.com · WhatsApp: +91 99441 33441.",
+          p: "Flareon Briquettes · 3/147 Muthandipalayam, K.Ayyampalayam, Palladam, Tamil Nadu, India 641664. Email: info@flareonbbq.com · WhatsApp: +91 99441 33441.",
         },
       ],
     },

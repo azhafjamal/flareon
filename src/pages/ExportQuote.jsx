@@ -428,7 +428,11 @@ function CarbonForm() {
       {sent ? (
         <Sent onEdit={() => setSent(false)} waUrl={waUrl} />
       ) : (
-        <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+        <form onSubmit={handleSubmit} className="mt-8 space-y-5" aria-disabled>
+          <fieldset
+            disabled
+            className="space-y-5 opacity-50 select-none"
+          >
           <Honeypot
             value={form.botcheck}
             onChange={(e) => setForm((f) => ({ ...f, botcheck: e.target.checked }))}
@@ -518,9 +522,10 @@ function CarbonForm() {
             />
           </div>
 
-          <Button type="submit" size="lg" className="w-full" disabled={sending}>
-            {sending ? c.common.sending : c.exportDesk.carbonForm.submit}
+          <Button type="submit" size="lg" className="w-full" disabled>
+            {c.common.comingSoon}
           </Button>
+          </fieldset>
           <p className="text-center text-[12px] text-ash-3">
             {c.exportDesk.carbonForm.footnote}
           </p>

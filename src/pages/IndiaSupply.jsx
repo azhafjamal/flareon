@@ -24,56 +24,6 @@ const label = "mb-2 block text-[13px] font-medium text-ash-2";
 // figure once we have it measured across a few kitchens.
 const KG_PER_STATION_HOUR = 0.35;
 
-// Cities are operational facts, not copy, so they live here rather than in the
-// locale files. Add or move a city between the three tiers as coverage changes.
-const coverage = {
-  priority: [
-    "Coimbatore",
-    "Tiruppur",
-    "Erode",
-    "Palladam",
-    "Pollachi",
-    "Salem",
-    "Karur",
-    "Namakkal",
-    "Avinashi",
-    "Perundurai",
-    "Mettupalayam",
-    "Udumalpet",
-  ],
-  standard: [
-    "Chennai",
-    "Bengaluru",
-    "Hyderabad",
-    "Kochi",
-    "Madurai",
-    "Mysuru",
-    "Tiruchirapalli",
-    "Thiruvananthapuram",
-    "Vijayawada",
-    "Visakhapatnam",
-    "Mangaluru",
-    "Puducherry",
-  ],
-  onRequest: [
-    "Mumbai",
-    "Pune",
-    "Delhi NCR",
-    "Kolkata",
-    "Ahmedabad",
-    "Surat",
-    "Jaipur",
-    "Lucknow",
-    "Chandigarh",
-    "Indore",
-    "Nagpur",
-    "Bhubaneswar",
-    "Guwahati",
-    "Patna",
-    "Goa",
-  ],
-};
-
 function Hero() {
   const { c } = useMarket();
   return (
@@ -208,31 +158,6 @@ function Comparison() {
   );
 }
 
-function Packs() {
-  const { c } = useMarket();
-  return (
-    <Section tone="ink">
-      <SectionHead
-        eyebrow={c.india.packs.eyebrow}
-        title={c.india.packs.title}
-        sub={c.india.packs.sub}
-      />
-      <div className="mt-10 grid max-w-xl gap-5 sm:grid-cols-2">
-        {c.india.packs.items.map((p) => (
-          <div key={p.size} className="panel panel-hover p-7 text-center">
-            <div className="font-display text-[2.1rem] font-black tracking-tight text-ash">
-              {p.size}
-            </div>
-            <p className="mt-2.5 text-[15px] leading-relaxed text-ash-3">
-              {p.for}
-            </p>
-          </div>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
 // Indicative planning tool only — the numbers are a model, not a quote.
 // Range input drives the clamped numeric state directly; the number field
 // keeps its own raw string so the visitor can clear it and type freely,
@@ -361,47 +286,17 @@ function Estimator() {
   );
 }
 
-function CityPills({ cities, highlight = false, trailing }) {
-  return (
-    <div className="flex flex-wrap gap-2.5">
-      {cities.map((city) => (
-        <span
-          key={city}
-          className={`rounded-full border px-4 py-2 text-[15px] transition-colors ${
-            highlight
-              ? "border-ember/45 bg-ember/8 text-glow"
-              : "border-line bg-ink-2 text-ash-2 hover:border-ember/40 hover:text-ash"
-          }`}
-        >
-          <Fills>{city}</Fills>
-        </span>
-      ))}
-      {trailing && (
-        <span className="rounded-full border border-dashed border-ember/40 px-4 py-2 text-[15px] text-glow">
-          {trailing}
-        </span>
-      )}
-    </div>
-  );
-}
-
 function Coverage() {
   const { c } = useMarket();
-  const t = c.india.coverage;
   return (
-    <Section tone="ink">
-      <SectionHead eyebrow={t.eyebrow} title={t.title} sub={t.sub} />
-      <div className="mt-10">
-        <p className="eyebrow mb-4 text-[13px]">{t.priority}</p>
-        <CityPills cities={coverage.priority} highlight />
-        <p className="eyebrow mt-9 mb-4 text-[13px]">
-          <Fills>{t.standard}</Fills>
-        </p>
-        <CityPills cities={coverage.standard} />
-        <p className="eyebrow mt-9 mb-4 text-[13px]">{t.onRequest}</p>
-        <CityPills cities={coverage.onRequest} trailing={t.more} />
-      </div>
-    </Section>
+    <section className="relative overflow-hidden border-y border-ember/30 bg-ink-2 py-14 text-center md:py-20">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_120%_at_50%_50%,rgba(255,90,31,0.20),transparent_75%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-glow/70 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-glow/70 to-transparent" />
+      <p className="shell relative font-display text-[2.4rem] font-black leading-tight tracking-tight md:text-6xl">
+        <span className="ember-text">{c.india.coverage.line}</span>
+      </p>
+    </section>
   );
 }
 
@@ -787,11 +682,10 @@ export default function IndiaSupply() {
       <ClientStrip />
       <UseCases />
       <Comparison />
-      <Packs />
       <Estimator />
-      <Coverage />
       <Steps />
       <Faq />
+      <Coverage />
       <Section tone="raised">
         <div className="grid items-start gap-6 lg:grid-cols-[1.25fr_0.75fr]">
           <EnquiryForm />

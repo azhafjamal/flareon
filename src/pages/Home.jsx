@@ -467,7 +467,7 @@ function ManagingDirector() {
   const { c } = useMarket();
   const { managingDirector } = company;
   return (
-    <Section tone="raised">
+    <Section tone="raised" className="pt-0! md:pt-0!">
       <div className="grid items-center gap-12 lg:grid-cols-[auto_1fr]">
         <div className="mx-auto lg:mx-0">
           <div className="relative">
@@ -477,7 +477,7 @@ function ManagingDirector() {
               alt={media.people.md.alt}
               loading="lazy"
               decoding="async"
-              className="relative size-56 rounded-full border border-line object-cover object-top md:size-64"
+              className="relative size-56 rounded-full object-cover object-top md:size-64"
             />
           </div>
         </div>
@@ -523,7 +523,7 @@ function ManagingPartner() {
               alt={media.people.lead.alt}
               loading="lazy"
               decoding="async"
-              className="relative size-56 rounded-full border border-line object-cover md:size-64"
+              className="relative size-56 rounded-full object-cover md:size-64"
             />
           </div>
         </div>
