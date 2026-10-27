@@ -97,17 +97,24 @@ export default function Compliance() {
         </div>
       </Section>
 
-      <Section tone="raised">
-        <div className="panel flex flex-col items-start justify-between gap-6 p-8 md:flex-row md:items-center">
-          <div>
-            <h2 className="text-2xl font-extrabold text-ash">
-              {c.compliance.ask.title}
-            </h2>
-            <p className="mt-2 text-sm text-ash-2">{c.compliance.ask.body}</p>
+      {/* Wider than the standard page shell, so the panel reads as a banner. */}
+      <section className="bg-ink-2 grain py-20 md:py-28">
+        <div className="mx-auto w-full max-w-[96rem] px-3 md:px-6">
+          <div className="panel flex flex-col items-start justify-between gap-8 p-8 md:flex-row md:items-center md:gap-12 md:p-12">
+            <div>
+              <h2 className="text-3xl font-extrabold text-ash md:text-4xl">
+                {c.compliance.ask.title}
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-ash-2 md:text-lg">
+                {c.compliance.ask.body}
+              </p>
+            </div>
+            <Button to="/export-quote" size="xl" className="shrink-0">
+              {c.compliance.ask.cta}
+            </Button>
           </div>
-          <Button to="/export-quote">{c.compliance.ask.cta}</Button>
         </div>
-      </Section>
+      </section>
     </>
   );
 }
