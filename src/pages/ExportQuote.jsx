@@ -543,6 +543,8 @@ function SalesDesk() {
     <section className="relative overflow-hidden border-y border-line py-20 md:py-28">
       <img
         src={media.fire.hero.src}
+        width={media.fire.hero.width}
+        height={media.fire.hero.height}
         alt=""
         aria-hidden
         loading="lazy"

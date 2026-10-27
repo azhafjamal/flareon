@@ -69,6 +69,8 @@ function ClientStrip() {
               >
                 <img
                   src={logo.src}
+                  width={logo.width}
+                  height={logo.height}
                   alt={isClone ? "" : logo.alt}
                   loading="lazy"
                   decoding="async"
@@ -356,11 +358,12 @@ function Faq() {
                   {isOpen ? "−" : "+"}
                 </span>
               </button>
-              {isOpen && (
-                <p className="pb-6 pe-10 text-[16px] leading-relaxed text-ash-2">
-                  <Fills>{f.a}</Fills>
-                </p>
-              )}
+              <p
+                hidden={!isOpen}
+                className="pb-6 pe-10 text-[16px] leading-relaxed text-ash-2"
+              >
+                <Fills>{f.a}</Fills>
+              </p>
             </div>
           );
         })}

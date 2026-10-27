@@ -35,6 +35,8 @@ export default function ClientStripPro() {
               >
                 <img
                   src={logo.src}
+                  width={logo.width}
+                  height={logo.height}
                   alt={isClone ? "" : logo.alt}
                   loading="lazy"
                   decoding="async"

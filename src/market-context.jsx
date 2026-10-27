@@ -6,8 +6,11 @@ const MarketContext = createContext(null);
 const STORAGE_KEY = "flareon.market";
 
 export function MarketProvider({ children }) {
+  // No localStorage during the build-time prerender, so pages render in English.
   const [code, setCode] = useState(
-    () => localStorage.getItem(STORAGE_KEY) || "EN"
+    () =>
+      (typeof window !== "undefined" && localStorage.getItem(STORAGE_KEY)) ||
+      "EN"
   );
 
   // Only markets flagged `ready` can be selected; an unknown code falls back to

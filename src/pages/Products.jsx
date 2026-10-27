@@ -20,6 +20,8 @@ function ShapeCard({ shape }) {
     <article className="panel panel-hover group flex flex-col overflow-hidden">
       <img
         src={image.src}
+        width={image.width}
+        height={image.height}
         alt={image.alt}
         loading="lazy"
         decoding="async"

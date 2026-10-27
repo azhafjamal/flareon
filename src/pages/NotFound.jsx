@@ -10,6 +10,8 @@ export default function NotFound() {
     <section className="relative overflow-hidden border-b border-line">
       <img
         src={media.fire.coals.src}
+        width={media.fire.coals.width}
+        height={media.fire.coals.height}
         alt=""
         aria-hidden
         className="absolute inset-0 size-full object-cover opacity-20"

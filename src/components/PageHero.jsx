@@ -14,6 +14,8 @@ export default function PageHero({
         <>
           <img
             src={image.src}
+            width={image.width}
+            height={image.height}
             alt={image.alt}
             fetchPriority="high"
             decoding="async"

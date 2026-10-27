@@ -52,6 +52,8 @@ export default function Company() {
       <section className="relative overflow-hidden border-y border-line py-20 md:py-28">
         <img
           src={media.logistics.yardLoading.src}
+          width={media.logistics.yardLoading.width}
+          height={media.logistics.yardLoading.height}
           alt=""
           aria-hidden
           loading="lazy"
@@ -71,6 +73,8 @@ export default function Company() {
                 {processImages[i] ? (
                   <img
                     src={processImages[i].src}
+                    width={processImages[i].width}
+                    height={processImages[i].height}
                     alt={processImages[i].alt}
                     loading="lazy"
                     decoding="async"
@@ -108,6 +112,8 @@ export default function Company() {
                   {carbonProcessImages[i] ? (
                     <img
                       src={carbonProcessImages[i].src}
+                      width={carbonProcessImages[i].width}
+                      height={carbonProcessImages[i].height}
                       alt={carbonProcessImages[i].alt}
                       loading="lazy"
                       decoding="async"
@@ -176,6 +182,8 @@ export default function Company() {
           <figure className="overflow-hidden rounded-xl border border-[#2d6648]/70 bg-[#0c1f16]">
             <img
               src={media.nature.grove.src}
+              width={media.nature.grove.width}
+              height={media.nature.grove.height}
               alt={media.nature.grove.alt}
               loading="lazy"
               decoding="async"

@@ -1,66 +1,74 @@
 // Photography registry — every real asset in /public/images, with the alt text
 // it should always ship with. Pages import from here, never hard-code a path.
 
-const img = (src, alt) => ({ src: `/images/${src}`, alt });
+import { imageSizes } from "./imageSizes";
+
+// Every entry carries its true pixel size so pages can set width/height.
+const withSize = (src, alt) => {
+  const [width, height] = imageSizes[src] ?? [];
+  return { src, alt, width, height };
+};
+
+const img = (src, alt) => withSize(`/images/${src}`, alt);
 
 export const media = {
   brand: {
     // The flame mark, cropped out of the full lockup, for the nav/footer.
-    mark: img("logo-mark.jpg", "FLAREON flame mark"),
+    mark: img("logo-mark.webp", "FLAREON flame mark"),
   },
 
   // Hot product beauty shots
   fire: {
     hero: img(
-      "hero-coal-flame.jpg",
+      "hero-coal-flame.webp",
       "Flareon coconut charcoal burning down to an even ember bed"
     ),
     hexagon: img(
-      "flame-hexagon.jpg",
+      "flame-hexagon.webp",
       "Flames rising off hexagonal coconut shell briquettes in a grill"
     ),
     coals: img(
-      "coals-glowing.jpg",
+      "coals-glowing.webp",
       "Close-up of glowing Flareon briquettes at full heat"
     ),
     shisha: img(
-      "shisha-cubes-grill.jpg",
+      "shisha-cubes-grill.webp",
       "Shisha cubes glowing red on a lighting grill"
     ),
     cubesLit: img(
-      "lighter-cubes-foil.jpg",
+      "lighter-cubes-foil.webp",
       "Four coconut charcoal cubes fully lit on a foiled shisha bowl"
     ),
     cubesBurning: img(
-      "briquette-cubes-fire.jpg",
+      "briquette-cubes-fire.webp",
       "Coconut shell charcoal cubes glowing red under open flame"
     ),
   },
 
   // Studio shots of the shapes we press
   shapes: {
-    pillow: img("briquette-pillow.jpg", "Pillow-shaped coconut charcoal briquettes"),
-    hexagon: img("briquette-hexagon.jpg", "Hexagonal coconut charcoal briquette logs"),
-    cube: img("briquette-cube.jpg", "Cube coconut charcoal briquettes stacked"),
+    pillow: img("briquette-pillow.webp", "Pillow-shaped coconut charcoal briquettes"),
+    hexagon: img("briquette-hexagon.webp", "Hexagonal coconut charcoal briquette logs"),
+    cube: img("briquette-cube.webp", "Cube coconut charcoal briquettes stacked"),
   },
 
   // Raw material & by-product
   material: {
     rawSacks: img(
-      "raw-shell-sacks.jpg",
+      "raw-shell-sacks.webp",
       "Open sacks of coconut shell charcoal chips and carbon powder"
     ),
-    powder: img("carbon-powder.jpg", "Milled coconut shell carbon powder"),
+    powder: img("carbon-powder.webp", "Milled coconut shell carbon powder"),
     carbonGranules: img(
-      "activated-carbon-granules.jpg",
+      "activated-carbon-granules.webp",
       "Close-up of coconut shell activated carbon granules"
     ),
     carbonTestingPacking: img(
-      "carbon-testing-packing.jpg",
+      "carbon-testing-packing.webp",
       "Testing and packing coconut shell activated carbon"
     ),
     shellCharSelection: img(
-      "shell-char-selection.jpg",
+      "shell-char-selection.webp",
       "Graded coconut shell char selected for activation"
     ),
   },
@@ -68,47 +76,47 @@ export const media = {
   // The Palladam plant
   plant: {
     machine: img(
-      "briquette-machine.jpg",
+      "briquette-machine.webp",
       "Operator running the hydraulic briquette press at the Palladam plant"
     ),
     machineTeam: img(
-      "briquette-machine-team.jpg",
+      "briquette-machine-team.webp",
       "Plant team working the briquette press line"
     ),
     conveyorCrates: img(
-      "conveyor-drying-crates.jpg",
+      "conveyor-drying-crates.webp",
       "Carbon conveyor feeding the press beside stacked drying crates"
     ),
     sorting: img(
-      "sorting-crates.jpg",
+      "sorting-crates.webp",
       "Workers grading fresh briquettes into drying crates"
     ),
     dryingTray: img(
-      "drying-tray-hands.jpg",
+      "drying-tray-hands.webp",
       "Freshly pressed pillow briquettes laid out on a drying tray"
     ),
     trayLeveling: img(
-      "tray-leveling.jpg",
+      "tray-leveling.webp",
       "Operator levelling a tray of green briquettes before drying"
     ),
     screening: img(
-      "screening-conveyor.jpg",
+      "screening-conveyor.webp",
       "Operator watching briquettes cross the screening conveyor"
     ),
     conveyorDrop: img(
-      "conveyor-drop.jpg",
+      "conveyor-drop.webp",
       "Dried briquettes dropping from the screen onto the transfer belt"
     ),
     conveyorNight: img(
-      "conveyor-night.jpg",
+      "conveyor-night.webp",
       "Screening line running inside the plant"
     ),
     screeningCheck: img(
-      "screening-check.jpg",
+      "screening-check.webp",
       "Quality check on the screening bed mid-run"
     ),
     bagging: img(
-      "bagging-hopper.jpg",
+      "bagging-hopper.webp",
       "Operator filling a 25 kg Flareon sack at the weighing hopper"
     ),
   },
@@ -116,46 +124,46 @@ export const media = {
   // Warehouse, packing and despatch
   logistics: {
     yardLoading: img(
-      "yard-loading.jpg",
+      "yard-loading.webp",
       "Tractor loader moving jumbo bags of coconut shell charcoal in the plant yard"
     ),
     warehouseFlareon: img(
-      "warehouse-flareon-sacks.jpg",
+      "warehouse-flareon-sacks.webp",
       "Branded Flareon 25 kg charcoal sacks stacked in the covered warehouse"
     ),
     warehouseAisle: img(
-      "warehouse-aisle.jpg",
+      "warehouse-aisle.webp",
       "Warehouse aisle between stacked charcoal sacks awaiting despatch"
     ),
     sackWall: img(
-      "warehouse-sack-wall.jpg",
+      "warehouse-sack-wall.webp",
       "Wall of packed charcoal sacks ready for container loading"
     ),
     retailBags: img(
-      "retail-bags.jpg",
+      "retail-bags.webp",
       "Printed retail Flareon barbecue charcoal bags stacked for export"
     ),
     port: img(
-      "port-night.jpg",
+      "port-night.webp",
       "Container vessel loading at berth under gantry cranes at night"
     ),
   },
 
   people: {
-    md: img("md-portrait.jpg", "Sathya Prakash, Managing Director, Flareon Briquettes"),
-    lead: img("leadership-portrait.jpg", "Gowtham M, Managing Partner, Flareon Briquettes"),
+    md: img("md-portrait.webp", "Sathya Prakash, Managing Director, Flareon Briquettes"),
+    lead: img("leadership-portrait.webp", "Gowtham M, Managing Partner, Flareon Briquettes"),
   },
 
   // Sustainability + proof imagery
   nature: {
     grove: img(
-      "coconut-grove.jpg",
+      "coconut-grove.webp",
       "Coconut plantation — the renewable shell waste stream our briquettes are made from"
     ),
   },
   proof: {
     certificates: img(
-      "certificates-spread.jpg",
+      "certificates-spread.webp",
       "Flareon quality certificates and third-party test reports laid out"
     ),
   },
@@ -223,11 +231,11 @@ export const carbonProcessImages = [
 // Indian hotel, restaurant and catering groups already buying from the plant.
 // Logos keep the filenames they were supplied under.
 export const clientLogos = [
-  { src: "/images/clients/d.jpg", alt: "Barbeque Nation" },
-  { src: "/images/clients/b.jpg", alt: "Absolute Barbecues" },
-  { src: "/images/clients/e.jpg", alt: "Oberoi Hotels & Resorts" },
-  { src: "/images/clients/f.jpg", alt: "Radisson Blu" },
-  { src: "/images/clients/c.jpg", alt: "Smoke Hub" },
+  withSize("/images/clients/d.webp", "Barbeque Nation logo"),
+  withSize("/images/clients/b.webp", "Absolute Barbecues logo"),
+  withSize("/images/clients/e.webp", "Oberoi Hotels & Resorts logo"),
+  withSize("/images/clients/f.webp", "Radisson Blu logo"),
+  withSize("/images/clients/c.webp", "Smoke Hub logo"),
 ];
 
 export default media;

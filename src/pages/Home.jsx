@@ -25,6 +25,8 @@ function Hero() {
     <section className="relative overflow-hidden border-b border-line">
       <img
         src={media.fire.hero.src}
+        width={media.fire.hero.width}
+        height={media.fire.hero.height}
         alt={media.fire.hero.alt}
         fetchPriority="high"
         decoding="async"
@@ -95,6 +97,8 @@ function Pillars() {
     <section className="relative overflow-hidden border-y border-line py-20 md:py-28">
       <img
         src={media.plant.machineTeam.src}
+        width={media.plant.machineTeam.width}
+        height={media.plant.machineTeam.height}
         alt=""
         aria-hidden
         loading="lazy"
@@ -240,6 +244,8 @@ function ProductPeek() {
     <section className="relative overflow-hidden py-20 md:py-28">
       <img
         src={media.material.rawSacks.src}
+        width={media.material.rawSacks.width}
+        height={media.material.rawSacks.height}
         alt=""
         aria-hidden
         loading="lazy"
@@ -267,6 +273,8 @@ function ProductPeek() {
                 <div className="relative sm:w-2/5 sm:shrink-0">
                   <img
                     src={productCardImage[p.id].src}
+                    width={productCardImage[p.id].width}
+                    height={productCardImage[p.id].height}
                     alt={productCardImage[p.id].alt}
                     loading="lazy"
                     decoding="async"
@@ -450,11 +458,14 @@ function Faq() {
                   {isOpen ? "−" : "+"}
                 </span>
               </button>
-              {isOpen && (
-                <p className="pb-6 pr-10 text-[17px] leading-relaxed text-ash-2">
-                  {f.a}
-                </p>
-              )}
+              {/* Always in the DOM (hidden when closed) so the answers are
+                  part of the page text that FAQ structured data points to. */}
+              <p
+                hidden={!isOpen}
+                className="pb-6 pr-10 text-[17px] leading-relaxed text-ash-2"
+              >
+                {f.a}
+              </p>
             </div>
           );
         })}
@@ -474,6 +485,8 @@ function ManagingDirector() {
             <div className="ember-pulse pointer-events-none absolute -inset-6 rounded-full bg-[radial-gradient(circle,rgba(255,90,31,0.22),transparent_70%)] blur-2xl" />
             <img
               src={media.people.md.src}
+              width={media.people.md.width}
+              height={media.people.md.height}
               alt={media.people.md.alt}
               loading="lazy"
               decoding="async"
@@ -520,6 +533,8 @@ function ManagingPartner() {
             <div className="ember-pulse pointer-events-none absolute -inset-6 rounded-full bg-[radial-gradient(circle,rgba(255,90,31,0.22),transparent_70%)] blur-2xl" />
             <img
               src={media.people.lead.src}
+              width={media.people.lead.width}
+              height={media.people.lead.height}
               alt={media.people.lead.alt}
               loading="lazy"
               decoding="async"
@@ -561,6 +576,8 @@ function ClosingCTA() {
     <section className="relative overflow-hidden border-t border-line bg-ink">
       <img
         src={media.fire.coals.src}
+        width={media.fire.coals.width}
+        height={media.fire.coals.height}
         alt=""
         aria-hidden
         loading="lazy"

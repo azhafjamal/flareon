@@ -21,6 +21,8 @@ function Tile({ item, caption }) {
     >
       <img
         src={item.src}
+        width={item.width}
+        height={item.height}
         alt={item.alt}
         loading="lazy"
         decoding="async"
