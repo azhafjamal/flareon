@@ -242,6 +242,9 @@ export default {
       title: "机制炭 FOB / CIF 询价",
       submit: "提交机制炭询价 →",
       footnote: "参考价格区间将于同一工作日回复。",
+      privacyA: "提交此询盘即表示您接受我们的",
+      privacyLink: "隐私政策",
+      privacyB: "。",
     },
     carbonForm: {
       eyebrow: "活性炭",

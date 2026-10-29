@@ -241,6 +241,9 @@ export default {
       title: "FOB-/CIF-aanvraag houtskoolbriketten",
       submit: "Briketaanvraag versturen →",
       footnote: "Indicatieve prijsrange nog dezelfde werkdag.",
+      privacyA: "Door deze aanvraag te versturen accepteert u ons",
+      privacyLink: "privacybeleid",
+      privacyB: ".",
     },
     carbonForm: {
       eyebrow: "Actieve kool",

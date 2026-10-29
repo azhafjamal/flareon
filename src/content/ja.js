@@ -241,6 +241,9 @@ export default {
       title: "成形炭のFOB / CIF見積依頼",
       submit: "成形炭の見積を依頼する →",
       footnote: "参考価格帯は同一営業日中にご返信します。",
+      privacyA: "送信することで、当社の",
+      privacyLink: "プライバシーポリシー",
+      privacyB: "に同意したものとみなします。",
     },
     carbonForm: {
       eyebrow: "活性炭",

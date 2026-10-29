@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   company,
   containers,
@@ -360,6 +361,13 @@ function BriquetteForm() {
           </Button>
           <p className="text-center text-[12px] text-ash-3">
             {c.exportDesk.briquetteForm.footnote}
+          </p>
+          <p className="text-center text-[12px] text-ash-3">
+            {c.exportDesk.briquetteForm.privacyA}{" "}
+            <Link to="/privacy" className="text-glow underline underline-offset-2">
+              {c.exportDesk.briquetteForm.privacyLink}
+            </Link>
+            {c.exportDesk.briquetteForm.privacyB}
           </p>
           {error && <SendError onRetry={() => setError(false)} />}
         </form>

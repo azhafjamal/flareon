@@ -13,9 +13,15 @@ function formatValue(v) {
   return String(v).trim();
 }
 
+// Form plumbing that means nothing to the reader of the message.
+const ALWAYS_SKIP = ["botcheck"];
+
 export function buildWhatsAppUrl({ phone, subject, data, skip = [] }) {
   const lines = Object.entries(data)
-    .filter(([k, v]) => !skip.includes(k) && v !== "" && v != null)
+    .filter(
+      ([k, v]) =>
+        !ALWAYS_SKIP.includes(k) && !skip.includes(k) && v !== "" && v != null
+    )
     .map(([k, v]) => `*${humanize(k)}:* ${formatValue(v)}`);
 
   const text = [subject, "", ...lines].join("\n");

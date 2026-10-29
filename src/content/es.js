@@ -242,6 +242,9 @@ export default {
       title: "Consulta FOB / CIF de briquetas de carbón",
       submit: "Enviar solicitud de cotización →",
       footnote: "Rango de precio indicativo el mismo día hábil.",
+      privacyA: "Al enviar esta consulta acepta nuestra",
+      privacyLink: "política de privacidad",
+      privacyB: ".",
     },
     carbonForm: {
       eyebrow: "Carbón activado",

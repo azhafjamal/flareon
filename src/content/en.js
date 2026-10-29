@@ -212,9 +212,16 @@ export default {
       title: "Official certificates & audit documents",
       sub: "All PDFs, no gated forms — the original documents exactly as issued.",
     },
+    sedex: {
+      tag: "Ethical trade audit",
+      title: "Sedex SMETA audit report",
+      body: "Our Sedex SMETA audit report is not published online. Contact us and we will share it with you directly.",
+      cta: "Contact us for the report",
+      subject: "Sedex SMETA audit report request",
+    },
     ask: {
       title: "Need a document we haven't listed?",
-      body: "Phytosanitary certificates, Certificate of Origin, fumigation records and packing lists are issued per shipment. Our Sedex SMETA audit report is shared on request — contact the export desk and we will send it.",
+      body: "Phytosanitary certificates, Certificate of Origin, fumigation records and packing lists are issued per shipment.",
       cta: "Ask the export desk",
     },
   },
@@ -256,6 +263,9 @@ export default {
       title: "Charcoal briquette FOB / CIF inquiry",
       submit: "Submit briquette quote request →",
       footnote: "Indicative price band returned the same working day.",
+      privacyA: "By sending this enquiry you accept our",
+      privacyLink: "privacy policy",
+      privacyB: ".",
     },
     carbonForm: {
       eyebrow: "Activated carbon",
@@ -653,7 +663,7 @@ export default {
 
         { h: "11. Cookies" },
         {
-          p: "This website uses only the technical cookies and local storage necessary for it to function — for example, to remember your selected language and market. We do not use advertising or tracking cookies, and no non-essential data is collected without your consent.",
+          p: "This website uses technical cookies and local storage necessary for it to function — for example, to remember your selected language and market. We also use Google Analytics, which sets cookies to measure how visitors use the site (pages viewed, device type, approximate location). This data is aggregated and is not used to identify you. We do not use advertising cookies. You can block or delete cookies in your browser settings, or install Google\u2019s opt-out add-on, without affecting your ability to use the site.",
         },
 
         { h: "12. Changes to this policy" },

@@ -241,6 +241,9 @@ export default {
       title: "FOB-/CIF-Anfrage für Holzkohlebriketts",
       submit: "Brikett-Anfrage absenden →",
       footnote: "Indikative Preisspanne noch am selben Werktag.",
+      privacyA: "Mit dem Absenden akzeptieren Sie unsere",
+      privacyLink: "Datenschutzerklärung",
+      privacyB: ".",
     },
     carbonForm: {
       eyebrow: "Aktivkohle",

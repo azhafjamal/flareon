@@ -1,8 +1,8 @@
-Live certificate PDFs served by the download links on /compliance and the
+Notes on the certificate PDFs in public/docs, served by the download links on /compliance and the
 homepage trust wall. These are the real issued documents.
 
   flareon-iso-9001.pdf        ISO 9001:2015 (TUV SUD South Asia)
-                              Reg. 99 100 20813, valid 2023-03-20 to 2026-03-19
+                              Reg. 99 100 20813, valid 2026-03-20 to 2029-03-19
   flareon-bureau-veritas.pdf  Bureau Veritas Comparison Study
                               Report (5119)212-0073 Rev. 1
   flareon-msds.pdf            Material Safety Data Sheet (16 sections)

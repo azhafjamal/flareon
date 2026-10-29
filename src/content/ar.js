@@ -243,6 +243,9 @@ export default {
       title: "استفسار FOB / CIF عن الفحم المضغوط",
       submit: "إرسال طلب عرض السعر",
       footnote: "يُرسل النطاق السعري الاسترشادي في يوم العمل نفسه.",
+      privacyA: "بإرسال هذا الطلب فإنك توافق على",
+      privacyLink: "سياسة الخصوصية",
+      privacyB: ".",
     },
     carbonForm: {
       eyebrow: "الكربون المنشط",

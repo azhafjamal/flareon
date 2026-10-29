@@ -239,7 +239,7 @@ export const certificates = [
     tag: "ISO certificate",
     title: "ISO 9001:2015 (TÜV SÜD South Asia)",
     body: "Quality management system certified for the manufacture and supply of coconut shell charcoal briquettes, and trading of BBQ grills and accessories.",
-    meta: "Reg. no. 99 100 20813 · valid 2023-03-20 to 2026-03-19",
+    meta: "Reg. no. 99 100 20813 · valid 2026-03-20 to 2029-03-19",
     file: "/docs/flareon-iso-9001.pdf",
     cta: "Download ISO 9001 PDF",
   },

@@ -1,4 +1,4 @@
-import { benchmark, certificates } from "../data/site";
+import { benchmark, certificates, company } from "../data/site";
 import { useMarket } from "../market-context";
 import { Section, SectionHead, Button, Eyebrow } from "../components/ui";
 import PageHero from "../components/PageHero";
@@ -95,6 +95,28 @@ export default function Compliance() {
             </article>
           ))}
         </div>
+
+        {/* Not a download: the audit report is shared on request. */}
+        <article className="panel mt-5 flex flex-col items-start justify-between gap-6 p-7 md:flex-row md:items-center">
+          <div>
+            <Eyebrow>{c.compliance.sedex.tag}</Eyebrow>
+            <h3 className="mt-3 text-xl font-bold leading-snug text-ash">
+              {c.compliance.sedex.title}
+            </h3>
+            <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-ash-3">
+              {c.compliance.sedex.body}
+            </p>
+          </div>
+          <Button
+            href={`mailto:${company.emails[0]}?subject=${encodeURIComponent(
+              c.compliance.sedex.subject
+            )}`}
+            size="md"
+            className="shrink-0"
+          >
+            {c.compliance.sedex.cta}
+          </Button>
+        </article>
       </Section>
 
       {/* Wider than the standard page shell, so the panel reads as a banner. */}
