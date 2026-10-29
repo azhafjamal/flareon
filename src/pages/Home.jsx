@@ -512,7 +512,7 @@ function ManagingDirector() {
           </div>
           <a
             href={`mailto:${managingDirector.email}`}
-            className="mt-7 inline-flex items-center gap-2 font-mono text-[14px] text-glow hover:underline"
+            className="mt-7 inline-flex items-center gap-2 font-mono text-[14px] text-ash transition-colors hover:text-ash-2"
           >
             <Coal /> {managingDirector.email}
           </a>
@@ -560,7 +560,7 @@ function ManagingPartner() {
           </div>
           <a
             href={`mailto:${managingPartner.email}`}
-            className="mt-7 inline-flex items-center gap-2 font-mono text-[14px] text-glow hover:underline"
+            className="mt-7 inline-flex items-center gap-2 font-mono text-[14px] text-ash transition-colors hover:text-ash-2"
           >
             <Coal /> {managingPartner.email}
           </a>

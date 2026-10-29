@@ -12,6 +12,7 @@ export const company = {
   plant: "Palladam Plant, Palladam, Tamil Nadu, India",
   whatsapp: "+91 99441 33441",
   whatsappHref: "https://wa.me/919944133441",
+  phoneHref: "tel:+919944133441",
   emails: ["info@flareonbbq.com"],
   managingDirector: {
     name: "Sathya Prakash",

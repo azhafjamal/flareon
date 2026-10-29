@@ -9,6 +9,7 @@ import {
 } from "../data/site";
 import { useMarket } from "../market-context";
 import {
+  Contactify,
   Section,
   SectionHead,
   Button,
@@ -177,7 +178,7 @@ function SendError({ onRetry }) {
     <div className="mt-5 rounded-lg border border-[#e5484d]/40 bg-[#e5484d]/8 p-5">
       <p className="text-sm font-bold text-ash">{c.exportDesk.sendError.title}</p>
       <p className="mt-1.5 text-[13px] leading-relaxed text-ash-2">
-        {c.exportDesk.sendError.body}
+        <Contactify>{c.exportDesk.sendError.body}</Contactify>
       </p>
       <div className="mt-4 flex flex-wrap gap-3">
         <Button href={company.whatsappHref} size="sm" variant="outline">
@@ -364,7 +365,7 @@ function BriquetteForm() {
           </p>
           <p className="text-center text-[12px] text-ash-3">
             {c.exportDesk.briquetteForm.privacyA}{" "}
-            <Link to="/privacy" className="text-glow underline underline-offset-2">
+            <Link to="/privacy" className="text-ash transition-colors hover:text-ash-2">
               {c.exportDesk.briquetteForm.privacyLink}
             </Link>
             {c.exportDesk.briquetteForm.privacyB}

@@ -95,7 +95,7 @@ export default function Footer() {
           <div className="mt-5 flex flex-col gap-2 text-sm">
             <a
               href={company.whatsappHref}
-              className="inline-flex w-fit items-center gap-2 text-ash-2 hover:text-glow"
+              className="inline-flex w-fit items-center gap-2 text-ash-2 hover:text-ash"
             >
               <Coal /> WhatsApp {company.whatsapp}
             </a>
@@ -103,7 +103,7 @@ export default function Footer() {
               <a
                 key={e}
                 href={`mailto:${e}`}
-                className="inline-flex w-fit items-center gap-2 text-ash-2 hover:text-glow"
+                className="inline-flex w-fit items-center gap-2 text-ash-2 hover:text-ash"
               >
                 <Coal /> {e}
               </a>

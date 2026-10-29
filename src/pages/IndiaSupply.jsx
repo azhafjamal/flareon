@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { company } from "../data/site";
 import { useMarket } from "../market-context";
@@ -9,6 +9,7 @@ import {
   Button,
   Coal,
   Fills,
+  Contactify,
   Honeypot,
 } from "../components/ui";
 import PageHero from "../components/PageHero";
@@ -48,31 +49,60 @@ function Hero() {
 }
 
 // Two copies of the logo row scroll as one track, so the loop is seamless at
-// -50%. Hovering pauses it, and reduced-motion users get a static row. Only the
-// first copy is exposed to assistive tech — the second exists purely to make
-// the loop seamless, and would otherwise read every client name twice.
+// -50%. Smoothness comes from the CSS (.marquee-track in index.css: own GPU
+// layer, no mask on the moving element, margin-based spacing); the edge fade is
+// two static gradients laid over the row rather than a mask, which would force
+// the browser to re-mask the moving track every frame. The animation is paused
+// while the strip is off screen. Only the first copy is exposed to assistive
+// tech — the second exists purely to make the loop seamless.
+// The track slides by exactly half its width, so half of it must be at least as
+// wide as the screen — otherwise the right side runs out of logos and shows a
+// gap just before the loop restarts. One set of five logos is only ~890px, so
+// each half repeats the set until it clears even a very wide monitor.
+const STRIP_REPEATS = 4;
+const SECONDS_PER_SET = 20; // keeps the scroll speed steady (~45px/s)
+
 function ClientStrip() {
   const { c } = useMarket();
-  const track = [...clientLogos, ...clientLogos];
+  const half = Array.from({ length: STRIP_REPEATS }, () => clientLogos).flat();
+  const track = [...half, ...half];
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) el.removeAttribute("data-offscreen");
+      else el.setAttribute("data-offscreen", "");
+    });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <section className="border-b border-line bg-ink-2 py-9">
+    <section
+      ref={sectionRef}
+      className="marquee border-b border-line bg-ink-2 py-9"
+    >
       <p className="eyebrow mb-6 text-center">{c.india.clients.eyebrow}</p>
-      <div className="group overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
-        <div className="flex w-max animate-[marquee_26s_linear_infinite] items-center gap-10 group-hover:[animation-play-state:paused] motion-reduce:animate-none">
+      <div className="relative overflow-hidden [contain:paint]">
+        <div
+          className="marquee-track flex w-max items-center"
+          style={{ animationDuration: `${STRIP_REPEATS * SECONDS_PER_SET}s` }}
+        >
           {track.map((logo, i) => {
             const isClone = i >= clientLogos.length;
             return (
               <div
                 key={`${logo.src}-${i}`}
                 aria-hidden={isClone || undefined}
-                className="flex h-[78px] shrink-0 items-center justify-center rounded-lg bg-[#f4f1ea] px-5"
+                className="me-10 flex h-[78px] shrink-0 items-center justify-center rounded-lg bg-[#f4f1ea] px-5"
               >
                 <img
                   src={logo.src}
                   width={logo.width}
                   height={logo.height}
                   alt={isClone ? "" : logo.alt}
-                  loading="lazy"
                   decoding="async"
                   className="h-11 w-auto max-w-[210px] object-contain md:h-13"
                 />
@@ -80,6 +110,8 @@ function ClientStrip() {
             );
           })}
         </div>
+        <div className="pointer-events-none absolute inset-y-0 start-0 w-[8%] bg-linear-to-r from-ink-2 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 end-0 w-[8%] bg-linear-to-l from-ink-2 to-transparent" />
       </div>
     </section>
   );
@@ -429,7 +461,7 @@ function SendError({ onRetry }) {
     <div className="mt-5 rounded-lg border border-[#e5484d]/40 bg-[#e5484d]/8 p-5">
       <p className="text-sm font-bold text-ash">{c.india.form.errorTitle}</p>
       <p className="mt-1.5 text-[13px] leading-relaxed text-ash-2">
-        {c.india.form.errorBody}
+        <Contactify>{c.india.form.errorBody}</Contactify>
       </p>
       <div className="mt-4 flex flex-wrap gap-3">
         <Button href={company.whatsappHref} size="sm" variant="outline">
@@ -609,7 +641,7 @@ function EnquiryForm() {
               />
               <span>
                 {f.consentA}{" "}
-                <Link to="/privacy" className="text-glow underline">
+                <Link to="/privacy" className="text-ash transition-colors hover:text-ash-2">
                   {f.consentLink}
                 </Link>
                 .
@@ -631,8 +663,33 @@ function Desk() {
   const { c } = useMarket();
   const d = c.india.desk;
   const rows = [
-    { k: d.whatsapp, v: company.whatsapp, href: company.whatsappHref },
-    { k: d.email, v: d.emailValue },
+    {
+      k: d.whatsapp,
+      node: (
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+          <a
+            href={company.phoneHref}
+            className="font-mono text-[15.5px] text-ash transition-colors hover:text-ash-2"
+          >
+            {company.whatsapp}
+          </a>
+          <a
+            href={company.whatsappHref}
+            className="font-mono text-[15.5px] text-ash transition-colors hover:text-ash-2"
+          >
+            WhatsApp
+          </a>
+        </div>
+      ),
+    },
+    {
+      k: d.email,
+      node: (
+        <div className="font-mono text-[15.5px]">
+          <Contactify>{d.emailValue}</Contactify>
+        </div>
+      ),
+    },
     { k: d.plant, v: d.plantValue },
     { k: d.hours, v: d.hoursValue },
   ];
@@ -649,14 +706,7 @@ function Desk() {
             <Coal />
             <div>
               <div className="text-[13px] text-ash-3">{r.k}</div>
-              {r.href ? (
-                <a
-                  href={r.href}
-                  className="font-mono text-[15.5px] text-ash hover:text-glow"
-                >
-                  {r.v}
-                </a>
-              ) : (
+              {r.node ?? (
                 <div className="font-mono text-[15.5px] text-ash">
                   <Fills>{r.v}</Fills>
                 </div>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useMarket } from "../market-context";
-import { Fills } from "../components/ui";
+import { Contactify } from "../components/ui";
 import PageHero from "../components/PageHero";
 
 // Both legal pages are the same document shell over a block list from the
@@ -32,7 +32,7 @@ function Block({ block }) {
   if (block.p)
     return (
       <p className="mt-3.5 text-[15px] leading-[1.75] text-ash-2">
-        <Fills>{block.p}</Fills>
+        <Contactify>{block.p}</Contactify>
       </p>
     );
 
@@ -44,7 +44,7 @@ function Block({ block }) {
             key={li}
             className="list-disc text-[15px] leading-[1.7] text-ash-2 marker:text-ember"
           >
-            <Fills>{li}</Fills>
+            <Contactify>{li}</Contactify>
           </li>
         ))}
       </ul>
@@ -77,7 +77,7 @@ function Block({ block }) {
                     key={i}
                     className="border-b border-line px-4 py-3 text-[14px] leading-relaxed text-ash-2 last:border-b-0 max-sm:block max-sm:border-b-0 max-sm:py-1 max-sm:first:font-semibold max-sm:first:text-ash"
                   >
-                    <Fills>{cell}</Fills>
+                    <Contactify>{cell}</Contactify>
                   </td>
                 ))}
               </tr>
@@ -99,9 +99,9 @@ export default function LegalPage({ doc }) {
 
   return (
     <>
-      <PageHero eyebrow={page.eyebrow} title={page.title} sub={page.sub}>
+      <PageHero eyebrow={page.eyebrow} title={page.title} sub={<Contactify>{page.sub}</Contactify>}>
         <p className="font-mono text-[12.5px] text-ash-3">
-          <Fills>{c.legal.updated}</Fills>
+          <Contactify>{c.legal.updated}</Contactify>
         </p>
       </PageHero>
 

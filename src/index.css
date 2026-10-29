@@ -255,7 +255,10 @@
   width: 34px;
   height: 34px;
   border-radius: 9999px;
-  filter: blur(11px);
+  /* No filter: blur() here — a blur on dozens of short-lived layers is what made
+     scrolling and the logo strip stutter. The radial gradient is already soft,
+     and the 3x scale-up in smokeRise diffuses it further. */
+  will-change: transform, opacity;
   animation: smokeRise 1.6s ease-out forwards;
 }
 
@@ -278,9 +281,28 @@
    one track, so -50% lands exactly on the seam. */
 @keyframes marquee {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* The track is promoted to its own GPU layer, so the browser slides one cached
+   bitmap instead of repainting the logos every frame. Each card carries its own
+   right margin (not a flex gap), so -50% lands exactly on the seam. It pauses
+   on hover and whenever it is scrolled out of view. */
+.marquee-track {
+  animation: marquee 32s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+.marquee:hover .marquee-track,
+.marquee[data-offscreen] .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
   }
 }

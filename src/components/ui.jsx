@@ -1,3 +1,4 @@
+import { company } from "../data/site";
 import { Link } from "react-router-dom";
 
 const base =
@@ -135,4 +136,42 @@ export function Fills({ children }) {
       part
     )
   );
+}
+
+// Turns contact details inside running text into links: an email address opens
+// a new mail, a phone number starts a call, and the word WhatsApp (or a number
+// written right after it) opens a WhatsApp chat. Anything else passes through
+// Fills, so bracketed placeholders still show as chips.
+const CONTACT = /([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})|(\+\d{1,3}(?:[ -]?\d{2,5}){2,4})|(WhatsApp(?![/\w]))/g;
+const contactLink = "text-ash transition-colors hover:text-ash-2";
+
+export function Contactify({ children }) {
+  if (typeof children !== "string") return children;
+  const out = [];
+  let last = 0;
+  let m;
+  CONTACT.lastIndex = 0;
+  while ((m = CONTACT.exec(children))) {
+    const before = children.slice(last, m.index);
+    if (before) out.push(<Fills key={`t${m.index}`}>{before}</Fills>);
+    const [text, email, phone] = m;
+    let href;
+    if (email) href = `mailto:${email}`;
+    else if (phone) {
+      const digits = phone.replace(/\D/g, "");
+      // "WhatsApp at +91 …" / "WhatsApp: +91 …" is a chat, a bare number a call.
+      href = /WhatsApp[^.]{0,6}$/.test(children.slice(0, m.index))
+        ? `https://wa.me/${digits}`
+        : `tel:+${digits}`;
+    } else href = company.whatsappHref;
+    out.push(
+      <a key={`c${m.index}`} href={href} className={contactLink}>
+        {text}
+      </a>
+    );
+    last = m.index + text.length;
+  }
+  const rest = children.slice(last);
+  if (rest) out.push(<Fills key="end">{rest}</Fills>);
+  return out;
 }
