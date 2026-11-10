@@ -47,6 +47,7 @@ function ContactFields({ form, set, idPrefix }) {
         <input
           id={`${idPrefix}-name`}
           required
+          autoComplete="name"
           className={field}
           placeholder={c.exportDesk.form.namePlaceholder}
           value={form.name}
@@ -60,6 +61,7 @@ function ContactFields({ form, set, idPrefix }) {
         <input
           id={`${idPrefix}-company`}
           required
+          autoComplete="organization"
           className={field}
           placeholder={c.exportDesk.form.companyPlaceholder}
           value={form.company}
@@ -73,6 +75,7 @@ function ContactFields({ form, set, idPrefix }) {
         <input
           id={`${idPrefix}-email`}
           type="email"
+          autoComplete="email"
           required
           className={field}
           placeholder={c.exportDesk.form.emailPlaceholder}
@@ -86,6 +89,8 @@ function ContactFields({ form, set, idPrefix }) {
         </label>
         <input
           id={`${idPrefix}-phone`}
+          type="tel"
+          autoComplete="tel"
           className={field}
           placeholder="+971 ..."
           value={form.phone}

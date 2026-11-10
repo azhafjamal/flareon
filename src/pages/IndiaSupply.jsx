@@ -149,7 +149,30 @@ function Comparison() {
   return (
     <Section tone="raised">
       <SectionHead eyebrow={t.eyebrow} title={t.title} sub={t.sub} />
-      <div className="mt-10 overflow-x-auto rounded-xl border border-line">
+      {/* Phones: one card per row so the Flareon answer is always on screen.
+          md+: the full three-column table. */}
+      <ul className="mt-10 space-y-3 md:hidden">
+        {t.rows.map((r) => (
+          <li key={r.k} className="overflow-hidden rounded-xl border border-line">
+            <p className="bg-ink-3 px-5 py-3.5 text-[15px] font-semibold text-ash">{r.k}</p>
+            <p className="border-t border-line px-5 py-3.5 text-[14px] leading-relaxed text-ash-3">
+              <span className="me-1.5 block font-mono text-[10.5px] tracking-[0.09em] uppercase">
+                {t.head.them}
+              </span>
+              <span className="me-2 text-ash-3/60">✕</span>
+              {r.them}
+            </p>
+            <p className="border-t border-ember/25 bg-ember/8 px-5 py-3.5 text-[14px] leading-relaxed font-medium text-ash">
+              <span className="me-1.5 block font-mono text-[10.5px] tracking-[0.09em] text-glow uppercase">
+                {t.head.us}
+              </span>
+              <span className="me-2 text-glow">✓</span>
+              {r.us}
+            </p>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-10 hidden overflow-x-auto rounded-xl border border-line md:block">
         <table className="w-full min-w-[680px] border-collapse text-start">
           <thead>
             <tr>
@@ -185,9 +208,6 @@ function Comparison() {
           </tbody>
         </table>
       </div>
-      <p className="mt-3 font-mono text-[11.5px] text-ash-3 md:hidden">
-        {t.swipe}
-      </p>
     </Section>
   );
 }
@@ -538,6 +558,7 @@ function EnquiryForm() {
               <input
                 id="in-business"
                 required
+                autoComplete="organization"
                 className={field}
                 placeholder={f.businessNamePlaceholder}
                 value={form.business}
@@ -551,6 +572,7 @@ function EnquiryForm() {
               <input
                 id="in-contact"
                 required
+                autoComplete="name"
                 className={field}
                 placeholder={f.contactPlaceholder}
                 value={form.contact}
@@ -563,7 +585,9 @@ function EnquiryForm() {
               </label>
               <input
                 id="in-phone"
+                type="tel"
                 required
+                autoComplete="tel"
                 className={field}
                 placeholder="+91 "
                 value={form.phone}
@@ -577,6 +601,7 @@ function EnquiryForm() {
               <input
                 id="in-city"
                 required
+                autoComplete="address-level2"
                 className={field}
                 placeholder={f.cityPlaceholder}
                 value={form.city}
@@ -598,6 +623,7 @@ function EnquiryForm() {
               <input
                 id="in-email"
                 type="email"
+                autoComplete="email"
                 className={field}
                 placeholder={f.emailPlaceholder}
                 value={form.email}

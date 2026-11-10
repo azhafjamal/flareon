@@ -403,7 +403,6 @@ export default {
         them: "Loose wood / lump charcoal",
         us: "Flareon coconut briquette",
       },
-      swipe: "← swipe to compare →",
       rows: [
         { k: "Burn time per load", them: "1–2 hrs, uneven", us: "Extra-long, consistent" },
         { k: "Ash left behind", them: "High, gritty, frequent clean-out", us: "< 12%, fine white ash" },
@@ -544,7 +543,7 @@ export default {
   // { list } bullets, { table } two-column table. [Bracketed] text renders as a
   // placeholder chip until a real value replaces it.
   legal: {
-    updated: "Last updated: 28 October 2026",
+    updated: "Last updated: 10 November 2026",
     contents: "On this page",
 
     privacy: {
@@ -640,6 +639,7 @@ export default {
             "Freight forwarders, customs agents, or shipping lines, only once an order is confirmed and only the details needed to ship your container.",
             "Our bank, for T/T or Letter of Credit processing.",
             "Our website hosting and email providers (Vercel and Google Workspace), who process data on our behalf under their own security and confidentiality terms.",
+            "Web3Forms, the service that delivers enquiry-form submissions to our inbox.",
             "Government or regulatory authorities, where required by law.",
           ],
         },
@@ -677,7 +677,7 @@ export default {
 
         { h: "11. Cookies" },
         {
-          p: "This website uses technical cookies and local storage necessary for it to function — for example, to remember your selected language and market. We also use Google Analytics, which sets cookies to measure how visitors use the site (pages viewed, device type, approximate location). This data is aggregated and is not used to identify you. We do not use advertising cookies. You can block or delete cookies in your browser settings, or install Google\u2019s opt-out add-on, without affecting your ability to use the site.",
+          p: "This website uses technical cookies and local storage necessary for it to function — for example, to remember your selected language and market. We also use Google Analytics, which sets cookies to measure how visitors use the site (pages viewed, device type, approximate location). This data is aggregated and is not used to identify you. The process video on our home page is a YouTube embed in privacy-enhanced mode: nothing loads from YouTube until you press play, after which YouTube\u2019s own privacy policy applies. We do not use advertising cookies. You can block or delete cookies in your browser settings, or install Google\u2019s opt-out add-on, without affecting your ability to use the site.",
         },
 
         { h: "12. Changes to this policy" },
