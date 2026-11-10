@@ -36,6 +36,11 @@ export const company = {
       label: "Instagram",
       href: "https://www.instagram.com/flareonbbq/",
     },
+    {
+      key: "youtube",
+      label: "YouTube",
+      href: "https://www.youtube.com/@FlareonBriquette",
+    },
   ],
   ports: "Tuticorin Port (220 km) / Chennai Port (450 km) / Cochin Port (210 km)",
 };

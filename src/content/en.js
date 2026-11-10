@@ -88,6 +88,12 @@ export default {
       despatchLabel: "Despatch",
       despatchNote: "Poly-lined 25 kg sacks staged for container loading.",
     },
+    process: {
+      eyebrow: "Our process",
+      title: "From coconut shell to container",
+      sub: "A minute on the floor at our Palladam plant: shell intake, carbonising, pressing, drying and packing.",
+      play: "Play video",
+    },
     grades: {
       eyebrow: "Spec & price grades",
       title: "Pick a grade, see the numbers",
@@ -164,6 +170,9 @@ export default {
       shapesEyebrow: "Shapes we press",
       shapesTitle: "Three shapes, each doing a different job",
       shapesSub: "Every shape runs the same chemistry — the geometry is what changes how it lights, stacks and burns.",
+      brandsEyebrow: "Private label",
+      brandsTitle: "Packed for brands across the world",
+      brandsSub: "A few of the private-label packs we already produce: bags, cartons and woven sacks, printed and sized the way each buyer sells them.",
       gradesEyebrow: "Grade comparison",
       gradesTitle: "Three grades of the same briquette",
       gradesSub: "Ash, moisture, burn time and fixed carbon, side by side — pick the tier that matches your market.",
@@ -193,6 +202,11 @@ export default {
     titleA: "The plant, the material,",
     titleB: "the burn.",
     sub: "Photographed on our own line in Palladam, Tamil Nadu, India — raw shell charcoal through pressing, drying, packing and despatch. Hover any frame for context.",
+    team: {
+      eyebrow: "Meet the team",
+      title: "The people behind every container",
+      sub: "Plant crew, supervisors and management at our Palladam facility in Tamil Nadu, the hands that press, dry, pack and load every order.",
+    },
   },
 
   compliance: {
@@ -1020,10 +1034,10 @@ export default {
   ],
 
   directorNote: [
-    "Flareon began with a simple conviction: a product that carries a buyer's brand has to carry their trust as well. Every decision we make, from shell sourcing to the final container seal, starts from that.",
-    "🤝 I look after the direction of the company — the partnerships we take on, the markets we enter and the standards we hold ourselves to — so every importer, wholesaler and distributor deals with a business that keeps its word.",
-    "🏭 Our integrated plant in Palladam, ISO 9001:2015 certified, lets us control quality from raw coconut shell to finished briquette, and supply the same consistency on the tenth container as on the first.",
-    "🌱 Turning renewable coconut shell waste into clean, high-performance fuel is the future we are building towards, with our buyers.",
+    "🏆 Managing Director of Senthil Hatcheries, the 5th largest poultry farm in India.",
+    "🔥 Managing Director of Flareon Briquette, bringing the same scale and discipline to coconut shell charcoal.",
+    "🏭 A business that feeds a nation every day does not miss a delivery. That is the standard behind our ISO 9001:2015 certified plant in Palladam, and why the tenth container matches the first.",
+    "🤝 I look after the direction of the company: the partnerships we take on, the markets we enter and the standards we hold ourselves to, so every importer, wholesaler and distributor deals with a business that keeps its word.",
     "📩 If you are looking for a long-term supply partner, I would be glad to hear from you. Let's build something that lasts.",
   ],
 

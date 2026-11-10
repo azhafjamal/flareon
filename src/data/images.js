@@ -39,6 +39,14 @@ export const media = {
       "lighter-cubes-foil.webp",
       "Four coconut charcoal cubes fully lit on a foiled shisha bowl"
     ),
+    glowingBed: img(
+      "briquettes-glowing-bed.webp",
+      "Close-up of coconut shell briquettes glowing orange through white ash"
+    ),
+    embersGrill: img(
+      "briquettes-embers-grill.webp",
+      "Glowing coconut shell briquettes burning down to white-ash embers under a grill grate"
+    ),
     cubesBurning: img(
       "briquette-cubes-fire.webp",
       "Coconut shell charcoal cubes glowing red under open flame"
@@ -115,6 +123,22 @@ export const media = {
       "screening-check.webp",
       "Quality check on the screening bed mid-run"
     ),
+    screenCrew: img(
+      "plant-screen-crew.webp",
+      "Plant crew beside the vibrating screen, with the briquette press behind them"
+    ),
+    dryingYard: img(
+      "plant-drying-yard.webp",
+      "Two workers tipping pressed briquettes from crates onto the open drying floor"
+    ),
+    screenBriquettes: img(
+      "plant-screen-briquettes.webp",
+      "Operator sorting freshly pressed briquettes on the screening deck"
+    ),
+    sackHandling: img(
+      "plant-sack-handling.webp",
+      "Workers loading carbon into the mixer at the Palladam plant"
+    ),
     bagging: img(
       "bagging-hopper.webp",
       "Operator filling a 25 kg Flareon sack at the weighing hopper"
@@ -126,6 +150,10 @@ export const media = {
     yardLoading: img(
       "yard-loading.webp",
       "Tractor loader moving jumbo bags of coconut shell charcoal in the plant yard"
+    ),
+    yardGate: img(
+      "yard-gate-trucks.webp",
+      "Flareon delivery truck and forklift inside the Palladam plant yard"
     ),
     warehouseFlareon: img(
       "warehouse-flareon-sacks.webp",
@@ -152,6 +180,10 @@ export const media = {
   people: {
     md: img("md-portrait.webp", "Sathya Prakash, Managing Director, Flareon Briquettes"),
     lead: img("leadership-portrait.webp", "Gowtham M, Managing Partner, Flareon Briquettes"),
+    team: img(
+      "team-lineup.webp",
+      "The Flareon team — plant crew, supervisors and management — lined up in hard hats outside the Palladam facility"
+    ),
   },
 
   // Sustainability + proof imagery
@@ -173,10 +205,10 @@ export const media = {
 export const plantStrip = [
   media.logistics.yardLoading,
   media.plant.conveyorCrates,
-  media.plant.machine,
-  media.plant.dryingTray,
-  media.plant.screening,
-  media.logistics.warehouseFlareon,
+  media.plant.screenCrew,
+  media.plant.dryingYard,
+  media.logistics.yardGate,
+  media.plant.sackHandling,
 ];
 
 // Gallery page — the documentary set (plant, material, packing, product in use).
@@ -208,6 +240,39 @@ export const gallery = [
   { ...media.plant.screeningCheck, ratio: "tall", caption: "Quality check on the screening bed" },
   { ...media.plant.conveyorCrates, ratio: "wide", caption: "Carbon conveyor feeding the press" },
   { ...media.fire.coals, ratio: "square", caption: "Briquettes holding heat at full burn" },
+  { ...img("gallery-team-lineup.webp", "Flareon plant team lined up in front of the Palladam facility"), ratio: "land", caption: "The Palladam plant team outside the facility" },
+  { ...img("gallery-plant-frontage.webp", "Plant office building and gate at the Flareon facility in Palladam"), ratio: "land", caption: "The plant office and gate at Palladam" },
+  { ...img("gallery-mixer-loading-a.webp", "Worker handing a sack of carbon up to the mixer while a colleague looks on"), ratio: "land", caption: "Carbon going into the mixer" },
+  { ...img("gallery-drying-hall.webp", "Rows of pressed briquettes drying across the covered drying hall floor"), ratio: "land", caption: "Pressed briquettes drying under cover" },
+  { ...img("gallery-jumbo-bags.webp", "Worker standing on stacked jumbo bags of shell charcoal as a tractor loader works behind"), ratio: "land", caption: "Jumbo bags of shell charcoal in the yard" },
+  { ...img("gallery-press-feed.webp", "Operator watching freshly pressed briquettes travel along the press feed chute"), ratio: "land", caption: "Briquettes coming off the press" },
+  { ...img("gallery-bagging-portrait.webp", "Worker filling a sack under the hopper at the Palladam plant"), ratio: "portrait", caption: "Filling sacks at the hopper" },
+  { ...img("gallery-sack-filling.webp", "Worker filling a Flareon branded sack in front of stacked charcoal sacks"), ratio: "land", caption: "Filling a Flareon sack in the warehouse" },
+  { ...img("gallery-yard-gate.webp", "Flareon delivery truck and forklift seen through the open yard gate at the plant"), ratio: "land", caption: "The yard gate and the Flareon delivery truck" },
+  { ...img("gallery-screen-deck-a.webp", "Operator and crew at the screening deck next to the briquette press"), ratio: "land", caption: "The screening deck beside the press" },
+  { ...img("gallery-drying-floor.webp", "Two workers tipping crates of pressed briquettes onto the open drying floor"), ratio: "land", caption: "Briquettes laid out on the drying floor" },
+  { ...img("gallery-casuarina-avenue.webp", "Sunset through a tree-lined avenue beside the Palladam plant"), ratio: "land", caption: "Casuarina avenue at the edge of the plant" },
+  { ...img("gallery-mixer-pan.webp", "Worker at the round mixing pan with the mould box and scale beside it"), ratio: "land", caption: "Mixing pan and mould box" },
+  { ...img("gallery-clay-pots-loading.webp", "Two men loading Flareon charcoal from sacks into clay pots at dusk"), ratio: "land", caption: "Flareon charcoal loaded into clay pots" },
+  { ...img("gallery-press-line-wide.webp", "Wide view of the press line with drying racks behind the operators"), ratio: "land", caption: "The press line mid-shift" },
+  { ...img("gallery-bagging-sack.webp", "Worker holding a sack open under the bagging hopper"), ratio: "portrait", caption: "Bagging at the hopper" },
+  { ...img("gallery-mixer-crew.webp", "Mixing crew gathered around the round pan with the scale in the foreground"), ratio: "land", caption: "The mixing crew at work" },
+  { ...img("gallery-clay-pots-lit.webp", "Clay pots of charcoal being lit with smoke rising beside a Flareon sack"), ratio: "land", caption: "Charcoal being lit in clay pots" },
+  { ...img("gallery-loader-tractor.webp", "Tractor loader lifting a jumbo bag of shell charcoal in the plant yard"), ratio: "land", caption: "Tractor loader lifting a jumbo bag" },
+  { ...img("gallery-press-line.webp", "Operator sorting briquettes beside the press with racks behind"), ratio: "land", caption: "Sorting off the press line" },
+  { ...img("gallery-office-desk.webp", "Supervisor in a green helmet writing up records at a desk in the plant office"), ratio: "land", caption: "Production records at the plant office" },
+  { ...img("gallery-mould-station.webp", "Workers at the mixing pan beside the mould box inside the plant"), ratio: "land", caption: "The moulding station" },
+  { ...img("gallery-conveyor-hall.webp", "Incline conveyor running through the processing hall at the plant"), ratio: "land", caption: "Incline conveyor in the processing hall" },
+  { ...img("gallery-brooder-chicks.webp", "Chicks gathered around a clay pot on a brooder floor"), ratio: "land", caption: "Chicks around a charcoal pot brooder" },
+  { ...img("gallery-mixer-loading-b.webp", "Worker stepping up to tip a sack of carbon into the mixer"), ratio: "land", caption: "Emptying a sack into the mixer" },
+  { ...img("gallery-mixer-loading-wide.webp", "Wide view of two workers at the mixer bay with the control panel behind"), ratio: "land", caption: "The mixer bay, wide view" },
+  { ...img("gallery-screen-deck-b.webp", "Worker sorting freshly pressed briquettes on the screening deck"), ratio: "land", caption: "Sorting briquettes on the screen" },
+  { ...img("gallery-screen-deck-c.webp", "Worker reaching over the screen to check briquettes by hand"), ratio: "land", caption: "Checking the screen by hand" },
+  { ...img("gallery-press-floor-wide.webp", "Wide view of the press floor with drying racks, the press and crew at work"), ratio: "land", caption: "The press floor, wide view" },
+  { ...img("gallery-fire-safety-board.webp", "Wall-mounted dry powder fire extinguisher with fire-fighting certificate and how-to-use chart"), ratio: "land", caption: "Fire safety point at the plant" },
+  { ...img("gallery-drying-hall-wide.webp", "Covered drying hall with its floor covered edge to edge in pressed briquettes"), ratio: "land", caption: "The full drying hall" },
+  { ...img("gallery-ember-pile.webp", "Pile of burning briquettes with flames, embers and a white ash coat"), ratio: "land", caption: "Briquettes burning down to white ash" },
+  { ...img("gallery-clay-pot-loading.webp", "Worker tipping Flareon charcoal from a wire basket into a row of clay pots beside a Flareon sack"), ratio: "land", caption: "Loading charcoal into clay pots" },
 ];
 
 // One photo per manufacturing stage on the Company page. `null` means we have
@@ -236,6 +301,15 @@ export const clientLogos = [
   withSize("/images/clients/e.webp", "Oberoi Hotels & Resorts logo"),
   withSize("/images/clients/f.webp", "Radisson Blu logo"),
   withSize("/images/clients/c.webp", "Smoke Hub logo"),
+];
+
+// White-label packs we already produce for overseas buyers.
+export const brandPacks = [
+  img("brand-nakia.webp", "Nakia coco charcoal premium BBQ pack, 8 kg"),
+  img("brand-grill-fanatics.webp", "Grill Fanatics coconut restaurant grade briquettes, 10 kg bag"),
+  img("brand-kokosnoot.webp", "Restaurant grade Kokosnoot Briketten, 3 kg paper bag"),
+  img("brand-pams.webp", "Pams BBQ charcoal briquettes coconut shell, 5 kg woven bag"),
+  img("brand-sams-choice.webp", "Sam's Choice coco shell briquettes, 4 kg carton"),
 ];
 
 export default media;

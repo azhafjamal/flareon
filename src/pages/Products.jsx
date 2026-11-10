@@ -3,7 +3,7 @@ import { useMarket } from "../market-context";
 import { Section, SectionHead, Button, Eyebrow, Coal } from "../components/ui";
 import PageHero from "../components/PageHero";
 import { Figure } from "../components/Figure";
-import media from "../data/images";
+import media, { brandPacks } from "../data/images";
 
 const shapeImage = {
   hexagon: media.shapes.hexagon,
@@ -103,7 +103,7 @@ function Briquettes() {
           </Button>
         </div>
         <Figure
-          image={media.fire.hexagon}
+          image={media.fire.glowingBed}
           ratio="wide"
           glow
           label={c.products.briquettes.figureLabel}
@@ -122,6 +122,33 @@ function Briquettes() {
             <ShapeCard key={s.id} shape={s} />
           ))}
         </div>
+      </div>
+
+      <div className="mt-20">
+        <SectionHead
+          eyebrow={c.products.briquettes.brandsEyebrow}
+          title={c.products.briquettes.brandsTitle}
+          sub={c.products.briquettes.brandsSub}
+        />
+        <ul className="mt-12 flex flex-wrap gap-3 sm:gap-4 md:flex-nowrap">
+          {brandPacks.map((p) => (
+            <li
+              key={p.src}
+              style={{ "--r": p.width / p.height }}
+              className="basis-[calc(50%-6px)] grow overflow-hidden rounded-xl border border-line bg-ink-2 sm:basis-[calc(50%-8px)] md:basis-0 md:flex-[var(--r)_1_0%]"
+            >
+              <img
+                src={p.src}
+                width={p.width}
+                height={p.height}
+                alt={p.alt}
+                loading="lazy"
+                decoding="async"
+                className="aspect-4/5 w-full object-cover md:aspect-auto md:h-auto"
+              />
+            </li>
+          ))}
+        </ul>
       </div>
 
       <div className="mt-20">

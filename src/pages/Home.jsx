@@ -173,6 +173,58 @@ function PlantLook() {
   );
 }
 
+// Click-to-play: only the poster loads with the page; the 6 MB video is
+// fetched when a visitor presses play.
+function ProcessVideo() {
+  const { c } = useMarket();
+  const [playing, setPlaying] = useState(false);
+  return (
+    <Section tone="ink" id="process">
+      <SectionHead
+        eyebrow={c.home.process.eyebrow}
+        title={c.home.process.title}
+        sub={c.home.process.sub}
+        align="center"
+      />
+      <div className="relative mx-auto mt-12 aspect-video max-w-6xl overflow-hidden rounded-xl border border-line bg-ink-2">
+        {playing ? (
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/k_wwMUm_olg?autoplay=1&rel=0&modestbranding=1"
+            title={c.home.process.title}
+            className="size-full"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            allowFullScreen
+            referrerPolicy="strict-origin-when-cross-origin"
+          />
+        ) : (
+          <button
+            type="button"
+            onClick={() => setPlaying(true)}
+            aria-label={c.home.process.play}
+            className="group absolute inset-0 size-full"
+          >
+            <img
+              src="/video/our-process-poster.jpg"
+              width="1280"
+              height="720"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="size-full object-cover"
+            />
+            <span className="absolute inset-0 bg-ink/30 transition group-hover:bg-ink/10" />
+            <span className="absolute left-1/2 top-1/2 grid size-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-ember text-ink shadow-lg transition group-hover:scale-105">
+              <svg viewBox="0 0 24 24" className="size-8 translate-x-0.5" fill="currentColor" aria-hidden>
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+          </button>
+        )}
+      </div>
+    </Section>
+  );
+}
+
 function Grades() {
   const { c } = useMarket();
   return (
@@ -234,7 +286,7 @@ function Grades() {
 }
 
 const productCardImage = {
-  briquettes: media.fire.cubesBurning,
+  briquettes: media.fire.embersGrill,
   "activated-carbon": media.material.carbonGranules,
 };
 
@@ -614,6 +666,7 @@ export default function Home() {
       <Metrics />
       <Pillars />
       <PlantLook />
+      <ProcessVideo />
       <Grades />
       <ProductPeek />
       <Benchmark />
