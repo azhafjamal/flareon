@@ -130,24 +130,29 @@ function Briquettes() {
           title={c.products.briquettes.brandsTitle}
           sub={c.products.briquettes.brandsSub}
         />
-        <ul className="mt-12 flex flex-wrap gap-3 sm:gap-4 md:flex-nowrap">
-          {brandPacks.map((pack) => (
-            <li
-              key={pack.src}
-              style={{ "--r": pack.width / pack.height }}
-              className="basis-[calc(50%-6px)] grow overflow-hidden rounded-xl border border-line bg-ink-2 sm:basis-[calc(50%-8px)] md:basis-0 md:flex-[var(--r)_1_0%]"
-            >
-              <img
-                src={pack.src}
-                width={pack.width}
-                height={pack.height}
-                alt={pack.alt}
-                loading="lazy"
-                decoding="async"
-                className="aspect-4/5 w-full object-cover md:aspect-auto md:h-auto"
-              />
-            </li>
-          ))}
+        {/* Phones/tablets: 2-up grid with the wide carton spanning both
+            columns. md+: one equal-height row, each tile as wide as its photo. */}
+        <ul className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 md:flex md:flex-nowrap">
+          {brandPacks.map((pack) => {
+            const wide = pack.width > pack.height;
+            return (
+              <li
+                key={pack.src}
+                style={{ "--r": pack.width / pack.height }}
+                className={`overflow-hidden rounded-xl border border-line bg-ink-2 md:basis-0 md:flex-[var(--r)_1_0%] ${wide ? "col-span-2" : ""}`}
+              >
+                <img
+                  src={pack.src}
+                  width={pack.width}
+                  height={pack.height}
+                  alt={pack.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className={`w-full object-cover md:aspect-auto md:h-auto ${wide ? "h-auto" : "aspect-[1/1.8]"}`}
+                />
+              </li>
+            );
+          })}
         </ul>
       </div>
 
