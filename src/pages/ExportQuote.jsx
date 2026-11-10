@@ -14,7 +14,6 @@ import {
   SectionHead,
   Button,
   Eyebrow,
-  Coal,
   Honeypot,
 } from "../components/ui";
 import PageHero from "../components/PageHero";

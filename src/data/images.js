@@ -47,10 +47,6 @@ export const media = {
       "briquettes-embers-grill.webp",
       "Glowing coconut shell briquettes burning down to white-ash embers under a grill grate"
     ),
-    cubesBurning: img(
-      "briquette-cubes-fire.webp",
-      "Coconut shell charcoal cubes glowing red under open flame"
-    ),
   },
 
   // Studio shots of the shapes we press
@@ -131,10 +127,6 @@ export const media = {
       "plant-drying-yard.webp",
       "Two workers tipping pressed briquettes from crates onto the open drying floor"
     ),
-    screenBriquettes: img(
-      "plant-screen-briquettes.webp",
-      "Operator sorting freshly pressed briquettes on the screening deck"
-    ),
     sackHandling: img(
       "plant-sack-handling.webp",
       "Workers loading carbon into the mixer at the Palladam plant"
@@ -191,12 +183,6 @@ export const media = {
     grove: img(
       "coconut-grove.webp",
       "Coconut plantation — the renewable shell waste stream our briquettes are made from"
-    ),
-  },
-  proof: {
-    certificates: img(
-      "certificates-spread.webp",
-      "Flareon quality certificates and third-party test reports laid out"
     ),
   },
 };

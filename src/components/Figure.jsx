@@ -51,16 +51,6 @@ export function Figure({
   );
 }
 
-export function PhotoGrid({ images, ratio = "square", cols = "sm:grid-cols-2" }) {
-  return (
-    <div className={`grid gap-3 ${cols}`}>
-      {images.map((im) => (
-        <Figure key={im.src} image={im} ratio={ratio} />
-      ))}
-    </div>
-  );
-}
-
 // Full-bleed band of photos — used to break up long text sections.
 export function PhotoStrip({ images }) {
   return (

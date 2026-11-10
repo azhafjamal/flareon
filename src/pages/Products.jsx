@@ -1,6 +1,6 @@
 import { products, briquetteShapes, grades, oem } from "../data/site";
 import { useMarket } from "../market-context";
-import { Section, SectionHead, Button, Eyebrow, Coal } from "../components/ui";
+import { Section, SectionHead, Button, Coal } from "../components/ui";
 import PageHero from "../components/PageHero";
 import { Figure } from "../components/Figure";
 import media, { brandPacks } from "../data/images";
@@ -131,17 +131,17 @@ function Briquettes() {
           sub={c.products.briquettes.brandsSub}
         />
         <ul className="mt-12 flex flex-wrap gap-3 sm:gap-4 md:flex-nowrap">
-          {brandPacks.map((p) => (
+          {brandPacks.map((pack) => (
             <li
-              key={p.src}
-              style={{ "--r": p.width / p.height }}
+              key={pack.src}
+              style={{ "--r": pack.width / pack.height }}
               className="basis-[calc(50%-6px)] grow overflow-hidden rounded-xl border border-line bg-ink-2 sm:basis-[calc(50%-8px)] md:basis-0 md:flex-[var(--r)_1_0%]"
             >
               <img
-                src={p.src}
-                width={p.width}
-                height={p.height}
-                alt={p.alt}
+                src={pack.src}
+                width={pack.width}
+                height={pack.height}
+                alt={pack.alt}
                 loading="lazy"
                 decoding="async"
                 className="aspect-4/5 w-full object-cover md:aspect-auto md:h-auto"
